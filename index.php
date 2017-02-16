@@ -46,7 +46,7 @@ function consulta($parametros) {
                                 )
                         )
                 )
-                    ), $clave);
+                    ));
     array_push($parametros ['cabeceras'], 'X-Gr-Key: ' . $jwt);
     return (new Consultas('http://192.168.1.4/d_catalogo_online/admin/rest/usuario'))->post($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']));
 }
