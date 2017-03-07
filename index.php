@@ -1,5 +1,8 @@
 <?php
 
+
+// php ~/alta-usuarios/index.php cliente-catalogo recalvi 502 0 0 0
+
 include 'configuracion.php';
 $permitidos = array('cliente-catalogo');
 
@@ -48,5 +51,5 @@ function consulta($parametros) {
                 )
                     ));
     array_push($parametros ['cabeceras'], 'X-Gr-Key: ' . $jwt);
-    return (new Consultas('http://192.168.1.4/d_catalogo_online/admin/rest/usuario'))->post($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']));
+    return (new Consultas(SERVIDOR . 'admin/rest/usuario'))->post($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']));
 }
