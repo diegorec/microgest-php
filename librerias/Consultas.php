@@ -36,6 +36,25 @@ class Consultas {
                 ->set(CURLOPT_HTTPHEADER, $cabeceras);
         return $this->lanzarConsulta();
     }
+    public function delete($cabeceras = null, $parametros = null, $url = null) {
+        foreach ($parametros as $parametro){
+            foreach ($parametro as $datos => $valor) {
+                $url .= '/' . $datos .'/'. $valor;
+            }
+        }
+        $this->request = new \cURL\Request($url);
+        $this->request->getOptions()
+                ->set(CURLOPT_RETURNTRANSFER, true)
+                ->set(CURLOPT_SSL_VERIFYPEER, false)
+                ->set(CURLOPT_SSL_VERIFYHOST, false)
+                ->set(CURLOPT_HTTPAUTH, CURLAUTH_BASIC)
+                ->set(CURLOPT_TIMEOUT, 10)
+                ->set(CURLOPT_CONNECTTIMEOUT, 10)
+                ->set(CURLOPT_CUSTOMREQUEST, 'DELETE')
+                ->set(CURLOPT_HTTPHEADER, $cabeceras);
+//        var_dump($url);
+        return $this->lanzarConsulta();
+    }
 
     public function post($cabeceras = null, $parametros = null) {
         $this->request->getOptions()

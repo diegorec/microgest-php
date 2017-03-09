@@ -1,35 +1,43 @@
 <?php
 
-
-// php ~/alta-usuarios/index.php cliente-catalogo recalvi 502 0 0 0
+// ALTA: php ~/alta-usuarios/index.php cliente-catalogo recalvi 502 0
+// BAJA:  php ~/alta-usuarios/index.php baja-cliente-catalogo recalvi 502 0
 
 include 'configuracion.php';
-$permitidos = array('cliente-catalogo');
+$permitidos = array(
+    'cliente-catalogo'  => array ('method' => 'post'),
+    'baja-cliente-catalogo' => array ('method' => 'delete')
+);
 
-if (!(isset($argv[1]) && is_string($argv[1])
-        && isset($argv[2]) && is_string($argv[2])
-        && isset($argv[3]) && is_numeric($argv[3])
-        && isset($argv[4]) && is_numeric($argv[4])
-        && isset($argv[5]) && is_numeric($argv[5])
-        && isset($argv[6]) && is_numeric($argv[6])
-        && in_array ($argv[1], $permitidos, true))
-        ) {
+if (!(isset($argv[1]) && is_string($argv[1]) && isset($argv[2]) && is_string($argv[2]) && isset($argv[3]) && is_numeric($argv[3]) && isset($argv[4]) && is_numeric($argv[4])
+//        && isset($argv[5]) && is_numeric($argv[5])
+//        && isset($argv[6]) && is_numeric($argv[6])
+        && !is_null($permitidos[$argv[1]]))) {
     echo 'Error' . PHP_EOL;
     exit;
+}
+
+$accion = 'cliente-catalogo';
+$metodo = 'post';
+//$metodo = $permitidos [$argv[1]];
+foreach ($permitidos as $clave => $valor) {
+    if (strcmp($clave, $argv[1]) === 0){
+        $accion = $clave;
+        $metodo = $valor['method'];
+    }
 }
 
 $parametros = array(
     'centro' => $argv[2],
     'cliente' => $argv[3],
     'subdivision' => $argv[4],
-    'cliente-externo' => $argv[5],
-    'tipo-catalogo' => $argv[6]
+    'cliente-externo' => '0', //$argv[5],
+    'tipo-catalogo' => '0' //$argv[6]
 );
+consulta(array('parametros' => $parametros, 'cabeceras' => array('Content-Type: application/json')), $metodo);
 
-var_dump(consulta(array('parametros' => $parametros, 'cabeceras' => array('Content-Type: application/json'))));
-
-function consulta($parametros) {
-    $clave = GR_JWT::recuperarClave();
+function consulta($parametros, $method = 'post') {
+//    $clave = GR_JWT::recuperarClave();
     /*
      * Create the token as an array
      */
@@ -47,9 +55,8 @@ function consulta($parametros) {
                                             'datos' => $parametros['parametros']
                                         )
                                 )
-                        )
-                )
-                    ));
+                        ))));
     array_push($parametros ['cabeceras'], 'X-Gr-Key: ' . $jwt);
-    return (new Consultas(SERVIDOR . 'admin/rest/usuario'))->post($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']));
+    $url = SERVIDOR . 'admin/rest/usuario';
+    return (new Consultas($url))->$method($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']), $url);
 }

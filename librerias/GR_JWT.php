@@ -31,7 +31,7 @@ class GR_JWT extends \Firebase\JWT\JWT {
      * Devuelve una de las las claves que actualmente están activas en el sistema.
      */
     public static function recuperarClave() {
-        return (new BaseDatos())->select_row('SELECT clave FROM claves WHERE activa = 1 ORDER BY RAND() LIMIT 1')['clave'];
+        return '0d065aaee39dcdb5cc06def6526f9399ec8da19abce841b0f60eb8892ce346856d732d901274456f89a5f421354fd0abdf62943ebba88c14134ca37b79cd7b4d';//(new BaseDatos())->select_row('SELECT clave FROM claves WHERE activa = 1 ORDER BY RAND() LIMIT 1')['clave'];
     }
 
 }
