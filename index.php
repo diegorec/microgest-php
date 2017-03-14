@@ -9,7 +9,10 @@ $permitidos = array(
     'baja-cliente-catalogo' => array ('method' => 'delete')
 );
 
-if (!(isset($argv[1]) && is_string($argv[1]) && isset($argv[2]) && is_string($argv[2]) && isset($argv[3]) && is_numeric($argv[3]) && isset($argv[4]) && is_numeric($argv[4])
+if (!(isset($argv[1]) && is_string($argv[1]) 
+        && isset($argv[2]) && is_string($argv[2]) 
+        && isset($argv[3])  
+        && isset($argv[4]) && is_string($argv[4])
 //        && isset($argv[5]) && is_numeric($argv[5])
 //        && isset($argv[6]) && is_numeric($argv[6])
         && !is_null($permitidos[$argv[1]]))) {
