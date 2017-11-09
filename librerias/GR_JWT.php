@@ -4,11 +4,11 @@ require __DIR__ . '/../BaseDatos.php';
 
 class GR_JWT extends \Firebase\JWT\JWT {
 
-    public static function encode($payload) {
+    public static function encode($payload, $key= null, $alg = 'HS256', $keyId = NULL, $head = NULL) {
         return parent::encode($payload, self::recuperarClave());
     }
 
-    public static function decode($jwt, $key) {
+    public static function decode($jwt, $key, $allowed_algs = array()) {
         return parent::decode($jwt, $key);
     }
 
