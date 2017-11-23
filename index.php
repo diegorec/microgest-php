@@ -5,8 +5,10 @@
 
 include 'configuracion.php';
 $permitidos = array(
-    'cliente-catalogo'  => array ('method' => 'post'),
-    'baja-cliente-catalogo' => array ('method' => 'delete')
+    'cliente-catalogo'  => array ('method' => 'post', 'path' => 'admin/rest/usuario'),
+    'baja-cliente-catalogo' => array ('method' => 'delete'),
+    'eliminar-genericos-padre' => array ('method' => 'post', 'path' => 'mantenimiento/equivalencias'),
+    'eliminar-publicidades' => array ('method' => 'post', 'path' => 'mantenimiento/publicidades'),
 );
 
 if (!(isset($argv[1]) && is_string($argv[1]) 
@@ -27,6 +29,7 @@ foreach ($permitidos as $clave => $valor) {
     if (strcmp($clave, $argv[1]) === 0){
         $accion = $clave;
         $metodo = $valor['method'];
+        $path = $valor['path'];
     }
 }
 
@@ -37,9 +40,9 @@ $parametros = array(
     'cliente-externo' => '0', //$argv[5],
     'tipo-catalogo' => '0' //$argv[6]
 );
-consulta(array('parametros' => $parametros, 'cabeceras' => array('Content-Type: application/json')), $metodo);
+consulta(array('parametros' => $parametros, 'cabeceras' => array('Content-Type: application/json')), $metodo, $path);
 
-function consulta($parametros, $method = 'post') {
+function consulta($parametros, $method = 'post', $path = 'admin/rest/usuario') {
 //    $clave = GR_JWT::recuperarClave();
     /*
      * Create the token as an array
@@ -60,6 +63,6 @@ function consulta($parametros, $method = 'post') {
                                 )
                         ))));
     array_push($parametros ['cabeceras'], 'X-Gr-Key: ' . $jwt);
-    $url = SERVIDOR . 'admin/rest/usuario';
+    $url = SERVIDOR . $path;
     return (new Consultas($url))->$method($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']), $url);
 }
