@@ -37,7 +37,7 @@ $parametros = array(
     'centro' => $argv[2],
     'cliente' => $argv[3],
     'subdivision' => $argv[4],
-    'cliente-externo' => '0', //$argv[5],
+    'cliente-externo' => ((isset ($argv[5]))? $argv[5]: '0'),
     'tipo-catalogo' => '0' //$argv[6]
 );
 consulta(array('parametros' => $parametros, 'cabeceras' => array('Content-Type: application/json')), $metodo, $path);
