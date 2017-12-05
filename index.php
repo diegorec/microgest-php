@@ -7,8 +7,9 @@ include 'configuracion.php';
 $permitidos = array(
     'cliente-catalogo'  => array ('method' => 'post', 'path' => 'admin/rest/usuario'),
     'baja-cliente-catalogo' => array ('method' => 'delete'),
-    'eliminar-genericos-padre' => array ('method' => 'post', 'path' => 'mantenimiento/equivalencias'),
+    'eliminar-genericos-padre' => array ('method' => 'post', 'path' => 'mantenimiento/genericospadres'),
     'eliminar-publicidades' => array ('method' => 'post', 'path' => 'mantenimiento/publicidades'),
+    'actualizar-matriculas' => array ('method' => 'post', 'path' => 'mantenimiento/contadormatriculas'),
 );
 
 if (!(isset($argv[1]) && is_string($argv[1]) 
