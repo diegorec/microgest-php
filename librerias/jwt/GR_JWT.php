@@ -1,6 +1,4 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../BaseDatos.php';
 
 class GR_JWT extends \Firebase\JWT\JWT {
 
