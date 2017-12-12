@@ -40,7 +40,7 @@ $parametros = array(
     'cliente-externo' => ((isset ($argv[5]))? $argv[5]: '0'),
     'tipo-catalogo' => '0' //$argv[6]
 );
-consulta(array('parametros' => $parametros, 'cabeceras' => array('Content-Type: application/json')), $metodo, $path);
+_var_dump(consulta(array('parametros' => $parametros, 'cabeceras' => array('Content-Type: application/json')), $metodo, $path));
 
 function consulta($parametros, $method = 'post', $path = 'admin/rest/usuario') {
 //    $clave = GR_JWT::recuperarClave();
@@ -64,5 +64,8 @@ function consulta($parametros, $method = 'post', $path = 'admin/rest/usuario') {
                         ))));
     array_push($parametros ['cabeceras'], 'X-Gr-Key: ' . $jwt);
     $url = SERVIDOR . $path;
+    _echo ("Lanzando consulta");
+    _echo ("url: $url");
+    _echo ("X-Gr-Key: $jwt");
     return (new Consultas($url))->$method($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']), $url);
 }

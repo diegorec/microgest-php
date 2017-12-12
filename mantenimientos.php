@@ -40,18 +40,6 @@ if (isset($parametros[$tag])) {
     }
 }
 
-function _echo($string) {
-    if (MENSAJESTERMINAL) {
-        echo $string . PHP_EOL;
-    }
-}
-
-function _var_dump($mixed) {
-    if (MENSAJESTERMINAL) {
-        var_dump($mixed);
-    }
-}
-
 function _compruebaParametros($consulta, $parametrosMinimos) {
     $array = $consulta;
     $contador = count($array);
