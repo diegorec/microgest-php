@@ -17,8 +17,12 @@ if (!(isset($argv[1]) && is_string($argv[1])
         && isset($argv[4]) && is_string($argv[4])
 //        && isset($argv[5]) && is_numeric($argv[5])
 //        && isset($argv[6]) && is_numeric($argv[6])
-        && !is_null($permitidos[$argv[1]]))) {
-    echo 'Error' . PHP_EOL;
+        && isset($permitidos[$argv[1]]))) {
+    unset($argv[0]); // eliminamos index.php de la lista de comandos recibidos
+    $argvStr = implode(" ", $argv);
+    $comando = "php .//mantenimientos.php $argvStr";
+    _echo($comando);
+    _echo (shell_exec($comando));
     exit;
 }
 
