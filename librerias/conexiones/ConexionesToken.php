@@ -23,6 +23,7 @@ class ConexionesToken extends \conexiones\Conexiones {
     private $empresa;
     private $string;
     private $token;
+    private $l;
 
     public function __construct() {
         parent::__construct();
@@ -36,11 +37,15 @@ class ConexionesToken extends \conexiones\Conexiones {
         $this->string = "$this->centro\\$this->email|$this->contrasena|$this->ttl";
 
         $this->token = $this->encode($this->string, $this->clave);
+        
+        $this->solicitarTokenValido($this->token, $this->empresa);
     }
 
     public function blocking1x1($urls, $contentType = 'application/json') {
+
+
         foreach ($urls as $clave => $valor) {
-            $valor .= "?t=$this->token&e=$this->empresa";
+            $valor .= "?l=$this->l";
             $urls[$clave] = $valor;
             _echo("Llamando a: " . $valor);
         }
@@ -85,6 +90,13 @@ class ConexionesToken extends \conexiones\Conexiones {
             $string[$i] = ($string[$i] ^ $key[intval($i % strlen($key))]);
         }
         return $string;
+    }
+
+    public function solicitarTokenValido($token, $empresa) {
+        $solicitudToken = "http://192.168.1.4/d_catalogo_online/login?t=$token&e=$empresa";
+        _echo("Solicitando un token válido: $solicitudToken");
+        $l = parent::blocking1x1([$solicitudToken]);
+        $this->l = $l[1];
     }
 
 }

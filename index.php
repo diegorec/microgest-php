@@ -3,10 +3,10 @@
 // ALTA: php ~/alta-usuarios/index.php cliente-catalogo recalvi 502 0
 // BAJA:  php ~/alta-usuarios/index.php baja-cliente-catalogo recalvi 502 0
 
-include 'configuracion.php';
+include __DIR__ . '/configuracion.php';
 $permitidos = array(
     'cliente-catalogo'  => array ('method' => 'post', 'path' => 'admin/rest/usuario'),
-    'baja-cliente-catalogo' => array ('method' => 'delete'),
+    'baja-cliente-catalogo' => array ('method' => 'delete', 'path' => 'admin/rest/usuario'),
     'eliminar-genericos-padre' => array ('method' => 'post', 'path' => 'mantenimiento/genericospadres'),
     'eliminar-publicidades' => array ('method' => 'post', 'path' => 'mantenimiento/publicidades'),
 );
@@ -20,7 +20,7 @@ if (!(isset($argv[1]) && is_string($argv[1])
         && isset($permitidos[$argv[1]]))) {
     unset($argv[0]); // eliminamos index.php de la lista de comandos recibidos
     $argvStr = implode(" ", $argv);
-    $comando = "php .//mantenimientos.php $argvStr";
+    $comando = "php " . __DIR__ . "/mantenimientos.php $argvStr";
     _echo($comando);
     _echo (shell_exec($comando));
     exit;
