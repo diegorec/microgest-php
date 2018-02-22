@@ -20,6 +20,16 @@ $parametros = array(
         'acciones' => array(
             'consulta-centro' => array('clase' => 'Matriculas', 'metodo' => '_get')
         )
+    ),
+    "tarjeta-personal" => array (
+        'cantidad' => 2,
+        'indices' => array(
+            '-r' => array('tag' => 'ruta', 'obligatorio' => true, 'tipo' => 'is_string'), // centro
+            '-s' => array('tag' => 'string', 'obligatorio' => true, 'tipo' => 'is_string')  // se suma al valor actual de la tabla
+        ),
+        'acciones' => array(
+            'consulta-centro' => array('clase' => 'GenerarTarjetaPersonal', 'metodo' => '_get')
+        )
     )
 );
 _echo("Comenzamos ...");

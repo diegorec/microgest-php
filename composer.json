@@ -15,12 +15,32 @@
         "stil/curl-easy": "*",
         "firebase/php-jwt": "^4.0",
         "zendframework/zend-xml2json": "^3.0",
-        "diego/cliente-catalogo-login": "dev-master"
+        "diego/cliente-catalogo-login": "dev-master",
+        "diego/gr-barcode-generator": "dev-master",
+        "diego/rpv-generator": "dev-master",
+        "diego/_xor": "dev-master",
+        "diego/tarjeta-personal": "dev-master"
     },
     "repositories": [
         {
             "type": "vcs",
             "url": "http://192.168.1.4:88/diego/cliente-catalogo-login.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/gr-barcode-generator.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/rpv-generator.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/_xor.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/tarjeta-personal.git"
         }
     ]
 }
