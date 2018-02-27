@@ -1,6 +1,6 @@
 <?php
 
-include './configuracion.php';
+include __DIR__ . '/configuracion.php';
 /**
  * En este archivo se van a generar las nuevas funcionalidades que nos van a permitir manejar el catálogo web desde microgest
  * sin la necesidad de interactuar con él
