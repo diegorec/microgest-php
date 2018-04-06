@@ -8,6 +8,8 @@ define ('SERVIDOR', 'http://192.168.1.4/d_catalogo_online/');
 
 define ('MENSAJESTERMINAL', true);
 define ('USER_AGENT', '192.168.1.4:mantenimientos');
+define ('RUTA_LOG', "/var/log/grcurl/output-");
+define ('RUTA_FICHEROSTEMPORALES', __DIR__ . "/temp");
 
 function _echo($string) {
     if (MENSAJESTERMINAL) {

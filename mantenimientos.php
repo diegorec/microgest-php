@@ -1,6 +1,9 @@
 <?php
 
 include __DIR__ . '/configuracion.php';
+
+use grcURL\Exception as grException;
+
 /**
  * En este archivo se van a generar las nuevas funcionalidades que nos van a permitir manejar el catálogo web desde microgest
  * sin la necesidad de interactuar con él
@@ -21,7 +24,7 @@ $parametros = array(
             'consulta-centro' => array('clase' => 'Matriculas', 'metodo' => '_get')
         )
     ),
-    "tarjeta-personal" => array (
+    "tarjeta-personal" => array(
         'cantidad' => 2,
         'indices' => array(
             '-r' => array('tag' => 'ruta', 'obligatorio' => true, 'tipo' => 'is_string'), // centro
@@ -30,6 +33,24 @@ $parametros = array(
         'acciones' => array(
             'consulta-centro' => array('clase' => 'GenerarTarjetaPersonal', 'metodo' => '_get')
         )
+    ),
+    "neumaticos-soledad" => array(
+        'cantidad' => 1,
+        'indices' => array(
+            '-r' => array('tag' => 'ruta', 'obligatorio' => true, 'tipo' => 'is_string') //ruta a la carpeta para el fichero de salida
+        ),
+        'acciones' => array(
+            'consulta-centro' => array('clase' => 'NeumaticosSoledad', 'metodo' => '_generarMasters')
+        )
+    ),
+    'precios-soledad' => array(
+        'cantidad' => 1,
+        'indices' => array(
+            '-p' => array('tag' => 'porcentaje', 'obligatorio' => false, 'tipo' => 'is_numeric')
+        ),
+        'acciones' => array(
+            'generar-stock' => array('clase' => 'NeumaticosSoledad', 'metodo' => '_generarStock')
+        )
     )
 );
 _echo("Comenzamos ...");
@@ -37,17 +58,23 @@ if (!is_string($tag)) {
     _echo("Parámetros incorrectos. No se continúa...");
     exit();
 }
-if (isset($parametros[$tag])) {
+try {
+    if (isset($parametros[$tag])) {
 //    _echo($tag);
-    $comandos = _compruebaParametros($argv, $parametros[$tag]);
+        $comandos = _compruebaParametros($argv, $parametros[$tag]);
 //    _var_dump($comandos);
-    $respuesta = [];
-    foreach ($parametros[$tag]['acciones'] as $clave => $valor) {
-        $clase = $valor['clase'];
-        $metodo = $valor['metodo'];
-        $objeto = new $clase();
-        $respuesta [] = $objeto->$metodo($comandos);
+        $respuesta = [];
+        foreach ($parametros[$tag]['acciones'] as $clave => $valor) {
+            $clase = $valor['clase'];
+            $metodo = $valor['metodo'];
+            $objeto = new $clase();
+            $respuesta [] = $objeto->$metodo($comandos);
+        }
     }
+} catch (grException $e) {
+    _echo($e->getMessage());
+} catch (\Exception $e) {
+    _echo($e->getMessage());
 }
 
 function _compruebaParametros($consulta, $parametrosMinimos) {
@@ -75,7 +102,7 @@ function _compruebaParametros($consulta, $parametrosMinimos) {
         if (!isset($comandos[$clave]) || !$tipo($comandos[$clave])) {
             return false;
         }
-        if (isset ($valor['tag'])) {
+        if (isset($valor['tag'])) {
             $comandos [$valor['tag']] = $comandos[$clave];
             unset($comandos[$clave]);
         }

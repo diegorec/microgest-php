@@ -1,12 +1,12 @@
 {
-    "name": "vendor/alta-usuarios",
+    "name": "diego/alta-usuarios",
     "description": "Description of project alta-usuarios.",
     "type": "library",
     "minimum-stability": "dev",
     "authors": [
         {
             "name": "diego.gonda",
-            "email": "your@email.here"
+            "email": "diegogonda@recalvi.es"
         }
     ],
     "require": {
@@ -19,7 +19,11 @@
         "diego/gr-barcode-generator": "dev-master",
         "diego/rpv-generator": "dev-master",
         "diego/_xor": "dev-master",
-        "diego/tarjeta-personal": "dev-master"
+        "diego/tarjeta-personal": "dev-master",
+        "diego/convertidores": "dev-master",
+        "diego/correctores": "dev-master",
+        "diego/gr-curl-easy": "dev-master",
+        "diego/soledad2microgest": "dev-master"
     },
     "repositories": [
         {
@@ -41,6 +45,22 @@
         {
             "type": "vcs",
             "url": "http://192.168.1.4:88/diego/tarjeta-personal.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/gr-curl-easy.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/convertidores.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/correctores.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/soledad2microgest.git"
         }
     ]
 }
