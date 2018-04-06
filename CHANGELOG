@@ -1,0 +1,21 @@
+# Changelog
+Todos los cambios importantes de este proyecto se añadirán a este archivo
+
+## Importante
+Es importante saber que este change log se generó cuando el proyecto llevaba bastante tiempo en desarrollo y producción por lo que se comienza con la versión 2.0.0 para evitar caer en errores que puedan generar desconcierto con versiones más antiguas... 
+Esta versión 2.0.0 contendrá en el primer campo de añadido todas las funcionalidades que se pueden realizar con el proyecto
+
+Basado en el formato [Mantener un changelog](http://keepachangelog.com/en/1.0.0/)
+Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [2.0.0] - 2018-04-06
+### Añadido
+- Alta de clientes de microgesta en el catálogo 
+- Vaciado de la cache de publicidades del catálogo cuando cambian las mismas en microgest
+- Vaciado de la cache de genéricos del catálogo cuando cambian las mismas en microgest
+- Actualización del contador de las matriculas del catálogo cuando cambian las mismas en microgest
+- Conversión de las ruedas de soledad dado en un archivo de recalvi
+- Conversión de un archivo de precios de ruedas de soledad dado en un archivo de precios de recalvi
+- Generación de un documento RPV con un código de barras y un texto
