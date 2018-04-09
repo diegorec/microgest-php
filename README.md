@@ -41,9 +41,10 @@ php /mnt/imagenes/php/catalogov2/index.php neumaticos-soledad
 Este comando genera la lista de precio de las ruedas y la pasa por el proceso de COBOL que introduce los neumáticos en Microgest
 Tiene las siguientes opciones:
 1. Configuración del incremento del porcentaje que se va a poner al precio de las ruedas -p
+# NOTA: Este comando actualiza la base de datos de stock en el webservice restful
 
 ```bash
 # Generamos el fichero con los precios de las ruedas con un 0% de incremento en el precio de venta
-NOTA: Este comando actualiza la base de datos de stock en el webservice restful
+
 php /mnt/imagenes/php/catalogov2/index.php precios-soledad -p 0
 ```
