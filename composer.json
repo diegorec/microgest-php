@@ -23,7 +23,8 @@
         "diego/convertidores": "dev-master",
         "diego/correctores": "dev-master",
         "diego/gr-curl-easy": "dev-master",
-        "diego/soledad2microgest": "dev-master"
+        "diego/soledad2microgest": "dev-master",
+        "catfan/medoo": "dev-master"
     },
     "repositories": [
         {

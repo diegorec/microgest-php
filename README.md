@@ -44,5 +44,6 @@ Tiene las siguientes opciones:
 
 ```bash
 # Generamos el fichero con los precios de las ruedas con un 5% de incremento en el precio de venta
+NOTA: Este comando actualiza la base de datos de stock en el webservice restful
 php index.php precios-soledad -p 5
 ```
