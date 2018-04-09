@@ -49,7 +49,7 @@ $parametros = array(
             '-p' => array('tag' => 'porcentaje', 'obligatorio' => false, 'tipo' => 'is_numeric')
         ),
         'acciones' => array(
-            'generar-stock' => array('clase' => 'NeumaticosSoledad', 'metodo' => '_generarStock')
+            'generar-precios' => array('clase' => 'NeumaticosSoledad', 'metodo' => '_generarPrecios')
         )
     )
 );

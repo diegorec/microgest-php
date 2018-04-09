@@ -229,7 +229,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/soledad2microgest.git",
-                "reference": "be4398a72cbbbb84744cf8286b4fc876ebee714c"
+                "reference": "bb23e2bf26d10bdffff04776fdf51a6b79ae1932"
             },
             "require": {
                 "diego/convertidores": "dev-master",
@@ -249,8 +249,8 @@
                     "email": "diegogonda@recalvi.es"
                 }
             ],
-            "description": "Convertidor de los datos de stock y referencias de Soledad a datos válidos en Microgest.",
-            "time": "2018-04-06T09:28:46+00:00"
+            "description": "Convertidor de los datos de stock, precios y referencias de Soledad a datos válidos en Microgest.",
+            "time": "2018-04-09T14:57:08+00:00"
         },
         {
             "name": "diego/tarjeta-personal",
@@ -586,16 +586,16 @@
         },
         {
             "name": "php-curl-class/php-curl-class",
-            "version": "8.0.1",
+            "version": "8.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-curl-class/php-curl-class.git",
-                "reference": "bdfe1fcca0c32562050c84e01e3a4cbdc31e22fd"
+                "reference": "75597b28c454acd9767e6182371376916cdb8531"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/bdfe1fcca0c32562050c84e01e3a4cbdc31e22fd",
-                "reference": "bdfe1fcca0c32562050c84e01e3a4cbdc31e22fd",
+                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/75597b28c454acd9767e6182371376916cdb8531",
+                "reference": "75597b28c454acd9767e6182371376916cdb8531",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +639,7 @@
                 "web service",
                 "xml"
             ],
-            "time": "2018-01-27T15:40:39+00:00"
+            "time": "2018-04-09T08:28:13+00:00"
         },
         {
             "name": "psr/http-message",

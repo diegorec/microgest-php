@@ -39,7 +39,7 @@ class NeumaticosSoledad {
         $this->ficheroDestinoMastersMicrogest = RUTA_FICHEROSTEMPORALES . "/m-mg.prn";
         $this->ficheroDestinoMastersMicrogestDetalles = RUTA_FICHEROSTEMPORALES . "/m-mg-d.prn";
         $this->ficheroOrigenStock = RUTA_FICHEROSTEMPORALES . "/stock.csv";
-        $this->ficheroDestinoStockMicrogest = RUTA_FICHEROSTEMPORALES . "/stock.prn";
+        $this->ficheroDestinoPreciosMicrogest = RUTA_FICHEROSTEMPORALES . "/precios.prn";
         $this->csv2json = new CSVHandler();
         $this->prnHandler = new PRNHandler();
         $this->convertidorNeumaticos = new SoledadConvertidor();
@@ -56,14 +56,14 @@ class NeumaticosSoledad {
         $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"2$this->ficheroDestinoMastersMicrogestDetalles\"");
     }
 
-    public function _generarStock($comandos) {
+    public function _generarPrecios($comandos) {
         $this->ftp->_URL = "ftp://servicios.gruposoledad.net/articles/stock.csv";
         $this->obtenerFicheroStock();
-        $stockSoledad = $this->csv2json->_toJSON($this->ficheroOrigenStock);
+        $preciosSoledad = $this->csv2json->_toJSON($this->ficheroOrigenStock);
         $porcentajeRecalvi = intval($comandos ['porcentaje']);
-        $this->generarPRNStock($stockSoledad, $porcentajeRecalvi);
+        $this->generarPRNPrecios($preciosSoledad, $porcentajeRecalvi);
 
-        $this->ejecutarCobol("$this->comandoBase PWEBS150.COB A=\"$this->ficheroDestinoStockMicrogest\" > temp111");
+        $this->ejecutarCobol("$this->comandoBase PWEBS150.COB A=\"$this->ficheroDestinoPreciosMicrogest\" > temp111");
     }
 
     public function generarPRNNeumaticos(Array $neumaticosSoledad) {
@@ -76,10 +76,10 @@ class NeumaticosSoledad {
         $this->generarFicheroCobol($this->ficheroDestinoMastersMicrogestDetalles, $neumaticosRecalviDetalles);
     }
 
-    public function generarPRNStock(Array $neumaticosSoledad, $porcentajeIncrementoPrecio = 0) {
+    public function generarPRNPrecios(Array $neumaticosSoledad, $porcentajeIncrementoPrecio = 0) {
         $this->convertidorNeumaticos->setPorcentajeIncrementoPrecio($porcentajeIncrementoPrecio);
-        $neumaticosRecalviDetalles = $this->convertidorNeumaticos->convertirStocks($neumaticosSoledad);
-        $this->generarFicheroCobol($this->ficheroDestinoStockMicrogest, $neumaticosRecalviDetalles);
+        $neumaticosRecalviDetalles = $this->convertidorNeumaticos->convertirPrecios($neumaticosSoledad);
+        $this->generarFicheroCobol($this->ficheroDestinoPreciosMicrogest, $neumaticosRecalviDetalles);
     }
 
     private function generarFicheroCobol($fichero, Array $datos) {
