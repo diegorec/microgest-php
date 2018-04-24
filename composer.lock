@@ -134,7 +134,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/cliente-catalogo-login.git",
-                "reference": "27cd567484fac5213376814f45a4a14144df7863"
+                "reference": "cac44ea3be1add804df524f86abcf8842dbd9ebb"
             },
             "require": {
                 "diego/_xor": "dev-master",
@@ -143,7 +143,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "clientecatalogo\\": "src/"
+                    "clientecatalogo\\": "src/",
+                    "clientecatalogo\\objetos\\": "src/objetos/"
                 }
             },
             "authors": [
@@ -153,7 +154,7 @@
                 }
             ],
             "description": "Biblioteca para realizar login en el catálogo",
-            "time": "2018-02-23T08:31:37+00:00"
+            "time": "2018-04-24T11:33:16+00:00"
         },
         {
             "name": "diego/convertidores",
@@ -161,7 +162,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/convertidores.git",
-                "reference": "2e1a9a79d96962afa7f67ed4b58c7cb3da393c7a"
+                "reference": "2c8aaaec12eb1f90f63042ec5277cc268615b51e"
             },
             "type": "library",
             "autoload": {
@@ -176,7 +177,7 @@
                 }
             ],
             "description": "Description of project convertidores.",
-            "time": "2018-03-23T16:54:23+00:00"
+            "time": "2018-04-12T08:18:26+00:00"
         },
         {
             "name": "diego/correctores",
@@ -184,7 +185,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/correctores.git",
-                "reference": "28e7bfce07febb3eb6eb9c99d86acce656b502a2"
+                "reference": "49558a2f26cbe7e71f721755155fc97bd4650380"
             },
             "type": "library",
             "autoload": {
@@ -199,7 +200,7 @@
                 }
             ],
             "description": "Proyecto que nos permite hacer tratamientos estandarizados a las cadenas de caracteres.",
-            "time": "2018-04-02T11:30:18+00:00"
+            "time": "2018-04-19T08:53:39+00:00"
         },
         {
             "name": "diego/gr-barcode-generator",
@@ -235,7 +236,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/gr-curl-easy.git",
-                "reference": "d0336e2d5fd0d43ee8eb7a2a9656673b1f15eeed"
+                "reference": "99ed892cd76aa834923c5ed4397ba74ef14c5f8b"
             },
             "require": {
                 "garoevans/php-enum": "^1.2",
@@ -247,7 +248,8 @@
             "autoload": {
                 "psr-4": {
                     "grcURL\\": "src/",
-                    "grcURL\\log\\": "src/log/"
+                    "grcURL\\log\\": "src/log/",
+                    "grcURL\\recursos\\": "src/recursos/"
                 }
             },
             "authors": [
@@ -257,7 +259,7 @@
                 }
             ],
             "description": "Description of project curl-easy.",
-            "time": "2018-04-04T10:03:57+00:00"
+            "time": "2018-04-13T13:36:27+00:00"
         },
         {
             "name": "diego/rpv-generator",
@@ -436,17 +438,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "773750151c47189c24f9026620e43ddd55d453a2"
+                "reference": "239912a01c502f2d8f3c642eb2fcd4e58cf82a72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/773750151c47189c24f9026620e43ddd55d453a2",
-                "reference": "773750151c47189c24f9026620e43ddd55d453a2",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239912a01c502f2d8f3c642eb2fcd4e58cf82a72",
+                "reference": "239912a01c502f2d8f3c642eb2fcd4e58cf82a72",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
@@ -493,7 +496,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-03-29T00:18:34+00:00"
+            "time": "2018-04-24T00:35:57+00:00"
         },
         {
             "name": "intervention/image",
@@ -645,16 +648,16 @@
         },
         {
             "name": "php-curl-class/php-curl-class",
-            "version": "8.0.2",
+            "version": "8.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-curl-class/php-curl-class.git",
-                "reference": "75597b28c454acd9767e6182371376916cdb8531"
+                "reference": "4b19e0fa0278b45452164d3043057cccb4f750db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/75597b28c454acd9767e6182371376916cdb8531",
-                "reference": "75597b28c454acd9767e6182371376916cdb8531",
+                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/4b19e0fa0278b45452164d3043057cccb4f750db",
+                "reference": "4b19e0fa0278b45452164d3043057cccb4f750db",
                 "shasum": ""
             },
             "require": {
@@ -698,7 +701,7 @@
                 "web service",
                 "xml"
             ],
-            "time": "2018-04-09T08:28:13+00:00"
+            "time": "2018-04-21T08:28:43+00:00"
         },
         {
             "name": "psr/http-message",
@@ -798,6 +801,46 @@
             "time": "2018-04-03T15:59:15+00:00"
         },
         {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
             "name": "react/cache",
             "version": "v0.4.2",
             "source": {
@@ -843,12 +886,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "179520ec0b25cf4c742d9653be9f4964d64d4a6e"
+                "reference": "5c3e69ce2bb97263a3a8bf1b280772bed2b25d7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/179520ec0b25cf4c742d9653be9f4964d64d4a6e",
-                "reference": "179520ec0b25cf4c742d9653be9f4964d64d4a6e",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/5c3e69ce2bb97263a3a8bf1b280772bed2b25d7f",
+                "reference": "5c3e69ce2bb97263a3a8bf1b280772bed2b25d7f",
                 "shasum": ""
             },
             "require": {
@@ -881,7 +924,7 @@
                 "promise",
                 "promises"
             ],
-            "time": "2017-09-19T13:02:44+00:00"
+            "time": "2018-04-23T18:39:35+00:00"
         },
         {
             "name": "stil/curl-easy",

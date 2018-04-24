@@ -9,6 +9,9 @@ Basado en el formato [Mantener un changelog](http://keepachangelog.com/en/1.0.0/
 Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [2.1.1] - 2018-04-24
+### Corregido
+- Inserción de las matrículas a la nueva direccion del catálogo y sin necesidad de JWT
 
 ## [2.1.0] - 2018-04-09
 ### Añadido

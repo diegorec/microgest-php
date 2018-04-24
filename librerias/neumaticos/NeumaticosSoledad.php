@@ -30,7 +30,7 @@ class NeumaticosSoledad {
     public $comandoBase = "cd /home/u/vigo/micro/ && /usr/rmcobol/runcobol";
 
     public function __construct() {
-        $this->ficheroLog = RUTA_LOG . date("YW") . ".log";
+        $this->ficheroLog = _getRutaLog();
         $this->ftp = new FTP("ftp://servicios.gruposoledad.net/articles/MasterArticles.csv", $this->ficheroLog);
         $this->ftp->_USERAGENT = $this->useragent;
         $this->ftp->usuario = "recalvi107827";
