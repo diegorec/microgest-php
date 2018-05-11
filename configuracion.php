@@ -9,8 +9,8 @@ define('SERVIDOR', 'http://192.168.1.199:8081/catalogo/');
 
 define('MENSAJESTERMINAL', true);
 define('USER_AGENT', '192.168.1.50:mantenimientos');
-define('RUTA_LOG_BASE', __DIR__ . "/log/output-");
-define('RUTA_FICHEROSTEMPORALES', __DIR__ . "/temp");
+define('RUTA_LOG_BASE', "/home/gr/temporales-catalogov2/log/output-");
+define('RUTA_FICHEROSTEMPORALES', "/home/gr/temporales-catalogov2");
 define('LOGGERTAG', "192.168.1.50:mantenimientos-catalogo");
 
 function _echo($string) {
