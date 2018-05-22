@@ -134,7 +134,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/cliente-catalogo-login.git",
-                "reference": "cac44ea3be1add804df524f86abcf8842dbd9ebb"
+                "reference": "04f420f16606042e58adc51df5d1b257c0a84e3f"
             },
             "require": {
                 "diego/_xor": "dev-master",
@@ -154,7 +154,7 @@
                 }
             ],
             "description": "Biblioteca para realizar login en el catálogo",
-            "time": "2018-04-24T11:33:16+00:00"
+            "time": "2018-05-22T16:05:12+00:00"
         },
         {
             "name": "diego/convertidores",
@@ -162,7 +162,10 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/convertidores.git",
-                "reference": "2c8aaaec12eb1f90f63042ec5277cc268615b51e"
+                "reference": "cdef8fbe5dc2af3df735091f276c4f62a227f048"
+            },
+            "require": {
+                "diego/correctores": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -177,7 +180,7 @@
                 }
             ],
             "description": "Description of project convertidores.",
-            "time": "2018-04-12T08:18:26+00:00"
+            "time": "2018-05-09T09:23:15+00:00"
         },
         {
             "name": "diego/correctores",
@@ -185,7 +188,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/correctores.git",
-                "reference": "49558a2f26cbe7e71f721755155fc97bd4650380"
+                "reference": "3716d1d0ab64b0cd96b8643621402cb86abf9354"
             },
             "type": "library",
             "autoload": {
@@ -200,7 +203,7 @@
                 }
             ],
             "description": "Proyecto que nos permite hacer tratamientos estandarizados a las cadenas de caracteres.",
-            "time": "2018-04-19T08:53:39+00:00"
+            "time": "2018-05-08T10:04:57+00:00"
         },
         {
             "name": "diego/gr-barcode-generator",
@@ -236,7 +239,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/gr-curl-easy.git",
-                "reference": "99ed892cd76aa834923c5ed4397ba74ef14c5f8b"
+                "reference": "d4bb7d0fa17b4af556c0797d1134ea37c1c434fa"
             },
             "require": {
                 "garoevans/php-enum": "^1.2",
@@ -259,7 +262,7 @@
                 }
             ],
             "description": "Description of project curl-easy.",
-            "time": "2018-04-13T13:36:27+00:00"
+            "time": "2018-05-16T15:44:32+00:00"
         },
         {
             "name": "diego/rpv-generator",
@@ -886,12 +889,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "5c3e69ce2bb97263a3a8bf1b280772bed2b25d7f"
+                "reference": "308b9165ccfc65c01002b5a678297161786cae4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/5c3e69ce2bb97263a3a8bf1b280772bed2b25d7f",
-                "reference": "5c3e69ce2bb97263a3a8bf1b280772bed2b25d7f",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/308b9165ccfc65c01002b5a678297161786cae4a",
+                "reference": "308b9165ccfc65c01002b5a678297161786cae4a",
                 "shasum": ""
             },
             "require": {
@@ -924,7 +927,7 @@
                 "promise",
                 "promises"
             ],
-            "time": "2018-04-23T18:39:35+00:00"
+            "time": "2018-05-07T08:34:03+00:00"
         },
         {
             "name": "stil/curl-easy",
@@ -1078,12 +1081,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-xml2json.git",
-                "reference": "c76d38a3f4214a86dcf92911646af6c495b60c29"
+                "reference": "2dd6de32d2e14f406fc855cf9f03111c7fe92f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-xml2json/zipball/c76d38a3f4214a86dcf92911646af6c495b60c29",
-                "reference": "c76d38a3f4214a86dcf92911646af6c495b60c29",
+                "url": "https://api.github.com/repos/zendframework/zend-xml2json/zipball/2dd6de32d2e14f406fc855cf9f03111c7fe92f3b",
+                "reference": "2dd6de32d2e14f406fc855cf9f03111c7fe92f3b",
                 "shasum": ""
             },
             "require": {
@@ -1092,14 +1095,14 @@
                 "zendframework/zendxml": "^1.0.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7.22 || ^6.4.1",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.4",
                 "zendframework/zend-coding-standard": "~1.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev",
-                    "dev-develop": "3.1-dev"
+                    "dev-master": "3.1.x-dev",
+                    "dev-develop": "3.2.x-dev"
                 }
             },
             "autoload": {
@@ -1112,44 +1115,45 @@
                 "BSD-3-Clause"
             ],
             "description": "Provides functionality for converting XML to JSON, optionally including XML attributes",
-            "homepage": "https://github.com/zendframework/zend-xml2json",
             "keywords": [
+                "ZendFramework",
                 "json",
                 "xml",
-                "zf2"
+                "zf"
             ],
-            "time": "2017-10-16T14:22:52+00:00"
+            "time": "2018-04-30T13:34:13+00:00"
         },
         {
             "name": "zendframework/zendxml",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZendXml.git",
-                "reference": "d60d429ef870ab9bd67aab10b531edd808669509"
+                "reference": "2effffd2318ca24417428b018dd879af1ce1e720"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/ZendXml/zipball/d60d429ef870ab9bd67aab10b531edd808669509",
-                "reference": "d60d429ef870ab9bd67aab10b531edd808669509",
+                "url": "https://api.github.com/repos/zendframework/ZendXml/zipball/2effffd2318ca24417428b018dd879af1ce1e720",
+                "reference": "2effffd2318ca24417428b018dd879af1ce1e720",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^3.7 || ^4.0",
-                "squizlabs/php_codesniffer": "^1.5"
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.4",
+                "zendframework/zend-coding-standard": "~1.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.1.x-dev",
+                    "dev-develop": "1.2.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "ZendXml\\": "library/"
+                "psr-4": {
+                    "ZendXml\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1157,13 +1161,13 @@
                 "BSD-3-Clause"
             ],
             "description": "Utility library for XML usage, best practices, and security in PHP",
-            "homepage": "http://packages.zendframework.com/",
             "keywords": [
+                "ZendFramework",
                 "security",
                 "xml",
-                "zf2"
+                "zf"
             ],
-            "time": "2016-03-05T20:48:47+00:00"
+            "time": "2018-04-30T15:12:19+00:00"
         }
     ],
     "packages-dev": [],

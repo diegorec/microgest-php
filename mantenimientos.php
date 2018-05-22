@@ -52,6 +52,19 @@ $parametros = array(
             'generar-precios' => array('clase' => 'NeumaticosSoledad', 'metodo' => '_generarPrecios'),
             'generar-stock' => array('clase' => 'Stock', 'metodo' => '_generar')
         )
+    ),
+    'login-catalogo' => array(
+        'cantidad' => 1,
+        'indices' => array(
+            '-c' => array('tag' => 'centro', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-co' => array('tag' => 'correo', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-p' => array('tag' => 'pass', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-e' => array('tag' => 'empresa', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-r' => array('tag' => 'ruta', 'obligatorio' => true, 'tipo' => 'is_string'),
+        ),
+        'acciones' => array(
+            'generar-login' => array('clase' => 'LoginCatalogo', 'metodo' => 'generar')
+        )
     )
 );
 _echo("Comenzamos ...");

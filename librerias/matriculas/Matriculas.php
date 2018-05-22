@@ -12,19 +12,20 @@ use grcURL\Request;
 class Matriculas {
 
     private $usuario;
+    public $tokenPublico = CLAVELOGIN;
 
     public function __construct() {
         $this->usuario = new Usuario();
         $this->usuario->centro = "recalvi";
         $this->usuario->identidad = "diegogonda@recalvi.es";
         $this->usuario->contrasena = "chari";
-        $this->usuario->empresa = "soledad";
+        $this->usuario->empresa = "internos";
     }
 
     public function _get($comandos) {
         $centro = $comandos['centro'];
         $actualiza = $comandos['suma'];
-        $login = new Login($this->usuario);
+        $login = new Login($this->usuario, $this->tokenPublico);
         $login->url = SERVIDOR;
         $loginstr = $login->getLogin();
         $url = SERVIDOR . "mantenimiento/contadormatriculas/centro/$centro/sumador/$actualiza?$loginstr";
