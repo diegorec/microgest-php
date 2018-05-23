@@ -4,6 +4,21 @@
 // BAJA:  php ~/alta-usuarios/index.php baja-cliente-catalogo recalvi 502 0
 
 include __DIR__ . '/configuracion.php';
+include __DIR__ . '/./vendor/autoload.php';
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\FirePHPHandler;
+
+$date = date('YW');
+$name = "preproducción";
+$logger = new Logger($name);
+$logger->pushHandler(new StreamHandler(RUTA_FICHEROSTEMPORALES . "/log/comandos-$date.log", Logger::INFO));
+$logger->pushHandler(new FirePHPHandler());
+$comando = implode(' ', $argv);
+$logger->addInfo("[$comando]");
+
+
 $permitidos = array(
     'cliente-catalogo'  => array ('method' => 'post', 'path' => 'admin/rest/usuario'),
     'baja-cliente-catalogo' => array ('method' => 'delete', 'path' => 'admin/rest/usuario'),
@@ -65,7 +80,7 @@ function consulta($parametros, $method = 'post', $path = 'admin/rest/usuario') {
                                             'datos' => $parametros['parametros']
                                         )
                                 )
-                        ))));
+    ))));
     array_push($parametros ['cabeceras'], 'X-Gr-Key: ' . $jwt);
     $url = SERVIDOR . $path;
     _echo ("Lanzando consulta");
