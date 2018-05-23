@@ -48,3 +48,13 @@ Tiene las siguientes opciones:
 
 php /mnt/imagenes/php/catalogov2/index.php precios-soledad -p 0
 ```
+
+# GENERAR UN LOGIN PARA EL CATÁLOGO ONLINE
+1. **-c** Centro del cliente
+2. **-co** Correo del cliente
+3. **-p** Contraseña
+4. **-e** Empresa, para este funcionalidad usamos la cadena "internos"
+5. **-r** Ruta del fichero resultante con el login completo
+```bash
+php /mnt/imagenes/php/catalogov2/index.php login-catalogo -c recalvi -co antoniogonzalez@m2m_recalvi.com -p Soledad2017 -e internos -r /home/gr/temporales-catalogov2/ficherologinproduccion.txt
+```
