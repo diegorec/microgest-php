@@ -65,6 +65,19 @@ $parametros = array(
         'acciones' => array(
             'generar-login' => array('clase' => 'LoginCatalogo', 'metodo' => 'generar')
         )
+    ),
+    'clientes-catalogo' => array (
+        'cantidad' => 1,
+        'indices' => array(
+            '-c' => array('tag' => 'centro', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-n' => array('tag' => 'nocliente', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-s' => array('tag' => 'subdivision', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-e' => array('tag' => 'empresa', 'obligatorio' => true, 'tipo' => 'is_string'),
+            '-cli' => array('tag' => 'clientede', 'obligatorio' => true, 'tipo' => 'is_string'),
+        ),
+        'acciones' => array(
+            'crear-cliente' => array('clase' => 'ClientesCatalogo', 'metodo' => 'generar')
+        )   
     )
 );
 _echo("Comenzamos ...");

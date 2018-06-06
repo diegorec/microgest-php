@@ -4,15 +4,15 @@ require __DIR__ . '/BaseDatos.php';
 include __DIR__ . '/librerias/autoload.php';
 require __DIR__ . '/basesdatosexterna.php';
 
-//define ('SERVIDOR', 'http://192.168.1.4/');
-define('SERVIDOR', 'http://192.168.1.199:8081/catalogo/');
+define ('SERVIDOR', 'http://192.168.1.4/');
+//define('SERVIDOR', 'http://192.168.1.199:8081/catalogo/');
 
 define('MENSAJESTERMINAL', true);
 define('USER_AGENT', '192.168.1.50:mantenimientos');
 define('RUTA_LOG_BASE', "/home/gr/temporales-catalogov2/log/output-");
 define('RUTA_FICHEROSTEMPORALES', "/home/gr/temporales-catalogov2");
 define('LOGGERTAG', "192.168.1.50:mantenimientos-catalogo");
-define('CLAVELOGIN', "NSM3JygkKRxRXF1TOj4nICstCVFEUVJdQj");
+define('CLAVELOGIN', "GFTFDR@@5584UYHNOLI#!2314PPR6543");
 
 function _echo($string) {
     if (MENSAJESTERMINAL) {

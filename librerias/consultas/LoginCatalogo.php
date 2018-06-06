@@ -5,7 +5,7 @@ use clientecatalogo\objetos\Usuario;
 
 class LoginCatalogo {
 
-    public $tokenPublico = CLAVELOGIN;
+    public $tokenPublico = 'GFTFDR@@5584UYHNOLI#!2314PPR6543';
     public $url = "http://catalogoonline.recalvi.es/privado/cesta";
 
     public function generar($parametros) {
@@ -16,7 +16,10 @@ class LoginCatalogo {
         $usuario->empresa = $parametros["empresa"];
         $login = new Login($usuario, $this->tokenPublico);
         $string = $login->getLogin();
-        file_put_contents($parametros["ruta"], "$this->url?$string");
+        if (isset($parametros["ruta"])) {
+            file_put_contents($parametros["ruta"], "$this->url?$string");
+        }
+        return $string;
     }
 
 }
