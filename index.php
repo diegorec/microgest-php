@@ -86,5 +86,6 @@ function consulta($parametros, $method = 'post', $path = 'admin/rest/usuario') {
     _echo ("Lanzando consulta");
     _echo ("url: $url");
     _echo ("X-Gr-Key: $jwt");
+    _var_dump($parametros);
     return (new Consultas($url))->$method($parametros ['cabeceras'], array('usuario' => $parametros ['parametros']), $url);
 }
