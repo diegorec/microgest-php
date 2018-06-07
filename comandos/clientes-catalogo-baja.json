@@ -1,0 +1,41 @@
+{
+    "cantidad": 1,
+    "indices": {
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-n": {
+            "tag": "nocliente",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-s": {
+            "tag": "subdivision",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-e": {
+            "tag": "empresa",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-cli": {
+            "tag": "clientede",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-co": {
+            "tag": "correo",
+            "obligatorio": true,
+            "tipo": "is_string"            
+        }
+    },
+    "acciones": {
+        "eliminar-cliente": {
+            "clase": "ClientesCatalogo",
+            "metodo": "eliminar"
+        }
+    }   
+}

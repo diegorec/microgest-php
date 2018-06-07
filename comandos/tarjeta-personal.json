@@ -1,0 +1,21 @@
+{
+    "cantidad": 2,
+    "indices": {
+        "-r": {
+            "tag": "ruta",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }, 
+        "-s": {
+            "tag": "string",
+            "obligatorio": true,
+            "tipo": "is_string"
+        } 
+    },
+    "acciones": {
+        "generar-tarjeta-personal": {
+            "clase": "GenerarTarjetaPersonal",
+            "metodo": "_get"
+        }
+    }
+}

@@ -11,6 +11,7 @@ define('MENSAJESTERMINAL', true);
 define('USER_AGENT', '192.168.1.50:mantenimientos');
 define('RUTA_LOG_BASE', "/home/gr/temporales-catalogov2/log/output-");
 define('RUTA_FICHEROSTEMPORALES', "/home/gr/temporales-catalogov2");
+define('RUTA_COMANDOS', "/mnt/imagenes/php/probasv2/comandos/");
 define('LOGGERTAG', "192.168.1.50:mantenimientos-catalogo");
 define('CLAVELOGIN', "GFTFDR@@5584UYHNOLI#!2314PPR6543");
 

@@ -1,0 +1,36 @@
+{
+    "cantidad": 1,
+    "indices": {
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-co": {
+            "tag": "correo",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-p": {
+            "tag": "pass",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-e": {
+            "tag": "empresa",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-r": {
+            "tag": "ruta",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "generar-login": {
+            "clase": "LoginCatalogo",
+            "metodo": "generar"
+        }
+    }
+}

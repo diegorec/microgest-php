@@ -1,6 +1,7 @@
 <?php
 
 use grcURL\Request;
+use phpcli\Colors;
 
 class ClientesCatalogo {
 
@@ -9,17 +10,39 @@ class ClientesCatalogo {
         "centro" => "recalvi",
         "pass" => "chari",
         "empresa" => "internos");
-    
-    public $uri = 'admin/rest/usuarioaaa';
+    public $uri = 'admin/rest/usuario';
+    private $loginToken;
+    private $colors;
 
-    public function generar($comandos) {
+    public function __construct() {
         $login = new LoginCatalogo();
-        $loginToken = $login->generar($this->parametrosLogin, true);
+        $this->loginToken = $login->generar($this->parametrosLogin, true);
+        $this->colors = new Colors();
+    }
+
+    public function crear($comandos) {
         $urlCatalogo = SERVIDOR . "$this->uri?$loginToken";
-        
         $request = new Request($urlCatalogo, _getRutaLog());
         $request->_USERAGENT = USER_AGENT;
-        $respuesta = $request->post($comandos);
+
+        $respuesta = $this->request->post($comandos);
+        _var_dump($respuesta);
+    }
+
+    public function eliminar($comandos) {
+        _var_dump($comandos);
+       
+        $params = [];
+        foreach ($comandos as $clave => $valor) {
+            $params [] = "$clave/$valor";
+        }
+        $paramsString = implode('/', $params);
+        $urlCatalogo = SERVIDOR . "$this->uri/$paramsString?$this->loginToken";
+        _echo($this->colors->info($urlCatalogo));
+        $request = new Request($urlCatalogo, _getRutaLog());
+        $request->_USERAGENT = USER_AGENT;
+
+        $respuesta = $request->delete();
         _var_dump($respuesta);
     }
 

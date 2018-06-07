@@ -1,0 +1,20 @@
+{
+    "cantidad": 1,
+    "indices": {
+        "-p": {
+            "tag": "porcentaje",
+            "obligatorio": false,
+            "tipo": "is_numeric"
+        }
+    },
+    "acciones": {
+        "generar-precios": {
+            "clase": "NeumaticosSoledad",
+            "metodo": "_generarPrecios"
+        },
+        "generar-stock": {
+            "clase": "Stock",
+            "metodo": "_generar"
+        }
+    }
+}

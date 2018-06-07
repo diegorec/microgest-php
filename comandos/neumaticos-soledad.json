@@ -1,0 +1,16 @@
+{
+    "cantidad": 1,
+    "indices": {
+        "-r": {
+            "tag": "ruta",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "generar-masters": {
+            "clase": "NeumaticosSoledad",
+            "metodo": "_generarMasters"
+        }
+    }
+}

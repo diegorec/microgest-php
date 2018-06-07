@@ -1,0 +1,21 @@
+{
+    "cantidad": 2,
+    "indices": {
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }, 
+        "-s": {
+            "tag": "suma",
+            "obligatorio": true,
+            "tipo": "is_numeric"
+        }  
+    },
+    "acciones": {
+        "enviar-matriculas": {
+            "clase": "Matriculas",
+            "metodo": "_get"
+        }
+    }
+}

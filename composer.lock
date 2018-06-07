@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1aee6d890ea87353199fc301f15e7fe1",
+    "content-hash": "558d711acba9fb1e33521151750ee302",
     "packages": [
         {
             "name": "bigfish/pdf417",
@@ -239,7 +239,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/gr-curl-easy.git",
-                "reference": "d4bb7d0fa17b4af556c0797d1134ea37c1c434fa"
+                "reference": "8d0bebb579d536fa37cdbda571eb0d10b302d9fa"
             },
             "require": {
                 "garoevans/php-enum": "^1.2",
@@ -262,7 +262,30 @@
                 }
             ],
             "description": "Description of project curl-easy.",
-            "time": "2018-05-16T15:44:32+00:00"
+            "time": "2018-06-04T11:12:40+00:00"
+        },
+        {
+            "name": "diego/phpcli",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "http://192.168.1.4:88/diego/phpcli.git",
+                "reference": "dbe4b515e0fb0e07f1bee76910432514199d0ab5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "phpcli\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "diego",
+                    "email": "diegogonda@recalvi.es"
+                }
+            ],
+            "description": "Biblioteca con funciones para el uso de la Command Line Interface (CLI) desde PHP.",
+            "time": "2018-06-07T08:43:43+00:00"
         },
         {
             "name": "diego/rpv-generator",
@@ -441,12 +464,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "239912a01c502f2d8f3c642eb2fcd4e58cf82a72"
+                "reference": "7fa8852adec06dabfbde1b028c4c9d9087558256"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239912a01c502f2d8f3c642eb2fcd4e58cf82a72",
-                "reference": "239912a01c502f2d8f3c642eb2fcd4e58cf82a72",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/7fa8852adec06dabfbde1b028c4c9d9087558256",
+                "reference": "7fa8852adec06dabfbde1b028c4c9d9087558256",
                 "shasum": ""
             },
             "require": {
@@ -463,7 +486,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -499,20 +522,20 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-04-24T00:35:57+00:00"
+            "time": "2018-05-27T22:46:05+00:00"
         },
         {
             "name": "intervention/image",
-            "version": "2.4.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919"
+                "reference": "e82d274f786e3d4b866a59b173f42e716f0783eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/3603dbcc9a17d307533473246a6c58c31cf17919",
-                "reference": "3603dbcc9a17d307533473246a6c58c31cf17919",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/e82d274f786e3d4b866a59b173f42e716f0783eb",
+                "reference": "e82d274f786e3d4b866a59b173f42e716f0783eb",
                 "shasum": ""
             },
             "require": {
@@ -532,7 +555,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -569,7 +592,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2017-09-21T16:29:17+00:00"
+            "time": "2018-05-29T14:19:03+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -651,23 +674,25 @@
         },
         {
             "name": "php-curl-class/php-curl-class",
-            "version": "8.0.3",
+            "version": "8.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-curl-class/php-curl-class.git",
-                "reference": "4b19e0fa0278b45452164d3043057cccb4f750db"
+                "reference": "0090c30b4348028cabf1d03427423460ca7dc4a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/4b19e0fa0278b45452164d3043057cccb4f750db",
-                "reference": "4b19e0fa0278b45452164d3043057cccb4f750db",
+                "url": "https://api.github.com/repos/php-curl-class/php-curl-class/zipball/0090c30b4348028cabf1d03427423460ca7dc4a4",
+                "reference": "0090c30b4348028cabf1d03427423460ca7dc4a4",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
+                "ext-mbstring": "*",
                 "php": ">=5.3"
             },
             "require-dev": {
+                "ext-gd": "*",
                 "phpunit/phpunit": "*",
                 "squizlabs/php_codesniffer": "*"
             },
@@ -704,7 +729,7 @@
                 "web service",
                 "xml"
             ],
-            "time": "2018-04-21T08:28:43+00:00"
+            "time": "2018-06-06T05:01:44+00:00"
         },
         {
             "name": "psr/http-message",
@@ -889,12 +914,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "308b9165ccfc65c01002b5a678297161786cae4a"
+                "reference": "5c777af59090e556b8fbb35cb11c9e41a512b972"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/308b9165ccfc65c01002b5a678297161786cae4a",
-                "reference": "308b9165ccfc65c01002b5a678297161786cae4a",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/5c777af59090e556b8fbb35cb11c9e41a512b972",
+                "reference": "5c777af59090e556b8fbb35cb11c9e41a512b972",
                 "shasum": ""
             },
             "require": {
@@ -927,7 +952,7 @@
                 "promise",
                 "promises"
             ],
-            "time": "2018-05-07T08:34:03+00:00"
+            "time": "2018-06-04T06:45:01+00:00"
         },
         {
             "name": "stil/curl-easy",
@@ -1183,6 +1208,7 @@
         "diego/correctores": 20,
         "diego/gr-curl-easy": 20,
         "diego/soledad2microgest": 20,
+        "diego/phpcli": 20,
         "catfan/medoo": 20
     },
     "prefer-stable": false,

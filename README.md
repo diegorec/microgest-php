@@ -1,7 +1,13 @@
 # ALTA
 ```bash
-php /mnt/imagenes/php/catalogov2/index.php cliente-catalogo recalvi 502 0
+php /mnt/imagenes/php/probasv2/index.php clientes-catalogo -c recalvi -n 2325 -s 1 -e 3 -cli 100
 ```
+
+# BAJA
+```bash
+php /mnt/imagenes/php/probasv2/index.php clientes-catalogo-baja -c recalvi -n 2325 -s 1 -e 3 -cli 100 -co chari1@recalvi.es
+```
+
 # VACIADO DE LA CACHE DE PUBLICIDADES
 ```bash
 php /mnt/imagenes/php/catalogov2/index.php eliminar-publicidades recalvi 5215 0
