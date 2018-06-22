@@ -49,12 +49,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/catfan/Medoo.git",
-                "reference": "f77a93f72864e892c99d1033b8733e5da8fb0b3b"
+                "reference": "8d90cba0e8ff176028847527d0ea76fe41a06ecf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/catfan/Medoo/zipball/f77a93f72864e892c99d1033b8733e5da8fb0b3b",
-                "reference": "f77a93f72864e892c99d1033b8733e5da8fb0b3b",
+                "url": "https://api.github.com/repos/catfan/Medoo/zipball/8d90cba0e8ff176028847527d0ea76fe41a06ecf",
+                "reference": "8d90cba0e8ff176028847527d0ea76fe41a06ecf",
                 "shasum": ""
             },
             "require": {
@@ -100,7 +100,7 @@
                 "sql",
                 "sqlite"
             ],
-            "time": "2018-03-26T17:54:24+00:00"
+            "time": "2018-06-14T18:59:08+00:00"
         },
         {
             "name": "diego/_xor",
@@ -239,13 +239,14 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/gr-curl-easy.git",
-                "reference": "8d0bebb579d536fa37cdbda571eb0d10b302d9fa"
+                "reference": "aa8e0d0b4f192d76e9dd96d74f5e35a9af1d8d40"
             },
             "require": {
                 "garoevans/php-enum": "^1.2",
                 "monolog/monolog": "* 1.23.0",
                 "php": ">=5.6",
-                "stil/curl-easy": "*"
+                "stil/curl-easy": "*",
+                "zendframework/zend-xml2json": "^3.1"
             },
             "type": "library",
             "autoload": {
@@ -262,7 +263,7 @@
                 }
             ],
             "description": "Description of project curl-easy.",
-            "time": "2018-06-04T11:12:40+00:00"
+            "time": "2018-06-14T10:58:56+00:00"
         },
         {
             "name": "diego/phpcli",
@@ -464,12 +465,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "7fa8852adec06dabfbde1b028c4c9d9087558256"
+                "reference": "58f6e264ef0e4107c8b3d15a9c2e653b2bce0b4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/7fa8852adec06dabfbde1b028c4c9d9087558256",
-                "reference": "7fa8852adec06dabfbde1b028c4c9d9087558256",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/58f6e264ef0e4107c8b3d15a9c2e653b2bce0b4d",
+                "reference": "58f6e264ef0e4107c8b3d15a9c2e653b2bce0b4d",
                 "shasum": ""
             },
             "require": {
@@ -522,7 +523,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2018-05-27T22:46:05+00:00"
+            "time": "2018-06-08T08:55:26+00:00"
         },
         {
             "name": "intervention/image",
@@ -914,12 +915,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "5c777af59090e556b8fbb35cb11c9e41a512b972"
+                "reference": "f4edc2581617431aea50430749db55cc3fc031b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/5c777af59090e556b8fbb35cb11c9e41a512b972",
-                "reference": "5c777af59090e556b8fbb35cb11c9e41a512b972",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/f4edc2581617431aea50430749db55cc3fc031b3",
+                "reference": "f4edc2581617431aea50430749db55cc3fc031b3",
                 "shasum": ""
             },
             "require": {
@@ -952,7 +953,7 @@
                 "promise",
                 "promises"
             ],
-            "time": "2018-06-04T06:45:01+00:00"
+            "time": "2018-06-13T15:59:06+00:00"
         },
         {
             "name": "stil/curl-easy",

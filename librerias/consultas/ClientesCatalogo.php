@@ -17,15 +17,17 @@ class ClientesCatalogo {
     public function __construct() {
         $login = new LoginCatalogo();
         $this->loginToken = $login->generar($this->parametrosLogin, true);
+        _echo("token-l: $this->loginToken");
         $this->colors = new Colors();
     }
 
     public function crear($comandos) {
-        $urlCatalogo = SERVIDOR . "$this->uri?$loginToken";
+        _echo ("creamos el cliente");
+        $urlCatalogo = SERVIDOR . "$this->uri?$this->loginToken";
         $request = new Request($urlCatalogo, _getRutaLog());
         $request->_USERAGENT = USER_AGENT;
-
-        $respuesta = $this->request->post($comandos);
+        
+        $respuesta = $request->post($comandos);
         _var_dump($respuesta);
     }
 
