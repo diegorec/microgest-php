@@ -19,7 +19,7 @@
         "-e": {
             "tag": "empresa",
             "obligatorio": true,
-            "tipo": "is_string"
+            "tipo": "is_numeric"
         },
         "-r": {
             "tag": "ruta",
