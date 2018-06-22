@@ -8,10 +8,12 @@ Esta versión 2.0.0 contendrá en el primer campo de añadido todas las funciona
 Basado en el formato [Mantener un changelog](http://keepachangelog.com/en/1.0.0/)
 Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v2.0.0.html).
 
-## [UNRELEASED] 
+## [2.2.1]  - 2018-06-22
 ### Modificado
 - Creación de usuarios de empresas externas en el catálogo online
 
+### Corregido
+- En el proyecto, inicialmente, se había commitado vendor. Se elimina
 
 ## [2.2.0] - 2018-05-23
 ### Añadido
