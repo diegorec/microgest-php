@@ -2,11 +2,13 @@
 
 use clientecatalogo\Login;
 use clientecatalogo\objetos\Usuario;
+use clientecatalogo\objetos\OpcionesExtra;
 
 class LoginCatalogo {
 
     public $tokenPublico = CLAVELOGIN;
     public $url = "http://catalogoonline.recalvi.es/privado/cesta";
+    public $urlBase = "http://192.168.1.199:8081";
 
     public function generar($parametros) {
         $usuario = new Usuario();
@@ -14,10 +16,16 @@ class LoginCatalogo {
         $usuario->identidad = $parametros["correo"];
         $usuario->contrasena = $parametros["pass"];
         $usuario->empresa = $this->getNombreEmpresaExterna(intval($parametros["empresa"]));
+        $usuario->anadirExtra(OpcionesExtra::$CERRAR_DESPUES_PEDIR);
+        $usuario->anadirExtra(OpcionesExtra::$VER_CABECERA);
+        $usuario->anadirExtra(OpcionesExtra::$VER_PEDIDO);
         $this->tokenPublico = $this->getTokenEmpresaExterna(intval($parametros["empresa"]));
         _echo("Usamos token público: $this->tokenPublico");
         $login = new Login($usuario, $this->tokenPublico);
+        $login->_url = $this->urlBase;
         $string = $login->getLogin();
+
+        _echo("token l: $string");
         if (isset($parametros["ruta"])) {
             _echo("Guardamos en: " . $parametros["ruta"]);
             file_put_contents($parametros["ruta"], "$this->url?$string");

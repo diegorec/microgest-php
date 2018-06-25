@@ -1,22 +1,25 @@
 <?php
 
-// ALTA: php ~/alta-usuarios/index.php cliente-catalogo recalvi 502 0
-// BAJA:  php ~/alta-usuarios/index.php baja-cliente-catalogo recalvi 502 0
-
 include __DIR__ . '/configuracion.php';
 include __DIR__ . '/./vendor/autoload.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
+use phpcli\Colors;
 
-$date = date('YW');
-$name = "preproducción";
-$logger = new Logger($name);
-$logger->pushHandler(new StreamHandler(RUTA_COMANDOS_BASE . "$date.log", Logger::INFO));
-$logger->pushHandler(new FirePHPHandler());
-$comando = implode(' ', $argv);
-$logger->addInfo("[$comando]");
+$colors = new Colors();
+try {
+    $date = date('YW');
+    $name = "preproducción";
+    $logger = new Logger($name);
+    $logger->pushHandler(new StreamHandler(RUTA_COMANDOS_BASE . "$date.log", Logger::INFO));
+    $logger->pushHandler(new FirePHPHandler());
+    $comando = implode(' ', $argv);
+    $logger->addInfo("[$comando]");
+} catch (UnexpectedValueException $e) {
+    _echo($colors->error($e->getMessage()));
+}
 
 
 $permitidos = array(

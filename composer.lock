@@ -134,10 +134,11 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/cliente-catalogo-login.git",
-                "reference": "04f420f16606042e58adc51df5d1b257c0a84e3f"
+                "reference": "6cec26b33c7e3d1bc1079c624b61bfc2abfb0db5"
             },
             "require": {
                 "diego/_xor": "dev-master",
+                "garoevans/php-enum": "^1.2",
                 "php-curl-class/php-curl-class": "^8.0"
             },
             "type": "library",
@@ -154,7 +155,7 @@
                 }
             ],
             "description": "Biblioteca para realizar login en el catálogo",
-            "time": "2018-05-22T16:05:12+00:00"
+            "time": "2018-06-25T12:49:07+00:00"
         },
         {
             "name": "diego/convertidores",
