@@ -12,6 +12,9 @@ Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v
 ### Modificado
 - Se crean los logins en el catálogo con el id de la empresa externa
 
+### Corregido
+- Error al enviar matrículas
+
 ## [2.2.1]  - 2018-06-22
 ### Modificado
 - Creación de usuarios de empresas externas en el catálogo online

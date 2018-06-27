@@ -1,7 +1,5 @@
 <?php
 
-use clientecatalogo\Login;
-use clientecatalogo\objetos\Usuario;
 use grcURL\Request;
 
 /**
@@ -15,19 +13,19 @@ class Matriculas {
     public $tokenPublico = CLAVELOGIN;
 
     public function __construct() {
-        $this->usuario = new Usuario();
-        $this->usuario->centro = "recalvi";
-        $this->usuario->identidad = "diegogonda@recalvi.es";
-        $this->usuario->contrasena = "chari";
-        $this->usuario->empresa = "internos";
+        $this->usuario = array(
+            'centro' => "recalvi", 
+            "correo" => "diegogonda@recalvi.es", 
+            "pass" => "chari", 
+            "empresa" => 0
+        );
     }
-
+    
     public function _get($comandos) {
         $centro = $comandos['centro'];
         $actualiza = $comandos['suma'];
-        $login = new Login($this->usuario, $this->tokenPublico);
-        $login->url = SERVIDOR;
-        $loginstr = $login->getLogin();
+        $login = new LoginCatalogo();
+        $loginstr = $login->generar($this->usuario);
         $url = SERVIDOR . "mantenimiento/contadormatriculas/centro/$centro/sumador/$actualiza?$loginstr";
         _echo ($url);
         $ficheroLog = _getRutaLog();
