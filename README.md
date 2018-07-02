@@ -75,5 +75,5 @@ php /mnt/imagenes/php/catalogov2/index.php precios-soledad -p 0
 5. **-r** Ruta del fichero resultante con el login completo
 
 ```bash
-php /mnt/imagenes/php/catalogov2/index.php login-catalogo -c recalvi -co antoniogonzalez@m2m_recalvi.com -p Soledad2017 -e internos -r /home/gr/temporales-catalogov2/ficherologinproduccion.txt
+php /mnt/imagenes/php/catalogov2/index.php login-catalogo -c recalvi -co antoniogonzalez@m2m_recalvi.com -p Soledad2017 -e 3 -r /home/gr/temporales-catalogov2/ficherologinproduccion.txt
 ```

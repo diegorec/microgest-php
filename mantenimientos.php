@@ -25,7 +25,7 @@ try {
             $clase = $valor->clase;
             $metodo = $valor->metodo;
             $objeto = new $clase();
-            if ($valor->parametros) {
+            if (isset($valor->parametros)) {
                 foreach ($valor->parametros as $pClave => $pValor) {
                     $pMetodoSet = "set$pClave";
                     if (method_exists($clase, $pMetodoSet)) {
