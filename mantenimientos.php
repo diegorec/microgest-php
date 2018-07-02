@@ -25,6 +25,15 @@ try {
             $clase = $valor->clase;
             $metodo = $valor->metodo;
             $objeto = new $clase();
+            if ($valor->parametros) {
+                foreach ($valor->parametros as $pClave => $pValor) {
+                    $pMetodoSet = "set$pClave";
+                    if (method_exists($clase, $pMetodoSet)) {
+                        _echo($colors->info("Se añade a la clase $clase la variable $pMetodoSet"));
+                        $objeto->$pMetodoSet($pValor);
+                    }
+                }
+            }
             $respuesta [] = $objeto->$metodo($comandos);
             _echo($colors->info("## Se finaliza la ejecución de la acción: $clave"));
         }

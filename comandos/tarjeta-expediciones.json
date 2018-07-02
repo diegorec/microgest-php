@@ -1,0 +1,22 @@
+{
+
+    "cantidad": 2,
+    "indices": {
+        "-o": {
+            "tag": "fichero-origen",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-d": {
+            "tag": "fichero-destino",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "generar-tarjeta": {
+            "clase": "TarjetaExpediciones",
+            "metodo": "generar"
+        }
+    }   
+}

@@ -10,10 +10,22 @@ php /mnt/imagenes/php/probasv2/index.php clientes-catalogo-baja -c recalvi -n 23
 
 # VACIADO DE LA CACHE DE PUBLICIDADES
 ```bash
+php /mnt/imagenes/php/catalogov2/index.php eliminar-publicidades -c recalvi
+```
+
+### comando obsoleto
+Este era el comando usado anteriormente
+```bash
 php /mnt/imagenes/php/catalogov2/index.php eliminar-publicidades recalvi 5215 0
 ```
 
 # VACIADO DE LA CACHE DE GENÉRICOS
+```bash
+php /mnt/imagenes/php/catalogov2/index.php eliminar-genericos -c recalvi
+```
+
+### comando obsoleto
+Este era el comando usado anteriormente
 ```bash
 php /mnt/imagenes/php/catalogov2/index.php eliminar-genericos-padre recalvi 5215 0
 ```

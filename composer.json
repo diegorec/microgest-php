@@ -25,6 +25,7 @@
         "diego/gr-curl-easy": "dev-master",
         "diego/soledad2microgest": "dev-master",
         "diego/phpcli": "dev-master",
+        "diego/pdf-code128": "dev-master",
         "catfan/medoo": "dev-master"
     },
     "repositories": [
@@ -63,6 +64,10 @@
         {
             "type": "vcs",
             "url": "http://192.168.1.4:88/diego/soledad2microgest.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.4:88/diego/pdf-code128.git"
         },
         {
             "type": "vcs",

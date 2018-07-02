@@ -14,6 +14,7 @@ define('RUTA_COMANDOS_BASE', "/var/log/grcurl/comandos-");
 define('RUTA_FICHEROSTEMPORALES', "/home/gr/temporales-catalogov2");
 define('RUTA_COMANDOS', "/mnt/imagenes/php/probasv2/comandos/");
 define('RUTA_PARAMS', "/mnt/imagenes/php/probasv2/params/");
+define('RUTA_ASSETS', "/mnt/imagenes/php/probasv2/assets/");
 define('LOGGERTAG', "192.168.1.50:mantenimientos-catalogo");
 define('CLAVELOGIN', "NSM3JygkKRxRXF1TOj4nICstCVFEUVJdQj");
 

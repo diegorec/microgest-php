@@ -45,7 +45,19 @@ if (!(isset($argv[1]) && is_string($argv[1]) && isset($argv[2]) && is_string($ar
     $subdivision = $argv[4];
     $empresa = 0;
     $cliente = 0;
-    $comando = "php " . __DIR__ . "/mantenimientos.php clientes-catalogo -c $centro -n $nocliente -s $subdivision -e $empresa -cli $cliente";
+    $comando = "sudo php " . __DIR__ . "/mantenimientos.php clientes-catalogo -c $centro -n $nocliente -s $subdivision -e $empresa -cli $cliente";
+    _echo("COMANDO: $comando");
+    _echo(shell_exec($comando));
+    exit();
+} else if (strcmp($argv[1], 'eliminar-publicidades') === 0) {
+    $centro = $argv[2];
+    $comando = "sudo php " . __DIR__ . "/mantenimientos.php eliminar-publicidades -c $centro";
+    _echo("COMANDO: $comando");
+    _echo(shell_exec($comando));
+    exit();
+} else if (strcmp($argv[1], 'eliminar-genericos-padre') === 0) {
+    $centro = $argv[2];
+    $comando = "sudo php " . __DIR__ . "/mantenimientos.php eliminar-genericos -c $centro";
     _echo("COMANDO: $comando");
     _echo(shell_exec($comando));
     exit();

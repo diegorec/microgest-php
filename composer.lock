@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "558d711acba9fb1e33521151750ee302",
+    "content-hash": "2ebe4b27442c777757e7cb9f556de44b",
     "packages": [
         {
             "name": "bigfish/pdf417",
@@ -240,7 +240,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.4:88/diego/gr-curl-easy.git",
-                "reference": "aa8e0d0b4f192d76e9dd96d74f5e35a9af1d8d40"
+                "reference": "fc1139a787db1fa013069cae3f144a8db56c49e2"
             },
             "require": {
                 "garoevans/php-enum": "^1.2",
@@ -264,7 +264,31 @@
                 }
             ],
             "description": "Description of project curl-easy.",
-            "time": "2018-06-14T10:58:56+00:00"
+            "time": "2018-06-28T10:53:02+00:00"
+        },
+        {
+            "name": "diego/pdf-code128",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "http://192.168.1.4:88/diego/pdf-code128.git",
+                "reference": "c7a5a2c121046257e619cc9c17cd2b910aa82873"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "fpdf\\": "src/",
+                    "fpdf\\font\\": "src/font/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "diego",
+                    "email": "diegogonda@recalvi.es"
+                }
+            ],
+            "description": "Description of project pdf-code128.",
+            "time": "2018-06-29T13:20:43+00:00"
         },
         {
             "name": "diego/phpcli",
@@ -1211,6 +1235,7 @@
         "diego/gr-curl-easy": 20,
         "diego/soledad2microgest": 20,
         "diego/phpcli": 20,
+        "diego/pdf-code128": 20,
         "catfan/medoo": 20
     },
     "prefer-stable": false,
