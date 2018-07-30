@@ -4,8 +4,8 @@ require __DIR__ . '/BaseDatos.php';
 include __DIR__ . '/librerias/autoload.php';
 require __DIR__ . '/basesdatosexterna.php';
 
-//define ('SERVIDOR', 'http://192.168.1.4/');
-define('SERVIDOR', 'http://192.168.1.199:8081/catalogo/');
+define ('SERVIDOR', 'http://192.168.1.4/');
+//define('SERVIDOR', 'http://192.168.1.199:8081/catalogo/');
 
 define('MENSAJESTERMINAL', true);
 define('USER_AGENT', '192.168.1.50:mantenimientos');

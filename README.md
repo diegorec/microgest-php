@@ -77,3 +77,8 @@ php /mnt/imagenes/php/catalogov2/index.php precios-soledad -p 0
 ```bash
 php /mnt/imagenes/php/catalogov2/index.php login-catalogo -c recalvi -co antoniogonzalez@m2m_recalvi.com -p Soledad2017 -e 3 -r /home/gr/temporales-catalogov2/ficherologinproduccion.txt
 ```
+
+# GENERAR UNA TARJETA DE EXPEDICIONES
+```bash
+php /mnt/imagenes/php/probas2/index.php tarjeta-expediciones -o ruta_json_datos.json -d ruta_pdf_destino.pdf
+```
