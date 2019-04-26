@@ -22,11 +22,13 @@ class ClientesCatalogo {
     }
 
     public function crear($comandos) {
-        _echo ("creamos el cliente");
+        _echo("creamos el cliente");
+        _var_dump($comandos);
         $urlCatalogo = SERVIDOR . "$this->uri?$this->loginToken";
+        _echo($urlCatalogo);
         $request = new Request($urlCatalogo, _getRutaLog());
         $request->_USERAGENT = USER_AGENT;
-        
+
         $respuesta = $request->post($comandos);
         _var_dump($respuesta);
     }

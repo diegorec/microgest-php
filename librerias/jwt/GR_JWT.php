@@ -1,13 +1,21 @@
 <?php
 
-class GR_JWT extends \Firebase\JWT\JWT {
+use \Firebase\JWT\JWT as FirebaseJWT;
 
-    public static function encode($payload, $key= null, $alg = 'HS256', $keyId = NULL, $head = NULL) {
-        return parent::encode($payload, self::recuperarClave());
+class GR_JWT {
+
+    public $fbjwt;
+
+    public function __construct() {
+        $this->fbjwt = new FirebaseJWT();
     }
 
-    public static function decode($jwt, $key, $allowed_algs = array()) {
-        return parent::decode($jwt, $key);
+    public static function encode($payload) {
+        return $this->fbjwt->encode($payload, self::recuperarClave());
+    }
+
+    public static function decode($jwt, $key) {
+        return $this->fbjwt->decode($jwt, $key);
     }
 
     /**
@@ -29,7 +37,7 @@ class GR_JWT extends \Firebase\JWT\JWT {
      * Devuelve una de las las claves que actualmente están activas en el sistema.
      */
     public static function recuperarClave() {
-        return '0d065aaee39dcdb5cc06def6526f9399ec8da19abce841b0f60eb8892ce346856d732d901274456f89a5f421354fd0abdf62943ebba88c14134ca37b79cd7b4d';//(new BaseDatos())->select_row('SELECT clave FROM claves WHERE activa = 1 ORDER BY RAND() LIMIT 1')['clave'];
+        return '0d065aaee39dcdb5cc06def6526f9399ec8da19abce841b0f60eb8892ce346856d732d901274456f89a5f421354fd0abdf62943ebba88c14134ca37b79cd7b4d'; //(new BaseDatos())->select_row('SELECT clave FROM claves WHERE activa = 1 ORDER BY RAND() LIMIT 1')['clave'];
     }
 
 }

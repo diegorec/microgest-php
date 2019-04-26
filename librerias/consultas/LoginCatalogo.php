@@ -8,7 +8,7 @@ class LoginCatalogo {
 
     public $tokenPublico = CLAVELOGIN;
     public $url = "http://catalogoonline.recalvi.es/privado/cesta";
-    public $urlBase = "http://192.168.1.199:8081";
+    public $urlBase = "http://catalogoonline.recalvi.es";
 
     public function generar($parametros) {
         $usuario = new Usuario();
