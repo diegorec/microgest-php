@@ -1,0 +1,21 @@
+{
+    "cantidad": 2,
+    "indices": {
+        "-r": {
+            "tag": "ruta",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-d": {
+            "tag": "fichero-destino",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "generar-tarjeta": {
+            "clase": "TarjetaFichaje",
+            "metodo": "generar"
+        }
+    }
+}

@@ -41,10 +41,17 @@ php /mnt/imagenes/php/catalogov2/index.php matriculas -c recalvi -s 0
 ```
 
 # GENERACIÓN DE UN DOCUMENTO RPV CON UN CÓDIGO DE BARRAS Y UN TEXTO
+### Obsoleta
 -r Ruta donde se dejarán los archivos resultantes (imagen y rpv)
 -s String a codificar
 ```bash
 php /mnt/imagenes/php/catalogov2/index.php tarjeta-personal -r ./ruta -s "string a codificar"
+```
+### Nueva funcionalidad
+-r ruta al CSV de los datos a imprimir
+-d ruta al pdf destino
+```bash
+php index.php tarjeta-fichaje -r ./ruta/fichero.csv -d ./ruta/fichero.pdf
 ```
 
 # GENERAR DOCUMENTOS DE LAS RUEDAS DE RECALVI
