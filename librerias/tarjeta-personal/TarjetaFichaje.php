@@ -1,26 +1,18 @@
 <?php
 
 use convertidores\CSVHandler;
-use documentos\imagenes\GRBarcodeGenerator;
+use Picqer\Barcode\BarcodeGeneratorPNG;
 
 class TarjetaFichaje {
 
     public $barcodeGenerator;
     public $tarjetaXpagina = 12;
-    public $nombreMaxLength = 30;
+    public $nombreMaxLength = 15;
+    public $code;
 
     public function __construct() {
-        $this->barcodeGenerator = new GRBarcodeGenerator();
-        $this->barcodeGenerator->setOptionsImageRenderer(array(
-            "format" => "jpg",
-            "ratio" => 7,
-            "scale" => 1,
-            "quality" => 10,
-            "padding" => 1,
-            "color" =>
-            "#000000",
-            "bgColor" => "#ffffff"
-        ));
+        $this->barcodeGenerator = new BarcodeGeneratorPNG();
+        $this->code = BarcodeGeneratorPNG::TYPE_CODE_128;
     }
 
     public function generar($comandos) {
@@ -33,12 +25,10 @@ class TarjetaFichaje {
             if (isset($usuario->nombre)) {
                 $vista = new TarjetaFichajeVista();
                 $vista->centro = $usuario->centro;
-                $vista->nombre = $this->getNombreFormateado($usuario->nombre);
+                $vista->nombre = $usuario->nombre;
                 $vista->pie = $this->getAlmacenFormateado($usuario->idalmacen, $usuario->almacen);
                 $vista->telefono = $this->getTelefonoFormateado($usuario->telefono);
-                $codigosBarras[$clave] = RUTA_FICHEROSTEMPORALES . "/tarjeta-personal/" . base64_encode($usuario->etiqueta) . ".jpg";
-                $this->barcodeGenerator->saveBarcodeEncoded($codigosBarras[$clave], $usuario->etiqueta, "B-<3ec.~4zC|^{.}Z/(b|7,gERz(] 7v67k:Nd{_d4;|HT=TW7[82u/EFii=SI-$");
-                $vista->codigoBarras = $codigosBarras[$clave];
+                $vista->codigoBarras = $this->barcodeGenerator->getBarcode($usuario->etiqueta, $this->code);
                 $tarjetas [] = $vista->generarTarjeta();
                 $i++;
                 if ($this->tarjetaXpagina === $i) {
@@ -64,8 +54,8 @@ class TarjetaFichaje {
                 </body>
             <html>");
         shell_exec("/usr/bin/wkhtmltopdf.sh  -L 0 -R 0 -T 0 -B 0 -O landscape $filenameHTML $filenamePDF");
-        $this->borrarTemporal($filenameHTML);
-        $this->borrarTemporales($codigosBarras);
+//        $this->borrarTemporal($filenameHTML);
+//        $this->borrarTemporales($codigosBarras);
     }
 
     public function getUsuarios($filename) {

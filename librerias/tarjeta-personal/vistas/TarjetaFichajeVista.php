@@ -18,12 +18,12 @@ class TarjetaFichajeVista {
                 </div>
                 <div class=\"pie\">
                     <strong>$this->pie</strong></div>
-                <img class=\"codigo-barras\" src=\"$this->codigoBarras\"/>
+                <img class=\"codigo-barras\" src=\"data:image/png;base64, " . base64_encode($this->codigoBarras) . "\"/>
             </div>";
     }
 
     public function generarCSS() {
-        return " body {
+        return "body {
               font-family: Helvetica;
 }
 .tarjeta {
@@ -41,25 +41,30 @@ class TarjetaFichajeVista {
   font-size: 3.5mm;
 }
 .nombre, .texto {
+  max-width: 50mm;
   position: relative;
   top: 25%;
   left: 23.5%;
 }
+
+.nombre {
+  min-height: 10mm;
+}
 .texto {
   font-size: 3mm;
-  max-width: 50mm;
 }
 
 .pie {
   position: relative;
-  top: 48%;
+  top: 40%;
   left: 5mm;
   font-size: 4.5mm;
 }
 .codigo-barras {
-  width: 64mm;
+  max-width: 40mm;
+  height: 10mm;
   position: relative;
-  left: 60%;
+  left: 65%;
   bottom: 13mm;
   transform: rotate(270deg);
   -webkit-transform: rotate(270deg);
