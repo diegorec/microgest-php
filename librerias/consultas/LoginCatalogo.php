@@ -7,8 +7,8 @@ use clientecatalogo\objetos\OpcionesExtra;
 class LoginCatalogo {
 
     public $tokenPublico = CLAVELOGIN;
-    public $url = "http://catalogoonline.recalvi.es/privado/cesta";
-    public $urlBase = "http://catalogoonline.recalvi.es";
+    public $url = SERVIDOR . "privado/cesta";
+    public $urlBase = SERVIDOR;
 
     public function generar($parametros) {
         $usuario = new Usuario();
