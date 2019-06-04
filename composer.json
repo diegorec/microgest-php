@@ -9,6 +9,9 @@
             "email": "diegogonda@recalvi.es"
         }
     ],
+    "config": {
+        "secure-http": false
+    },
     "require": {
         "php": ">=5.2.4",
         "react/cache": "0.4.*",
