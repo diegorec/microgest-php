@@ -35,47 +35,47 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/cliente-catalogo-login.git"
+            "url": "http://192.168.1.8/diego/cliente-catalogo-login.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/gr-barcode-generator.git"
+            "url": "http://192.168.1.8/diego/gr-barcode-generator.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/rpv-generator.git"
+            "url": "http://192.168.1.8/diego/rpv-generator.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/_xor.git"
+            "url": "http://192.168.1.8/diego/_xor.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/tarjeta-personal.git"
+            "url": "http://192.168.1.8/diego/tarjeta-personal.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/gr-curl-easy.git"
+            "url": "http://192.168.1.8/diego/gr-curl-easy.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/convertidores.git"
+            "url": "http://192.168.1.8/diego/convertidores.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/correctores.git"
+            "url": "http://192.168.1.8/diego/correctores.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/soledad2microgest.git"
+            "url": "http://192.168.1.8/diego/soledad2microgest.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/pdf-code128.git"
+            "url": "http://192.168.1.8/diego/pdf-code128.git"
         },
         {
             "type": "vcs",
-            "url": "http://192.168.1.4:88/diego/phpcli.git"
+            "url": "http://192.168.1.8/diego/phpcli.git"
         }
     ]
 }
