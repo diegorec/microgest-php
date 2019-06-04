@@ -107,7 +107,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/_xor.git",
+                "url": "http://192.168.1.8/diego/_xor.git",
                 "reference": "7222930a01412d0f328fc5a27ea0c3d53307eb3f"
             },
             "require": {
@@ -133,7 +133,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/cliente-catalogo-login.git",
+                "url": "http://192.168.1.8/diego/cliente-catalogo-login.git",
                 "reference": "6cec26b33c7e3d1bc1079c624b61bfc2abfb0db5"
             },
             "require": {
@@ -162,7 +162,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/convertidores.git",
+                "url": "http://192.168.1.8/diego/convertidores.git",
                 "reference": "cdef8fbe5dc2af3df735091f276c4f62a227f048"
             },
             "require": {
@@ -188,7 +188,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/correctores.git",
+                "url": "http://192.168.1.8/diego/correctores.git",
                 "reference": "3716d1d0ab64b0cd96b8643621402cb86abf9354"
             },
             "type": "library",
@@ -211,7 +211,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/gr-barcode-generator.git",
+                "url": "http://192.168.1.8/diego/gr-barcode-generator.git",
                 "reference": "25ee371b5ffe26eaa297e304318e9ebeac898607"
             },
             "require": {
@@ -239,7 +239,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/gr-curl-easy.git",
+                "url": "http://192.168.1.8/diego/gr-curl-easy.git",
                 "reference": "fc1139a787db1fa013069cae3f144a8db56c49e2"
             },
             "require": {
@@ -271,7 +271,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/pdf-code128.git",
+                "url": "http://192.168.1.8/diego/pdf-code128.git",
                 "reference": "c7a5a2c121046257e619cc9c17cd2b910aa82873"
             },
             "type": "library",
@@ -295,7 +295,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/phpcli.git",
+                "url": "http://192.168.1.8/diego/phpcli.git",
                 "reference": "dbe4b515e0fb0e07f1bee76910432514199d0ab5"
             },
             "type": "library",
@@ -318,7 +318,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/rpv-generator.git",
+                "url": "http://192.168.1.8/diego/rpv-generator.git",
                 "reference": "583af31eb7db9a4c8271280ffed2e6622ac002da"
             },
             "type": "library",
@@ -341,7 +341,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/soledad2microgest.git",
+                "url": "http://192.168.1.8/diego/soledad2microgest.git",
                 "reference": "bb23e2bf26d10bdffff04776fdf51a6b79ae1932"
             },
             "require": {
@@ -370,7 +370,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "http://192.168.1.4:88/diego/tarjeta-personal.git",
+                "url": "http://192.168.1.8/diego/tarjeta-personal.git",
                 "reference": "709e9d0ef505b116f4d1a66711ea5a286d68031f"
             },
             "require": {
