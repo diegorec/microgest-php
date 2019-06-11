@@ -1,18 +1,7 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace conexiones;
 
-/**
- * Description of ConexionesToken
- *
- * @author diego.gonda
- */
 class ConexionesToken extends \conexiones\Conexiones {
 
     private $centro;
@@ -24,6 +13,7 @@ class ConexionesToken extends \conexiones\Conexiones {
     private $string;
     private $token;
     private $l;
+    private $urlBase;
 
     public function __construct() {
         parent::__construct();
@@ -33,11 +23,12 @@ class ConexionesToken extends \conexiones\Conexiones {
         $this->ttl = date('Y-m-d h:i:s');
         $this->clave = "GFTFDR@@5584UYHNOLI#!2314PPR6543";
         $this->empresa = "soledad";
+        $this->urlBase = SERVIDOR;
 
         $this->string = "$this->centro\\$this->email|$this->contrasena|$this->ttl";
 
         $this->token = $this->encode($this->string, $this->clave);
-        
+
         $this->solicitarTokenValido($this->token, $this->empresa);
     }
 
@@ -93,7 +84,7 @@ class ConexionesToken extends \conexiones\Conexiones {
     }
 
     public function solicitarTokenValido($token, $empresa) {
-        $solicitudToken = "http://192.168.1.4/d_catalogo_online/login?t=$token&e=$empresa";
+        $solicitudToken = "$this->urlBase/login?t=$token&e=$empresa";
         _echo("Solicitando un token válido: $solicitudToken");
         $l = parent::blocking1x1([$solicitudToken]);
         $this->l = $l[1];
