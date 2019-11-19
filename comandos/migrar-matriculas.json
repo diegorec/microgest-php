@@ -1,0 +1,10 @@
+{
+    "cantidad": 0,
+    "indices": {},
+    "acciones": {
+        "modificar-almacenes": {
+            "clase": "\\cloud\\Matriculas",
+            "metodo": "migrar"
+        }
+    }
+}

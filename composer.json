@@ -29,8 +29,8 @@
         "diego/soledad2microgest": "dev-master",
         "diego/phpcli": "dev-master",
         "diego/pdf-code128": "dev-master",
-        "catfan/medoo": "dev-master",
-        "picqer/php-barcode-generator": "dev-master"
+        "picqer/php-barcode-generator": "dev-master",
+        "diegogonda/medoo": "dev-master"
     },
     "repositories": [
         {
