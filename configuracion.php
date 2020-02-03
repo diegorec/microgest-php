@@ -4,19 +4,19 @@ require __DIR__ . '/BaseDatos.php';
 include __DIR__ . '/librerias/autoload.php';
 require __DIR__ . '/basesdatosexterna.php';
 
-define('SERVIDOR', 'http://192.168.1.5/');
-//define('SERVIDOR', 'http://catalogoonline.recalvi.es/');
+define('SERVIDOR', 'http://192.168.1.8:8081/');
 
-define('MENSAJESTERMINAL', FALSE);
-define('USER_AGENT', '192.168.1.50:mantenimientos');
-define('RUTA_LOG_BASE', "/mnt/imagenes/php/probasv2/log/output-");
-define('RUTA_COMANDOS_BASE', "/mnt/imagenes/php/probasv2/log/comandos-");
-define('RUTA_FICHEROSTEMPORALES', "/home/gr/temporales-catalogov2");
-define('RUTA_COMANDOS', "/mnt/imagenes/php/probasv2/comandos/");
-define('RUTA_PARAMS', "/mnt/imagenes/php/probasv2/params/");
-define('RUTA_ASSETS', "/mnt/imagenes/php/probasv2/assets/");
-define('LOGGERTAG', "192.168.1.50:mantenimientos-catalogo");
+define('MENSAJESTERMINAL', TRUE);
+define('USER_AGENT', '192.168.1.154:microgest-php:pruebas');
+define('RUTA_LOG_BASE', "/home/diego/workspace/htdocs/microgest-php/log/output-");
+define('RUTA_COMANDOS_BASE', "/home/diego/workspace/htdocs/microgest-php/log/comandos-");
+define('RUTA_FICHEROSTEMPORALES', "/home/diego/workspace/htdocs/microgest-php/log/");
+define('RUTA_COMANDOS', "/home/diego/workspace/htdocs/microgest-php/comandos/");
+define('RUTA_PARAMS', "/home/diego/workspace/htdocs/microgest-php/params/");
+define('RUTA_ASSETS', "/home/diego/workspace/htdocs/microgest-php/assets/");
+define('LOGGERTAG', "192.168.1.154:microgest-php");
 define('CLAVELOGIN', "NSM3JygkKRxRXF1TOj4nICstCVFEUVJdQj");
+define('DOCUMENTO_PERSONAL', "http://catalogoonline.recalvi.es/imagenesgestion/personal/");
 
 function _echo($string) {
     if (MENSAJESTERMINAL) {

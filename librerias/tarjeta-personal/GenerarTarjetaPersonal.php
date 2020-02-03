@@ -27,7 +27,7 @@ class GenerarTarjetaPersonal {
         $this->tarjetaPersonal->setPersonalEmail($email);
         $this->tarjetaPersonal->setPersonalEmpresa($empresa);
 
-         $this->tarjetaPersonal->setUrlBase("http://catalogoonline.recalvi.es/imagenesgestion/personal/");
+        $this->tarjetaPersonal->setUrlBase(DOCUMENTO_PERSONAL);
         
         $this->tarjetaPersonal->setRutaGeneral($ruta);
         $this->tarjetaPersonal->inicializarRutas($dni);
