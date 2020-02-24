@@ -25,3 +25,21 @@ $basesdatos['cloud'] = array(
     'username' => 'diego',
     'password' => '.#diego#.'
 );
+
+$basesdatos['cloud_norte'] = array(
+    'database_type' => 'mysql',
+    'database_name' => 'microgest_norte',
+    'prefix' => 'mgc_',
+    'server' => '192.168.1.197',
+    'username' => 'diego',
+    'password' => '.#diego#.'
+);
+
+$basesdatos['cloud_prisauto'] = array(
+    'database_type' => 'mysql',
+    'database_name' => 'microgest',
+    'prefix' => 'mgc_',
+    'server' => '212.170.108.4',
+    'username' => 'admin',
+    'password' => '.#kas_do#.'
+);

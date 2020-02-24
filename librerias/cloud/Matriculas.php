@@ -12,14 +12,25 @@ class Matriculas {
     public function __construct() {
         global $basesdatos;
         $this->dbOrigen = new \Medoo\Medoo($basesdatos['catalogo']);
-        $this->dbDestino = new \Medoo\Medoo($basesdatos['cloud']);
         $this->date = date('Y-m-d', strtotime("-1 day"));
+    }
+
+    public function generateCloudDatabaseConexion($centro) {
+        global $basesdatos;
+        if ($centro === 1) {
+            $this->dbDestino = new \Medoo\Medoo($basesdatos['cloud']);
+        } else if ($centro === 9) {
+            $this->dbDestino = new \Medoo\Medoo($basesdatos['cloud_norte']);
+        } else if ($centro === 3) {
+            $this->dbDestino = new \Medoo\Medoo($basesdatos['cloud_prisauto']);
+        }
     }
 
     public function migrar($parametros) {
         _echo("Inicio migración");
         _var_dump($parametros);
         $centro = $parametros['centro'];
+        $this->generateCloudDatabaseConexion(intval($centro));
         if (isset($parametros['fecha'])) {
             if (\DateTime::createFromFormat('Y-m-d', $parametros['fecha']) === FALSE) {
                 throw new \Exception("Formato de fecha incorrecto");

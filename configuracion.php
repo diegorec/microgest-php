@@ -8,12 +8,12 @@ define('SERVIDOR', 'http://192.168.1.8:8081/');
 
 define('MENSAJESTERMINAL', TRUE);
 define('USER_AGENT', '192.168.1.154:microgest-php:pruebas');
-define('RUTA_LOG_BASE', "/home/diego/workspace/htdocs/microgest-php/log/output-");
-define('RUTA_COMANDOS_BASE', "/home/diego/workspace/htdocs/microgest-php/log/comandos-");
-define('RUTA_FICHEROSTEMPORALES', "/home/diego/workspace/htdocs/microgest-php/log/");
-define('RUTA_COMANDOS', "/home/diego/workspace/htdocs/microgest-php/comandos/");
-define('RUTA_PARAMS', "/home/diego/workspace/htdocs/microgest-php/params/");
-define('RUTA_ASSETS', "/home/diego/workspace/htdocs/microgest-php/assets/");
+define('RUTA_LOG_BASE', "/var/log/grcurl/output-");
+define('RUTA_COMANDOS_BASE', "/var/log/grcurl/comandos-");
+define('RUTA_FICHEROSTEMPORALES', "/var/log/grcurl/temp-");
+define('RUTA_COMANDOS', "comandos/");
+define('RUTA_PARAMS', "params/");
+define('RUTA_ASSETS', "assets/");
 define('LOGGERTAG', "192.168.1.154:microgest-php");
 define('CLAVELOGIN', "NSM3JygkKRxRXF1TOj4nICstCVFEUVJdQj");
 define('DOCUMENTO_PERSONAL', "http://catalogoonline.recalvi.es/imagenesgestion/personal/");
