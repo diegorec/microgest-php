@@ -19,9 +19,9 @@ $basesdatos['catalogo'] = array(
 
 $basesdatos['cloud'] = array(
     'database_type' => 'mysql',
-    'database_name' => 'microgest_pruebas',
+    'database_name' => 'microgest',
     'prefix' => 'mgc_',
-    'server' => '192.168.1.8',
+    'server' => '192.168.1.197',
     'username' => 'diego',
     'password' => '.#diego#.'
 );

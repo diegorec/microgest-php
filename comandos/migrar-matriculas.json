@@ -1,8 +1,19 @@
 {
-    "cantidad": 0,
-    "indices": {},
+    "cantidad": 1,
+    "indices": {
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-f": {
+            "tag": "fecha",
+            "obligatorio": false,
+            "tipo": "is_string"
+        }
+    },
     "acciones": {
-        "modificar-almacenes": {
+        "migrar-matriculas": {
             "clase": "\\cloud\\Matriculas",
             "metodo": "migrar"
         }
