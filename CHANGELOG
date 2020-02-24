@@ -8,6 +8,10 @@ Esta versión 2.0.0 contendrá en el primer campo de añadido todas las funciona
 Basado en el formato [Mantener un changelog](http://keepachangelog.com/en/1.0.0/)
 Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v2.0.0.html).
 
+## [2.5.0] - 2020-02-22
+### Añadido
+- Consulta para el informe de matrículas
+
 ## [2.4.0] - 2019-05-08
 ### Añadido
 - Nueva tarjeta de fichaje
