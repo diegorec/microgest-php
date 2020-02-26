@@ -2,6 +2,7 @@
 
 use grcURL\FTP;
 use soledad2microgest\SoledadConvertidor;
+use convertidores\JSONHandler;
 use convertidores\CSVHandler;
 use convertidores\PRNHandler;
 
@@ -16,8 +17,8 @@ class NeumaticosSoledad {
     public $ftpstock;
     public $url = "ftp://servicios.gruposoledad.net/articles/MasterArticles.csv";
     public $useragent = "UA::PRUEBASLIBRERIA";
-    public $usuario = "recalvi107827";
-    public $contrasena = "re107827";
+    public $usuario;
+    public $contrasena;
     public $ficheroOrigenMasters;
     public $ficheroDestinoMasters;
     public $ficheroDestinoMastersMicrogest;
@@ -31,39 +32,57 @@ class NeumaticosSoledad {
 
     public function __construct() {
         $this->ficheroLog = _getRutaLog();
-        $this->ftp = new FTP("ftp://servicios.gruposoledad.net/articles/MasterArticles.csv", $this->ficheroLog);
-        $this->ftp->_USERAGENT = $this->useragent;
-        $this->ftp->usuario = "recalvi107827";
-        $this->ftp->contrasena = "re107827";
-        $this->ficheroOrigenMasters = RUTA_FICHEROSTEMPORALES . "/masters.csv";
-        $this->ficheroDestinoMastersMicrogest = RUTA_FICHEROSTEMPORALES . "/m-mg.prn";
-        $this->ficheroDestinoMastersMicrogestDetalles = RUTA_FICHEROSTEMPORALES . "/m-mg-d.prn";
-        $this->ficheroOrigenStock = RUTA_FICHEROSTEMPORALES . "/stock.csv";
-        $this->ficheroDestinoPreciosMicrogest = RUTA_FICHEROSTEMPORALES . "/precios.prn";
         $this->csv2json = new CSVHandler();
         $this->prnHandler = new PRNHandler();
         $this->convertidorNeumaticos = new SoledadConvertidor();
     }
 
     public function _generarMasters($comandos) {
+        $this->extraerConfiguracion((int) $comandos['centro']);
         $this->obtenerFicheroMasters();
         $neumaticosSoledad = $this->csv2json->_toJSON($this->ficheroOrigenMasters);
-        
+
         $this->generarPRNDetalles($neumaticosSoledad);
         $this->generarPRNNeumaticos($neumaticosSoledad);
-        
-        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"1$this->ficheroDestinoMastersMicrogest\"");
-        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"2$this->ficheroDestinoMastersMicrogestDetalles\"");
+
+        $centro = str_pad($comandos['centro'], 2, 0, STR_PAD_LEFT);
+        $comandoFicheroMasters = str_pad($this->ficheroDestinoMastersMicrogest, 50);
+        $comandoFicheroMastersDetalles = str_pad($this->ficheroDestinoMastersMicrogestDetalles, 50);
+        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"1$comandoFicheroMasters$centro\"");
+        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"2$comandoFicheroMastersDetalles$centro\"");
     }
 
     public function _generarPrecios($comandos) {
+        $this->extraerConfiguracion((int) $comandos['centro']);
         $this->ftp->_URL = "ftp://servicios.gruposoledad.net/articles/stock.csv";
         $this->obtenerFicheroStock();
         $preciosSoledad = $this->csv2json->_toJSON($this->ficheroOrigenStock);
         $porcentajeRecalvi = intval($comandos ['porcentaje']);
         $this->generarPRNPrecios($preciosSoledad, $porcentajeRecalvi);
 
-        $this->ejecutarCobol("$this->comandoBase PWEBS150.COB A=\"$this->ficheroDestinoPreciosMicrogest\" > temp111");
+        $centro = str_pad($comandos['centro'], 2, 0, STR_PAD_LEFT);
+        $comando = str_pad($this->ficheroDestinoPreciosMicrogest, 50);
+        $this->ejecutarCobol("$this->comandoBase PWEBS150.COB A=\"$comando$centro\" > temp111");
+    }
+
+    public function extraerConfiguracion($centro) {
+        $this->configuracion = (new JSONHandler)->_toArray(RUTA_PARAMS . "soledad.json");
+        $config = $this->configuracion->default;
+        foreach ($this->configuracion as $c) {
+            if ($c->id === $centro) {
+                $config = $c;
+                break;
+            }
+        }
+        $this->ftp = new FTP("ftp://servicios.gruposoledad.net/articles/MasterArticles.csv", $this->ficheroLog);
+        $this->ftp->_USERAGENT = $this->useragent;
+        $this->ftp->usuario = $config->usuario;
+        $this->ftp->contrasena = $config->contrasena;
+        $this->ficheroOrigenMasters = RUTA_FICHEROSTEMPORALES . "/$config->fichero_copia";
+        $this->ficheroDestinoMastersMicrogest = RUTA_FICHEROSTEMPORALES . "/$config->prn_cabecera";
+        $this->ficheroDestinoMastersMicrogestDetalles = RUTA_FICHEROSTEMPORALES . "/$config->prn_detalles";
+        $this->ficheroOrigenStock = RUTA_FICHEROSTEMPORALES . "/$config->fichero_stock";
+        $this->ficheroDestinoPreciosMicrogest = RUTA_FICHEROSTEMPORALES . "/$config->prn_precio";
     }
 
     public function generarPRNNeumaticos(Array $neumaticosSoledad) {
@@ -96,7 +115,7 @@ class NeumaticosSoledad {
         _echo("NeumaticosSoledad:obtenerFicheroStock");
         $this->obtenerFichero($this->ficheroOrigenStock);
     }
-    
+
     public function obtenerFichero($fichero) {
         if (is_file($fichero)) {
             _echo("Borramos el fichero: $fichero");
@@ -106,8 +125,8 @@ class NeumaticosSoledad {
         _echo($fichero);
         $this->ftp->copiaLocal();
     }
-    
-    public function ejecutarCobol ($comando) {
+
+    public function ejecutarCobol($comando) {
         _echo($comando);
         shell_exec($comando);
     }

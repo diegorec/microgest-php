@@ -1,0 +1,32 @@
+{
+    "recalvi": {
+        "id": 1,
+        "usuario": "recalvi107827",
+        "contrasena": "re107827",
+        "fichero_copia": "masters.csv",
+        "fichero_stock": "stock.csv",
+        "prn_cabecera": "m-mg.prn",
+        "prn_detalles": "m-mg-d.prn",
+        "prn_precio": "precios.prn"
+    },
+    "canarias": {
+        "id": 9,
+        "usuario": "recalvi141987",
+        "contrasena": "re141987",
+        "fichero_copia": "masters-canarias.csv",
+        "fichero_stock": "stock-canarias.csv",
+        "prn_cabecera": "m-mg-canarias.prn",
+        "prn_detalles": "m-mg-d-canarias.prn",
+        "prn_precio": "precios-canarias.prn"
+    },
+    "default": {
+        "id": 0,
+        "usuario": "recalvi107827",
+        "contrasena": "re107827",
+        "fichero_copia": "masters.csv",
+        "fichero_stock": "stock.csv",
+        "prn_cabecera": "m-mg.prn",
+        "prn_detalles": "m-mg-d.prn",
+        "prn_precio": "precios.prn"
+    }
+}

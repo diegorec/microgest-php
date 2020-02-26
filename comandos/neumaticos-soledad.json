@@ -5,6 +5,11 @@
             "tag": "ruta",
             "obligatorio": true,
             "tipo": "is_string"
+        },
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
         }
     },
     "acciones": {
