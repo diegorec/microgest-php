@@ -3,7 +3,12 @@
     "indices": {
         "-p": {
             "tag": "porcentaje",
-            "obligatorio": false,
+            "obligatorio": true,
+            "tipo": "is_numeric"
+        },
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
             "tipo": "is_numeric"
         }
     },

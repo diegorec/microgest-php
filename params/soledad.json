@@ -9,7 +9,8 @@
         "fichero_stock": "stock.csv",
         "prn_cabecera": "m-mg.prn",
         "prn_detalles": "m-mg-d.prn",
-        "prn_precio": "precios.prn"
+        "prn_precio": "precios.prn",
+        "tabla_centro": "recalvi"
     },
     "canarias": {
         "id": 9,
@@ -21,7 +22,8 @@
         "fichero_stock": "stock-canarias.csv",
         "prn_cabecera": "m-mg-canarias.prn",
         "prn_detalles": "m-mg-d-canarias.prn",
-        "prn_precio": "precios-canarias.prn"
+        "prn_precio": "precios-canarias.prn",
+        "tabla_centro": "canarias"
     },
     "default": {
         "id": 0,
@@ -33,6 +35,7 @@
         "fichero_stock": "stock.csv",
         "prn_cabecera": "m-mg.prn",
         "prn_detalles": "m-mg-d.prn",
-        "prn_precio": "precios.prn"
+        "prn_precio": "precios.prn",
+        "tabla_centro": "recalvi"
     }
 }
