@@ -38,7 +38,7 @@ class NeumaticosSoledad {
     }
 
     public function _generarMasters($comandos) {
-        $this->extraerConfiguracion((int) $comandos['centro']);
+        $this->extraerConfiguracion((int) $comandos['centro'], "masters");
         $this->obtenerFicheroMasters();
         $neumaticosSoledad = $this->csv2json->_toJSON($this->ficheroOrigenMasters);
 
@@ -53,7 +53,7 @@ class NeumaticosSoledad {
     }
 
     public function _generarPrecios($comandos) {
-        $this->extraerConfiguracion((int) $comandos['centro']);
+        $this->extraerConfiguracion((int) $comandos['centro'], "stock");
         $this->ftp->_URL = "ftp://servicios.gruposoledad.net/articles/stock.csv";
         $this->obtenerFicheroStock();
         $preciosSoledad = $this->csv2json->_toJSON($this->ficheroOrigenStock);
@@ -65,7 +65,7 @@ class NeumaticosSoledad {
         $this->ejecutarCobol("$this->comandoBase PWEBS150.COB A=\"$comando$centro\" > temp111");
     }
 
-    public function extraerConfiguracion($centro) {
+    public function extraerConfiguracion($centro, $tipo) {
         $this->configuracion = (new JSONHandler)->_toArray(RUTA_PARAMS . "soledad.json");
         $config = $this->configuracion->default;
         foreach ($this->configuracion as $c) {
@@ -76,8 +76,8 @@ class NeumaticosSoledad {
         }
         $this->ftp = new FTP("ftp://servicios.gruposoledad.net/articles/MasterArticles.csv", $this->ficheroLog);
         $this->ftp->_USERAGENT = $this->useragent;
-        $this->ftp->usuario = $config->usuario;
-        $this->ftp->contrasena = $config->contrasena;
+        $this->ftp->usuario = $config->{"usuario_$tipo"};
+        $this->ftp->contrasena = $config->{"contrasena_$tipo"};
         $this->ficheroOrigenMasters = RUTA_FICHEROSTEMPORALES . "/$config->fichero_copia";
         $this->ficheroDestinoMastersMicrogest = RUTA_FICHEROSTEMPORALES . "/$config->prn_cabecera";
         $this->ficheroDestinoMastersMicrogestDetalles = RUTA_FICHEROSTEMPORALES . "/$config->prn_detalles";
