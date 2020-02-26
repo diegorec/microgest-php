@@ -36,7 +36,7 @@ class Stock {
     public function insertarBaseDatos(Array $stock, $config) {
         $this->basedatos->delete($this->tablaStock, []);
         foreach ($stock as $valor) {
-            $this->basedatos->debug()->insert($this->tablaStock, array(
+            $this->basedatos->insert($this->tablaStock, array(
                 'codigo' => $valor->getCodigo(),
                 'stock' => $valor->getStock(),
                 'ancho' => $valor->getAncho(),
