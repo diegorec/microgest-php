@@ -25,6 +25,9 @@ class Stock {
     }
 
     public function _generar($comandos) {
+        if (isset($comandos['truncar-basedatos']) && $comandos['truncar-basedatos'] === "S") {
+            $this->basedatos->delete($this->tablaStock, []);
+        }
         $config = $this->extraerConfiguracion((int) $comandos['centro']);
         $csv2json = new CSVHandler();
         $neumaticosSoledad = $csv2json->_toJSON($this->ficheroOrigenStock);
@@ -34,16 +37,25 @@ class Stock {
     }
 
     public function insertarBaseDatos(Array $stock, $config) {
-        $this->basedatos->delete($this->tablaStock, []);
         foreach ($stock as $valor) {
-            $this->basedatos->insert($this->tablaStock, array(
+            $has = $this->basedatos->has($this->tablaStock, [
                 'codigo' => $valor->getCodigo(),
-                'stock' => $valor->getStock(),
-                'ancho' => $valor->getAncho(),
-                'perfil' => $valor->getPerfil(),
-                'diametro' => $valor->getDiametro(),
-                'centro' => $config->tabla_centro
-            ));
+            ]);
+            $data = [
+                'codigo' => $valor->getCodigo()
+            ];
+            if (!$has) {
+                $data ['ancho'] = $valor->getAncho();
+                $data ['perfil'] = $valor->getPerfil();
+                $data ['diametro'] = $valor->getDiametro();
+                $data[$config->columna_stock] = $valor->getStock();
+                $this->basedatos->insert($this->tablaStock, $data);
+            } else {
+                $update = [];
+                $update[$config->columna_stock] = $valor->getStock();
+
+                $this->basedatos->update($this->tablaStock, $update, $data);
+            }
         }
     }
 
