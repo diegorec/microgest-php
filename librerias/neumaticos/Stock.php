@@ -20,7 +20,6 @@ class Stock {
 
     public function __construct() {
         global $basesdatos;
-        $this->ficheroOrigenStock = RUTA_FICHEROSTEMPORALES . "/stock.csv";
         $this->basedatos = new Medoo($basesdatos['rest']);
     }
 
@@ -68,6 +67,7 @@ class Stock {
                 break;
             }
         }
+        $this->ficheroOrigenStock = RUTA_FICHEROSTEMPORALES . "/$config->fichero_stock";
         $this->ficheroDestinoStock = RUTA_FICHEROSTEMPORALES . "/$config->prn_precio";
         return $config;
     }
