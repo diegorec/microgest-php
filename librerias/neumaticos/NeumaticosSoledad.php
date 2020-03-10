@@ -48,7 +48,7 @@ class NeumaticosSoledad {
         $centro = str_pad($comandos['centro'], 2, 0, STR_PAD_LEFT);
         $comandoFicheroMasters = str_pad($this->ficheroDestinoMastersMicrogest, 50);
         $comandoFicheroMastersDetalles = str_pad($this->ficheroDestinoMastersMicrogestDetalles, 50);
-        $log =  RUTA_FICHEROSTEMPORALES . 'masters';
+        $log =  RUTA_FICHEROSTEMPORALES . '/masters';
         $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"1$comandoFicheroMasters$centro\" > $log-cabeceras-$centro.log");
         $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"2$comandoFicheroMastersDetalles$centro\" > $log-detalles-$centro.log");
     }
