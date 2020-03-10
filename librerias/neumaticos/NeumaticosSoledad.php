@@ -49,8 +49,9 @@ class NeumaticosSoledad {
         $comandoFicheroMasters = str_pad($this->ficheroDestinoMastersMicrogest, 50);
         $comandoFicheroMastersDetalles = str_pad($this->ficheroDestinoMastersMicrogestDetalles, 50);
         $log =  _getRutaLog("master2cobol-");
-        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"1$comandoFicheroMasters$centro\" > $log-cabeceras-$centro.log");
-        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"2$comandoFicheroMastersDetalles$centro\" > $log-detalles-$centro.log");
+        $logDetalles =  _getRutaLog("master2cobol-detalles-");
+        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"1$comandoFicheroMasters$centro\" > $log");
+        $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"2$comandoFicheroMastersDetalles$centro\" > $logDetalles");
     }
 
     public function _generarPrecios($comandos) {
