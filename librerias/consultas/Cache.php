@@ -10,11 +10,13 @@ class Cache {
         "pass" => "chari",
         "empresa" => "internos");
     public $uri;
+    public $rutaLog;
 
     public function __construct() {
         $login = new LoginCatalogo();
         $this->loginToken = $login->generar($this->parametrosLogin, true);
         _echo("token-l: $this->loginToken");
+        $this->rutaLog = _getRutaLog("cache-");
     }
 
     public function _eliminar($comandos) {
@@ -26,7 +28,7 @@ class Cache {
         $paramsString = implode('/', $params);
         $urlCatalogo = SERVIDOR . "$this->uri/$paramsString?$this->loginToken";
         _echo($urlCatalogo);
-        $request = new Request($urlCatalogo, _getRutaLog());
+        $request = new Request($urlCatalogo, $this->rutaLog);
         $request->_USERAGENT = USER_AGENT;
 
         $respuesta = $request->delete();

@@ -28,7 +28,7 @@ class Matriculas {
         $loginstr = $login->generar($this->usuario);
         $url = SERVIDOR . "mantenimiento/contadormatriculas/centro/$centro/sumador/$actualiza?$loginstr";
         _echo ($url);
-        $ficheroLog = _getRutaLog();
+        $ficheroLog = _getRutaLog("matriculas-");
         $request = new Request($url, $ficheroLog, LOGGERTAG);
         $request->_USERAGENT = USER_AGENT;
         $respuesta = $request->get();

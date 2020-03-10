@@ -30,9 +30,9 @@ function _var_dump($mixed) {
     }
 }
 
-function _getRutaLog() {
+function _getRutaLog($prefix = '') {
     $base = RUTA_LOG_BASE;
     $date = date("YW");
     $extension = ".log";
-    return  "$base$date$extension";
+    return  "$prefix$base$date$extension";
 }

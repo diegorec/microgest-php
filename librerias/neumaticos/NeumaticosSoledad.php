@@ -31,7 +31,7 @@ class NeumaticosSoledad {
     public $comandoBase = "cd /home/u/vigo/micro/ && /usr/rmcobol/runcobol";
 
     public function __construct() {
-        $this->ficheroLog = _getRutaLog();
+        $this->ficheroLog = _getRutaLog("neumaticos-");
         $this->csv2json = new CSVHandler();
         $this->prnHandler = new PRNHandler();
         $this->convertidorNeumaticos = new SoledadConvertidor();
@@ -48,7 +48,7 @@ class NeumaticosSoledad {
         $centro = str_pad($comandos['centro'], 2, 0, STR_PAD_LEFT);
         $comandoFicheroMasters = str_pad($this->ficheroDestinoMastersMicrogest, 50);
         $comandoFicheroMastersDetalles = str_pad($this->ficheroDestinoMastersMicrogestDetalles, 50);
-        $log =  RUTA_LOG_BASE . '/masters';
+        $log =  _getRutaLog("master2cobol-");
         $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"1$comandoFicheroMasters$centro\" > $log-cabeceras-$centro.log");
         $this->ejecutarCobol("$this->comandoBase PWEBS149.COB A=\"2$comandoFicheroMastersDetalles$centro\" > $log-detalles-$centro.log");
     }
