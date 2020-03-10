@@ -34,5 +34,5 @@ function _getRutaLog($prefix = '') {
     $base = RUTA_LOG_BASE;
     $date = date("YW");
     $extension = ".log";
-    return  "$prefix$base$date$extension";
+    return  "$base$prefix$date$extension";
 }
