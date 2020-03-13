@@ -23,6 +23,8 @@ class Matriculas {
             $this->dbDestino = new \Medoo\Medoo($basesdatos['cloud_norte']);
         } else if ($centro === 3) {
             $this->dbDestino = new \Medoo\Medoo($basesdatos['cloud_prisauto']);
+        } else if ($centro === 14) {
+            $this->dbDestino = new \Medoo\Medoo($basesdatos['cloud_canarias']);
         }
     }
 
