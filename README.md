@@ -96,4 +96,6 @@ php /mnt/imagenes/php/probas2/index.php tarjeta-expediciones -o ruta_json_datos.
 php index.php migrar-matriculas -c 1
 # Opción con centro y fecha
 php index.php migrar-matriculas -c 1 -f 2020-02-01 
+# Opción con centro y todas las matrículas de cualquier fecha
+php index.php migrar-matriculas -c 1 -f todas
 ```

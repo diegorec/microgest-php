@@ -34,10 +34,13 @@ class Matriculas {
         $centro = $parametros['centro'];
         $this->generateCloudDatabaseConexion(intval($centro));
         if (isset($parametros['fecha'])) {
-            if (\DateTime::createFromFormat('Y-m-d', $parametros['fecha']) === FALSE) {
+            if ($parametros['fecha'] === "todas") {
+                $this->date = false;
+            } else if (\DateTime::createFromFormat('Y-m-d', $parametros['fecha']) === FALSE) {
                 throw new \Exception("Formato de fecha incorrecto");
+            } else {
+                $this->date = $parametros['fecha'];
             }
-            $this->date = $parametros['fecha'];
         }
         _echo("Centro: $centro");
         _echo("Fecha: $this->date");
@@ -64,7 +67,7 @@ class Matriculas {
     }
 
     private function selectData($tipo, $tabla, $centro) {
-        return $this->dbOrigen->query("SELECT 
+        $query = "SELECT 
                                             c.id_users,
                                             u.email,
                                             '$tipo' AS tipo,
@@ -79,8 +82,11 @@ class Matriculas {
                                         JOIN users u ON u.id = c.id_users
                                         JOIN users_info i ON c.id_users = i.id_users
                                         WHERE 
-                                            i.centro = $centro AND 
-                                            DATE(fecha) = DATE('$this->date')");
+                                            i.centro = $centro";
+        if ($this->date) {
+            $query .= " AND DATE(fecha) = DATE('$this->date')";
+        }
+        return $this->dbOrigen->query($query);
     }
 
 }
