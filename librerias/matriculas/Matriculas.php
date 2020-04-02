@@ -4,7 +4,8 @@ use grcURL\Request;
 
 /**
  * Description of Matriculas
- *
+ * @deprecated since version v2.6.0
+ * En adelante se debe usar ModificarMatriculas
  * @author diego.gonda
  */
 class Matriculas {

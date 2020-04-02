@@ -35,6 +35,18 @@ php /mnt/imagenes/php/catalogov2/index.php eliminar-genericos-padre recalvi 5215
 2. **-s** Sumatorio de matrículas
     1. **0:** Indica que el contador no se suma, sino que es el total actualizado
     2. **1:** Indica que a las matrículas que el usuario tiene actualmente en el contador, se le suman otras.
+3. **-r** Ruta al CSV con los datos de la matrículas
+
+```bash
+php index.php matriculas-envio-consultas -c recalvi -s 0 -r /home/gr/matriclulas.csv
+```
+
+
+### comando obsoleto
+1. **-c** Centro que se quiere actualizar
+2. **-s** Sumatorio de matrículas
+    1. **0:** Indica que el contador no se suma, sino que es el total actualizado
+    2. **1:** Indica que a las matrículas que el usuario tiene actualmente en el contador, se le suman otras.
 
 ```bash
 php /mnt/imagenes/php/catalogov2/index.php matriculas -c recalvi -s 0

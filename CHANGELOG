@@ -8,6 +8,15 @@ Esta versión 2.0.0 contendrá en el primer campo de añadido todas las funciona
 Basado en el formato [Mantener un changelog](http://keepachangelog.com/en/1.0.0/)
 Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v2.0.0.html).
 
+## [2.6.0] - 2020-04-02
+### Añadido
+- Comando de registro de contadores de consultas en el catálogo
+- Log de errores guardados en fichero 
+- Modo verbose desde línea de comandos
+
+### Obsolto
+- Comando antiguo de registro de contadores de consultas en el catálogo
+
 ## [2.5.0] - 2020-02-22
 ### Añadido
 - Consulta para el informe de matrículas

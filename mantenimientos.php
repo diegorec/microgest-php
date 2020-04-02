@@ -1,7 +1,7 @@
 <?php
 
 include __DIR__ . '/configuracion.php';
-include './helpers/strings.php';
+include './helpers.php';
 
 use grcURL\Exception as grException;
 use phpcli\Colors;
@@ -49,20 +49,25 @@ try {
         }
     }
 } catch (grException $e) {
+    $date = date('YW');
+    log_error(RUTA_COMANDOS_BASE . "error-$date.log", $e->getMessage(), $e->getTrace());
     _echo($colors->error("ERROR: " . $e->getMessage()));
 } catch (\Exception $e) {
+    $date = date('YW');
+    log_error(RUTA_COMANDOS_BASE . "error-$date.log", $e->getMessage(), $e->getTrace());
     _echo($colors->error("ERROR: " . $e->getMessage()));
 }
 
 function _compruebaParametros($consulta, $parametrosMinimos) {
     $array = $consulta;
     $contador = count($array);
+    $etiqueta = $array[1];
     unset($array[0]); // nombre del fichero
     unset($array[1]); // etiqueta con la accion
     // creamos un array con pares clave valor
     // para ello la cuenta total de parámetros tiene que ser par
     if (count($array) % 2 !== 0) {
-        throw new \Exception("Todo parámetro debe disponer de un valor");
+        throw new \Exception("[$etiqueta] Todo parámetro debe disponer de un valor");
     }
     $comandos = [];
     for ($i = 2; $i < $contador; $i++) {
@@ -72,12 +77,12 @@ function _compruebaParametros($consulta, $parametrosMinimos) {
     }
     // Comprobamos que no se hayan introducido parámetros de menos ...
     if ($parametrosMinimos->cantidad > count($comandos)) {
-        throw new \Exception("Este comando debe estar compuesto por $parametrosMinimos->cantidad parametro(s)");
+        throw new \Exception("[$etiqueta] Este comando debe estar compuesto por $parametrosMinimos->cantidad parametro(s)");
     }
     foreach ($parametrosMinimos->indices as $clave => $valor) {
         $tipo = $valor->tipo;
         if ($valor->obligatorio && (!isset($comandos[$clave]) || !$tipo($comandos[$clave]))) {
-            throw new \Exception("$clave no es de tipo $tipo");
+            throw new \Exception("[$etiqueta] $clave no es de tipo $tipo");
         }
         if (isset($valor->tag, $comandos[$clave])) {
             $comandos [$valor->tag] = $comandos[$clave];
@@ -91,7 +96,7 @@ function getDatosComando($tag) {
     $ficheroComando = RUTA_COMANDOS . "$tag.json";
     _echo("Abriendo fichero: $ficheroComando");
     if (!file_exists($ficheroComando)) {
-        throw new \Exception('No existe el comando. No se continúa');
+        throw new \Exception("[$ficheroComando] No existe el comando. No se continúa");
     }
     $fileContent = file_get_contents($ficheroComando);
     return json_decode($fileContent);

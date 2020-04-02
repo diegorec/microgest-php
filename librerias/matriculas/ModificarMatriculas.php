@@ -15,10 +15,16 @@ class ModificarMatriculas {
     public function index(Array $config) {
         global $basesdatos;
         if (!isset($config['suma'], $config['ruta'], $config['centro'])) {
-            throw new \Exception("No se indican los campos correctos");
+            throw new \Exception("[ModificarMatriculas] No se indican los campos correctos");
         }
         if (!isset($basesdatos['catalogo'])) {
-            throw new \Exception("Debes configurar la base de datos del catalogo");
+            throw new \Exception("[ModificarMatriculas] Debes configurar la base de datos del catalogo");
+        }
+        if ($config['suma'] !== '1' && $config['suma'] !== '0') {
+            throw new \Exception("[ModificarMatriculas] -s solo admite 0 y 1 como valores");
+        }
+        if (!file_exists($config['ruta']) || !is_readable($config['ruta'])) {
+            throw new \Exception("[ModificarMatriculas] -r debe indicar un fichero válido y legible");
         }
         $this->centro = $config['centro'];
         $this->esSuma = $config['suma'];
