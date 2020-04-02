@@ -1,7 +1,7 @@
 <?php
 
 include __DIR__ . '/configuracion.php';
-include './helpers.php';
+include __DIR__ . './helpers.php';
 
 use grcURL\Exception as grException;
 use phpcli\Colors;
