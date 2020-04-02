@@ -50,11 +50,11 @@ try {
     }
 } catch (grException $e) {
     $date = date('YW');
-    log_error(RUTA_COMANDOS_BASE . "error-$date.log", $e->getMessage(), $e->getTrace());
+    log_error(RUTA_LOG_BASE . "error-$date.log", $e->getMessage(), $e->getTrace());
     _echo($colors->error("ERROR: " . $e->getMessage()));
 } catch (\Exception $e) {
     $date = date('YW');
-    log_error(RUTA_COMANDOS_BASE . "error-$date.log", $e->getMessage(), $e->getTrace());
+    log_error(RUTA_LOG_BASE . "error-$date.log", $e->getMessage(), $e->getTrace());
     _echo($colors->error("ERROR: " . $e->getMessage()));
 }
 
