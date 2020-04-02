@@ -1,0 +1,26 @@
+{
+    "cantidad": 3,
+    "indices": {
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }, 
+        "-s": {
+            "tag": "suma",
+            "obligatorio": true,
+            "tipo": "is_numeric"
+        }, 
+        "-r": {
+            "tag": "ruta",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }  
+    },
+    "acciones": {
+        "enviar-matriculas": {
+            "clase": "librerias\\matriculas\\ModificarMatriculas",
+            "metodo": "index"
+        }
+    }
+}
