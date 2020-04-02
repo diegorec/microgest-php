@@ -1,12 +1,25 @@
 <?php
 
 include __DIR__ . '/configuracion.php';
+include './helpers/strings.php';
 include __DIR__ . '/./vendor/autoload.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
 use phpcli\Colors;
+
+// fix error: Otro de los infinitos problemas de tener dos canales de entrada para los comandos.... 
+// El que está bien es el de mantenimineto.php ya que el modo verbose debe eliminarse
+// una vez se ha detectado (aqui no se hace para poder reenviarlo a mantenimientos.php)
+$modoVerbose = false; 
+foreach ($argv as $key => $value) {
+    if ($value === '--verbose') {
+        $modoVerbose = true;
+        break;
+    }
+}
+define('MODO_VERBOSE', $modoVerbose);
 
 $colors = new Colors();
 try {

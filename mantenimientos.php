@@ -1,11 +1,21 @@
 <?php
 
 include __DIR__ . '/configuracion.php';
+include './helpers/strings.php';
 
 use grcURL\Exception as grException;
 use phpcli\Colors;
 
 $colors = new Colors();
+$modoVerbose = false;
+foreach ($argv as $key => $value) {
+    if ($value === '--verbose') {
+        $modoVerbose = true;
+        unset($argv[$key]);
+        break;
+    }
+}
+define('MODO_VERBOSE', $modoVerbose);
 /**
  * En este archivo se van a generar las nuevas funcionalidades que nos van a permitir manejar el catálogo web desde microgest
  * sin la necesidad de interactuar con él

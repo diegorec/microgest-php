@@ -18,18 +18,6 @@ define('LOGGERTAG', "192.168.1.154:microgest-php");
 define('CLAVELOGIN', "NSM3JygkKRxRXF1TOj4nICstCVFEUVJdQj");
 define('DOCUMENTO_PERSONAL', "http://catalogoonline.recalvi.es/imagenesgestion/personal/");
 
-function _echo($string) {
-    if (MENSAJESTERMINAL) {
-        echo $string . PHP_EOL;
-    }
-}
-
-function _var_dump($mixed) {
-    if (MENSAJESTERMINAL) {
-        var_dump($mixed);
-    }
-}
-
 function _getRutaLog($prefix = '') {
     $base = RUTA_LOG_BASE;
     $date = date("YW");
