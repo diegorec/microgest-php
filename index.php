@@ -1,7 +1,7 @@
 <?php
 
 include __DIR__ . '/configuracion.php';
-include __DIR__ . './helpers.php';
+include __DIR__ . '/./helpers.php';
 include __DIR__ . '/./vendor/autoload.php';
 
 use Monolog\Logger;
