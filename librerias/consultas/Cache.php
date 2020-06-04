@@ -1,46 +1,30 @@
 <?php
 
-use grcURL\Request;
+use Medoo\Medoo;
 
 class Cache {
 
-    public $parametrosLogin = array(
-        "correo" => "diegogonda@recalvi.es",
-        "centro" => "recalvi",
-        "pass" => "chari",
-        "empresa" => "internos");
-    public $uri;
+    public $tabla= "cache";
+    public $tag;
+    public $basedatos;
     public $rutaLog;
 
     public function __construct() {
-        $login = new LoginCatalogo();
-        $this->loginToken = $login->generar($this->parametrosLogin, true);
-        _echo("token-l: $this->loginToken");
-        $this->rutaLog = _getRutaLog("cache-");
+        global $basesdatos;
+        $this->basedatos = new Medoo($basesdatos['catalogo']);
     }
+
 
     public function _eliminar($comandos) {
         _var_dump($comandos);
-        $params = [];
-        foreach ($comandos as $clave => $valor) {
-            $params [] = "$clave/$valor";
-        }
-        $paramsString = implode('/', $params);
-        $urlCatalogo = SERVIDOR . "$this->uri/$paramsString?$this->loginToken";
-        _echo($urlCatalogo);
-        $request = new Request($urlCatalogo, $this->rutaLog);
-        $request->_USERAGENT = USER_AGENT;
-
-        $respuesta = $request->delete();
-        _var_dump($respuesta);
+        $key = $this->tag . "_" .$comandos['centro'];
+        $this->basedatos->delete($this->tabla, [
+            "clave[~]" => "%$key%"
+        ]);
     }
-
-    public function getUri() {
-        return $this->uri;
+    
+    public function setTag($tag) {
+        $this->tag = $tag;
     }
-
-    public function setUri($uri) {
-        $this->uri = $uri;
-    }
-
+    
 }

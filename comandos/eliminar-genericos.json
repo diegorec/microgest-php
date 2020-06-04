@@ -12,7 +12,7 @@
             "clase": "Cache",
             "metodo": "_eliminar",
             "parametros": {
-                "uri": "mantenimiento/genericospadres"
+                "tag": "genericos_padres"
             }
         }
     }
