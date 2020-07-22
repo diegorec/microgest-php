@@ -24,14 +24,10 @@ class Stock {
     }
 
     public function _generar($comandos) {
-        $config = $this->extraerConfiguracion((int) $comandos['centro']);
         if (isset($comandos['truncar-basedatos']) && $comandos['truncar-basedatos'] === "S") {
             $this->basedatos->delete($this->tablaStock, []);
-        } else {
-            $this->basedatos->debug()->update($this->tablaStock, [
-                $config->columna_stock => 0
-            ]);
         }
+        $config = $this->extraerConfiguracion((int) $comandos['centro']);
         $csv2json = new CSVHandler();
         $neumaticosSoledad = $csv2json->_toJSON($this->ficheroOrigenStock);
         $neumaticos = new SoledadConvertidor();
