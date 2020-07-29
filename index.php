@@ -38,8 +38,8 @@ try {
 $permitidos = array(
     'cliente-catalogo' => array('method' => 'post', 'path' => 'admin/rest/usuario'),
     'baja-cliente-catalogo' => array('method' => 'delete', 'path' => 'admin/rest/usuario'),
-    'eliminar-genericos-padre' => array('method' => 'post', 'path' => 'mantenimiento/genericospadres'),
-    'eliminar-publicidades' => array('method' => 'post', 'path' => 'mantenimiento/publicidades'),
+    // 'eliminar-genericos-padre' => array('method' => 'post', 'path' => 'mantenimiento/genericospadres'),
+  //  'eliminar-publicidades' => array('method' => 'post', 'path' => 'mantenimiento/publicidades'),
 );
 
 if (!(isset($argv[1]) && is_string($argv[1]) && isset($argv[2]) && is_string($argv[2]) && isset($argv[3]) && isset($argv[4]) && is_string($argv[4])
