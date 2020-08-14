@@ -11,6 +11,7 @@ Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v
 ## [2.7.0] - 2020-04-02
 ### Añadido
 - Generador de enlaces aleatorios para visualizar Facturas
+- Generador de enlaces aleatorios para visualizar Albaranes
 
 ## [2.6.0] - 2020-04-02
 ### Añadido

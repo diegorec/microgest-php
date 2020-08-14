@@ -119,6 +119,21 @@ Opciones:
 3. **-c** Nombre del centro
 4. **-vh (opcional)** Ver hasta. Cantidad de días que será útil el enlace generado
 
+El CSV origen tiene que tener la siguiente estructura: centro;nocliente;subdivision;cliente_de;empresa;factura_numero;factura_anho;factura_serie
+
 ```bash
 php {ruta_microgest}/index.php facturas-a-pdf -r {ruta_csv_origen} -d {ruta_csv_destino} -c {centro} -vh {fecha_en_dias}
+```
+
+# GENERAR URL DE ALBARANES
+Opciones:
+1. **-r** Ruta al CSV con los datos de Microgest
+2. **-d** Ruta del CSV con los datos generados
+3. **-c** Nombre del centro
+4. **-vh (opcional)** Ver hasta. Cantidad de días que será útil el enlace generado
+
+El CSV origen tiene que tener la siguiente estructura: centro;nocliente;subdivision;cliente_de;empresa;numero
+
+```bash
+php {ruta_microgest}/index.php albaranes-a-pdf -r {ruta_csv_origen} -d {ruta_csv_destino} -c {centro} -vh {fecha_en_dias}
 ```

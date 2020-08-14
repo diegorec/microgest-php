@@ -1,0 +1,31 @@
+{
+    "cantidad": 1,
+    "indices": {
+        "-r": {
+            "tag": "fichero",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-d": {
+            "tag": "fichero-destino",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-vh": {
+            "tag": "ver-hasta",
+            "obligatorio": false,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "crear-cliente": {
+            "clase": "historico\\Historico",
+            "metodo": "convertirAlbaran"
+        }
+    }   
+}

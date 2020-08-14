@@ -4,7 +4,6 @@ namespace historico;
 
 use convertidores\CSVHandler;
 use Hashids\Hashids;
-use DateInterval;
 use DateTime;
 
 class Historico {
@@ -15,6 +14,48 @@ class Historico {
     public function __construct() {
         global $basesdatos;
         $this->db = new \Medoo\Medoo($basesdatos['historico']);
+    }
+
+    public function convertirAlbaran(array $config) {
+        if (!isset($config['fichero'], $config['centro'])) {
+            throw new \Exception("[Historico::convertirAlbaran] No se indican los campos correctos");
+        }
+        $relativeDate = $this->retrieveVerHasta($config['centro']);
+        $url = $this->retrieveURL($config['centro']);
+        // Ver hasta (en días)
+        if (isset($config['ver-hasta'])) {
+            $relativeDate = "+" . $config['ver-hasta'] . " days";
+        }
+        $filename = $config['fichero-destino'];
+        if (file_exists($filename)) {
+            unlink($filename);
+        }
+
+        $fecha = new DateTime();
+        $fecha->modify($relativeDate);
+        $salt = $this->retrieveSalt($config['centro']);
+        $this->verHasta = $fecha->format('Y-m-d H:i:s');
+
+        _var_dump("Visible hasta: " . $this->verHasta);
+        _echo("Salt: $salt");
+        _echo("URL: $url");
+
+        $hashids = new Hashids($salt, 50);
+
+        $csv = new CSVHandler();
+        $albaranes = $csv->_toJSON($config['fichero']);
+        foreach ($albaranes as $key => $f) {
+            $albaran = (object) $f;
+            $idCliente =  $this->insertarCliente($albaran);
+            $idAlbaran =  $this->insertarAlbaran($idCliente, $albaran);
+            $hash = $hashids->encode($idCliente, $idAlbaran);
+            $this->insertarHash($idCliente, $idAlbaran, $hash, 'albaranes');
+            $f->descarga = "$url/albaran/$hash.pdf";
+            $f->previsualizar = "$url/ver/albaran/$hash.pdf";
+            $facturas[$key] = $f;
+        }
+        $stream = $csv->toStream($facturas);
+        file_put_contents($filename, $stream);
     }
 
     public function convertirFactura(array $config) {
@@ -50,7 +91,7 @@ class Historico {
             $idCliente =  $this->insertarCliente($factura);
             $idFactura =  $this->insertarFactura($idCliente, $factura);
             $hash = $hashids->encode($idCliente, $idFactura);
-            $this->insertarHash($idCliente, $idFactura, $hash);
+            $this->insertarHash($idCliente, $idFactura, $hash, 'facturas');
             $f->descarga = "$url/factura/$hash.pdf";
             $f->previsualizar = "$url/ver/factura/$hash.pdf";
             $facturas[$key] = $f;
@@ -73,10 +114,8 @@ class Historico {
         return (int)$this->db->get('clientes', ['id'], $where)['id'];
     }
 
-    function insertarHash(int $idCliente, int $idFactura, string $hash) {
-        $this->db->update(
-            'facturas',
-            [
+    function insertarHash(int $idCliente, int $idFactura, string $hash, string $tipo) {
+        $this->db->update($tipo, [
                 'hash' => $hash,
                 'ver_hasta' => $this->verHasta
             ],
@@ -85,6 +124,18 @@ class Historico {
                 'cliente' => $idCliente,
             ]
         );
+    }
+
+    function insertarAlbaran(int $idCliente, \stdClass $albaran) {
+        $where = [
+            'cliente' => $idCliente,
+            'numero' => $albaran->numero
+        ];
+        if (!$this->db->has('albaranes', $where)) {
+            $where['ver_hasta'] = $this->verHasta;
+            $this->db->insert('albaranes', $where);
+        }
+        return (int)$this->db->get('albaranes', ['id'], $where)['id'];
     }
 
     function insertarFactura(int $idCliente, \stdClass $factura) {
