@@ -77,7 +77,8 @@ class Historico {
         $this->db->update(
             'facturas',
             [
-                'hash' => $hash
+                'hash' => $hash,
+                'ver_hasta' => $this->verHasta
             ],
             [
                 'id' => $idFactura,
