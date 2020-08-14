@@ -30,7 +30,8 @@
         "diego/phpcli": "dev-master",
         "diego/pdf-code128": "dev-master",
         "picqer/php-barcode-generator": "dev-master",
-        "diegogonda/medoo": "dev-master"
+        "diegogonda/medoo": "dev-master",
+        "hashids/hashids": "^4.0@dev"
     },
     "repositories": [
         {

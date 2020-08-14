@@ -8,6 +8,10 @@ Esta versión 2.0.0 contendrá en el primer campo de añadido todas las funciona
 Basado en el formato [Mantener un changelog](http://keepachangelog.com/en/1.0.0/)
 Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v2.0.0.html).
 
+## [2.7.0] - 2020-04-02
+### Añadido
+- Generador de enlaces aleatorios para visualizar Facturas
+
 ## [2.6.0] - 2020-04-02
 ### Añadido
 - Comando de registro de contadores de consultas en el catálogo

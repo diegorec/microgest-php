@@ -111,3 +111,14 @@ php index.php migrar-matriculas -c 1 -f 2020-02-01
 # Opción con centro y todas las matrículas de cualquier fecha
 php index.php migrar-matriculas -c 1 -f todas
 ```
+
+# GENERAR URL DE FACTURAS
+Opciones:
+1. **-r** Ruta al CSV con los datos de Microgest
+2. **-d** Ruta del CSV con los datos generados
+3. **-c** Nombre del centro
+4. **-vh (opcional)** Ver hasta. Cantidad de días que será útil el enlace generado
+
+```bash
+php {ruta_microgest}/index.php facturas-a-pdf -r {ruta_csv_origen} -d {ruta_csv_destino} -c {centro} -vh {fecha_en_dias}
+```
