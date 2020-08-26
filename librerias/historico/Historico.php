@@ -50,8 +50,10 @@ class Historico {
             $idAlbaran =  $this->insertarAlbaran($idCliente, $albaran);
             $hash = $hashids->encode($idCliente, $idAlbaran);
             $this->insertarHash($idCliente, $idAlbaran, $hash, 'albaranes');
-            $f->descarga = "$url/albaran/$hash.pdf?descargar=1";
-            $f->previsualizar = "$url/albaran/$hash.pdf";
+            $url = "$url/albaran/$hash";
+            $f->descarga = "$url.pdf?descargar=1";
+            $f->previsualizar = "$url.pdf";
+            $f->excel = "$url.xlsx";
             $facturas[$key] = $f;
         }
         $stream = $csv->toStream($facturas);
@@ -92,8 +94,10 @@ class Historico {
             $idFactura =  $this->insertarFactura($idCliente, $factura);
             $hash = $hashids->encode($idCliente, $idFactura);
             $this->insertarHash($idCliente, $idFactura, $hash, 'facturas');
-            $f->descarga = "$url/factura/$hash.pdf?descargar=1";
-            $f->previsualizar = "$url/factura/$hash.pdf";
+            $uri = "$url/factura/$hash";
+            $f->descarga = "$uri.pdf?descargar=1";
+            $f->previsualizar = "$uri.pdf";
+            $f->excel = "$uri.xlsx";
             $facturas[$key] = $f;
         }
         $stream = $csv->toStream($facturas);
