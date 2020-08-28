@@ -92,6 +92,10 @@ class Historico {
             $factura = (object) $f;
             $idCliente =  $this->insertarCliente($factura);
             $idFactura =  $this->insertarFactura($idCliente, $factura);
+            unset($factura->cartavto);
+            unset($factura->cartasepa);
+            unset($factura->firmar);
+            unset($factura->copia);
             $hash = $hashids->encode($idCliente, $idFactura);
             $this->insertarHash($idCliente, $idFactura, $hash, 'facturas');
             $uri = "$url/factura/$hash";
@@ -146,7 +150,7 @@ class Historico {
         $cartavto = isset($factura->cartavto) && $factura->cartavto === 'si';
         $cartasepa = isset($factura->cartasepa) && $factura->cartasepa === 'si';
         $cifrado = isset($factura->firmar) && $factura->firmar === 'si';
-        $copia = isset($factura->firmar) && $factura->firmar === 'si';
+        $copia = isset($factura->copia) && $factura->copia === 'si';
         $where = [
             'cliente' => $idCliente,
             'anho' => $factura->factura_anho,
