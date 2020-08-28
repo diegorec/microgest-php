@@ -96,6 +96,7 @@ class Historico {
             unset($factura->cartasepa);
             unset($factura->firmar);
             unset($factura->copia);
+            _echo("Id factura: {$idFactura}");
             $hash = $hashids->encode($idCliente, $idFactura);
             $this->insertarHash($idCliente, $idFactura, $hash, 'facturas');
             $uri = "$url/factura/$hash";
