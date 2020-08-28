@@ -143,11 +143,19 @@ class Historico {
     }
 
     function insertarFactura(int $idCliente, \stdClass $factura) {
+        $cartavto = isset($factura->cartavto) && $factura->cartavto === 'si';
+        $cartasepa = isset($factura->cartasepa) && $factura->cartasepa === 'si';
+        $cifrado = isset($factura->firmar) && $factura->firmar === 'si';
+        $copia = isset($factura->firmar) && $factura->firmar === 'si';
         $where = [
             'cliente' => $idCliente,
             'anho' => $factura->factura_anho,
             'serie' => $factura->factura_serie,
-            'numero' => $factura->factura_numero
+            'numero' => $factura->factura_numero,
+            'carta_vencimientos' => (int) $cartavto,
+            'carta_sepa' => (int) $cartasepa,
+            'cifrado' => (int) $cifrado,
+            'copia' => (int) $copia
         ];
         if (!$this->db->has('facturas', $where)) {
             $where['ver_hasta'] = $this->verHasta;
