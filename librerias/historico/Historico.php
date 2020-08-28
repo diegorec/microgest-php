@@ -151,6 +151,10 @@ class Historico {
         $cartasepa = isset($factura->cartasepa) && $factura->cartasepa === 'si';
         $cifrado = isset($factura->firmar) && $factura->firmar === 'si';
         $copia = isset($factura->copia) && $factura->copia === 'si';
+        _echo ($cartavto);
+        _echo ($cartasepa);
+        _echo ($cifrado);
+        _echo ($copia);
         $where = [
             'cliente' => $idCliente,
             'anho' => $factura->factura_anho,
