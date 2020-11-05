@@ -17,6 +17,15 @@ $basesdatos['catalogo'] = array(
     'password' => '.#diego#.'
 );
 
+$basesdatos['historico'] = array(
+    'database_type' => 'mysql',
+    'database_name' => 'bd',
+    'server' => '192.168.1.8',
+    'username' => 'diego',
+    'password' => '.#diego#.',
+    'prefix' => 'his_'
+);
+
 $basesdatos['cloud'] = array(
     'database_type' => 'mysql',
     'database_name' => 'microgest',
