@@ -68,4 +68,8 @@ trait UsersTrait {
         });
     }
 
+    public function selectAccounts(Array $user) {
+        return $this->db->debug()->select('v_users', "*", $user);
+    }
+
 }

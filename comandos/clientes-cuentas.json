@@ -1,0 +1,41 @@
+{
+    "cantidad": 1,
+    "indices": {
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-n": {
+            "tag": "nocliente",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-s": {
+            "tag": "subdivision",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-e": {
+            "tag": "empresa",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-cli": {
+            "tag": "cliente_de_cliente",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-d": {
+            "tag": "fichero-destino",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "crear-cliente": {
+            "clase": "ClientesCatalogo",
+            "metodo": "cuentas"
+        }
+    }   
+}

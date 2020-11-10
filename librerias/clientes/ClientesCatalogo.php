@@ -1,5 +1,6 @@
 <?php
 
+use convertidores\CSVHandler;
 use grcURL\Request;
 use phpcli\Colors;
 
@@ -79,6 +80,34 @@ class ClientesCatalogo {
 
         $respuesta = $request->delete();
         _var_dump($respuesta);
+    }
+
+    public function cuentas($comandos) {
+        _var_dump($comandos);
+        $rutaDestino = $comandos['fichero-destino'];
+
+        $comandos['id_centro'] = $this->getCentroId($comandos['centro']);
+
+        unset($comandos['fichero-destino']);
+        unset($comandos['centro']);
+        $cuentas = $this->selectAccounts($comandos);
+
+        $map = array_map(function ($c){
+            return [
+                "email" => $c['email'],
+                "centro" => $c['centro'],
+                "nocliente" => $c['nocliente'],
+                "subdivision" => $c['subdivision'],
+                "empresa" => $c['empresa'],
+                "cliente_de_cliente" => $c['cliente_de_cliente'],
+                "con_tecdoc" => $c['con_tecdoc'],
+                "con_matriculas" => $c['con_matriculas'],
+            ];
+        }, $cuentas);
+        _var_dump($map);
+
+        $csv = new CSVHandler();
+        $csv->array2file($rutaDestino, $map);
     }
 
     public function retrieveUsuarios(Array $comandos) {
