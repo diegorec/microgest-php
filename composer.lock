@@ -340,12 +340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/diegogonda/Medoo.git",
-                "reference": "6eebef622639628b669b627734c65d8a697017b3"
+                "reference": "947e8c540f2233fa2b9bea3a7de4ca87729c400d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/diegogonda/Medoo/zipball/6eebef622639628b669b627734c65d8a697017b3",
-                "reference": "6eebef622639628b669b627734c65d8a697017b3",
+                "url": "https://api.github.com/repos/diegogonda/Medoo/zipball/947e8c540f2233fa2b9bea3a7de4ca87729c400d",
+                "reference": "947e8c540f2233fa2b9bea3a7de4ca87729c400d",
                 "shasum": ""
             },
             "require": {
@@ -392,7 +392,7 @@
                 "sql",
                 "sqlite"
             ],
-            "time": "2019-11-19T09:27:46+00:00"
+            "time": "2020-08-04T09:41:55+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -1134,7 +1134,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/stil/curl-easy.git",
+                "url": "git@github.com:stil/curl-easy.git",
                 "reference": "3f5528adff22e5d483ee581315ebc5020c5c6da0"
             },
             "dist": {

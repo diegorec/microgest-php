@@ -5,7 +5,6 @@ $include ['consultas'] = array(
     'archivos' => array(
         'Consultas.php',
         'LoginCatalogo.php',
-        'ClientesCatalogo.php',
         'Cache.php'
         )
 );

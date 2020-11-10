@@ -1,13 +1,17 @@
 <?php
 
-use phpcli\Colors;
 use grcURL\Request;
+use phpcli\Colors;
 
 class ClientesCatalogo {
 
     public $uri = 'microgest/cliente-catalogo';
     private $colors;
     private $rutaLog;
+
+    use UsersTrait;
+    use MG2CatalogoTrait;
+    use LogTrait;
 
     public function __construct() {
         global $basesdatos;
@@ -18,14 +22,46 @@ class ClientesCatalogo {
 
     public function crear($comandos) {
         _echo("creamos el cliente");
+        $idCentro = $this->getCentroId($comandos['centro']);
+        if (!$idCentro) {
+            throw new \Exception("[ClientesCatalogo] Centro \"" . $comandos['centro'] ."\" no encontrado.");
+        }
+
         $usuarios = $this->retrieveUsuarios($comandos);
         if (!$usuarios) {
             throw new \Exception("[ClientesCatalogo] No se han encontrado cuentas asociadas. | " . json_encode($comandos));
         }
-        foreach($usuarios as $u) {
-            _var_dump($u->principal);
-        }
 
+        _echo_info("ID Centro: $idCentro");
+
+        foreach($usuarios as $u) {
+            $email  = $u->principal->email;
+            $usersId = $this->getUsersByEmail($email, $idCentro);
+            $principal = $this->extractUser2BD($u->principal);
+            $info = $this->extractInfo2BD($u->info);
+            if($usersId) {
+                foreach ($usersId as $id) {
+                    _echo_info ("Actualizando usuario: $id");
+                    $modified = $this->updateUser($id, $principal, $info);
+                    if(!$modified) {
+                        $msg = "[ClientesCatalogo] No se ha podido actualizar el cliente. | $email | " . json_encode($comandos);
+                        _echo_error($msg);
+                        $this->addError($msg);                    
+                    }
+                }
+            } else {
+                _echo_info ("# Creando usuario: $email");
+                $principal['email'] = $email;
+                $info["centro"] = $idCentro;
+                $info["nocliente"] = $u->info->nocliente;
+                $created = $this->createUser($principal, $info);
+                if(!$created) {
+                    $msg = "[ClientesCatalogo] No se ha podido crear el cliente. | $email | " . json_encode($comandos);                    
+                    _echo_error($msg);
+                    $this->addError($msg);                    
+                }
+            }        
+        }
     }
 
     public function eliminar($comandos) {
@@ -37,7 +73,7 @@ class ClientesCatalogo {
         }
         $paramsString = implode('/', $params);
         $urlCatalogo = SERVIDOR . "$this->uri/$paramsString?$this->loginToken";
-        _echo($this->colors->info($urlCatalogo));
+        _echo_info($urlCatalogo);
         $request = new Request($urlCatalogo, $this->rutaLog);
         $request->_USERAGENT = USER_AGENT;
 
@@ -53,7 +89,7 @@ class ClientesCatalogo {
         $cliente = $comandos['clientede'];
         $tipoCatalogo = 0;
         $urlCatalogo = REST_API . "$this->uri/$centro/$nocliente/$subdivision/$cliente/$empresa/$tipoCatalogo";
-        _echo($this->colors->info("Consultando usuarios: $urlCatalogo"));
+        _echo_info("Consultando usuarios: $urlCatalogo");
         $request = new Request($urlCatalogo, $this->rutaLog);
         $request->_USERAGENT = USER_AGENT;
 
