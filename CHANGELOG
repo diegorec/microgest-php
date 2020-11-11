@@ -8,6 +8,13 @@ Esta versión 2.0.0 contendrá en el primer campo de añadido todas las funciona
 Basado en el formato [Mantener un changelog](http://keepachangelog.com/en/1.0.0/)
 Y bajo el versionado semántico [Versionado semántico](http://semver.org/spec/v2.0.0.html).
 
+## [2.8.0] - 2020-11-11
+### Añadido
+- Comando para eliminar las claves del token API desde la linea de comandos
+
+### Modificado
+- Se modifica el comando para modificar los usuarios desde MG. El canal de entrada no cambia
+
 ## [2.7.0] - 2020-04-02
 ### Añadido
 - Generador de enlaces aleatorios para visualizar Facturas
