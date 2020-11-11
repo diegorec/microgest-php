@@ -5,6 +5,7 @@ include __DIR__ . '/librerias/autoload.php';
 require __DIR__ . '/basesdatosexterna.php';
 
 define('SERVIDOR', 'http://192.168.1.8:8081/');
+define('REST_API', 'http://192.168.1.8:8082/');
 
 define('MENSAJESTERMINAL', true);
 define('USER_AGENT', '192.168.1.154:microgest-php:pruebas');
