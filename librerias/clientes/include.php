@@ -6,6 +6,7 @@ $include ['clientes'] = array(
         'traits/UsersTrait.php',
         'traits/MG2CatalogoTrait.php',
         'traits/LogTrait.php',
+        'traits/APITrait.php',
         'password/Bcrypt.php',
         'ClientesCatalogo.php',
         )

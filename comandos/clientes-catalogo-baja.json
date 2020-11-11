@@ -22,12 +22,12 @@
             "tipo": "is_string"
         },
         "-cli": {
-            "tag": "clientede",
+            "tag": "cliente_de_cliente",
             "obligatorio": true,
             "tipo": "is_string"
         },
         "-co": {
-            "tag": "correo",
+            "tag": "email",
             "obligatorio": true,
             "tipo": "is_string"            
         }

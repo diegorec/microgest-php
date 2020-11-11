@@ -11,7 +11,7 @@ trait UsersTrait {
         }
     }
 
-    public function getUsersByEmail (string $email, int $centro) {
+    public function getUsersByEmail(string $email, int $centro) {
         $users = $this->db->select("users", "id", [
             "email" => $email
         ]);
@@ -27,13 +27,13 @@ trait UsersTrait {
         }
     }
 
-    public function updateUser(int $id, Array $data, Array $info) {
+    public function updateUser(int $id, array $data, array $info) {
         $database = $this->db;
-        return $database->action(function($database) use ($id, $data, $info) {
+        return $database->action(function ($database) use ($id, $data, $info) {
             $this->db->update("users", $data, [
                 "id" => $id
-            ]);        
-            $this->db->update("users_info", $info, [ 
+            ]);
+            $this->db->update("users_info", $info, [
                 "id_users" => $id
             ]);
             if (!$database->has("v_users", ["id_users" => $id])) {
@@ -44,14 +44,14 @@ trait UsersTrait {
         });
     }
 
-    public function createUser(Array $user, Array $info) {
+    public function createUser(array $user, array $info) {
         $database = $this->db;
-        return $database->action(function($database) use ($user, $info) {
+        return $database->action(function ($database) use ($user, $info) {
             $database->insert("users", $user);
 
             $id = $database->id();
             _echo_info("Creado usuario '" . $user['email'] . "' con id: $id");
-            
+
             $database->insert("users_groups", [
                 "user_id" => $id,
                 "group_id" => 2 // group por defecto
@@ -59,17 +59,51 @@ trait UsersTrait {
 
             $info["id_users"] = $id;
             $database->insert("users_info", $info);
-         
+
             if (!$database->has("v_users", ["id_users" => $id])) {
                 _echo_error("Fallo en la creación para el usuario con email '" . $user['email'] . "' e id: $id");
                 return false;
             }
-            return true;
+            return $id;
         });
     }
 
-    public function selectAccounts(Array $user) {
-        return $this->db->debug()->select('v_users', "*", $user);
+    public function selectAccounts(array $user) {
+        return $this->db->select('v_users', "*", $user);
     }
 
+    public function insertarRepresentados(int $id, array $representados) {
+        if ($this->db->has("users_representados", ["id_users" => $id])) {
+            $this->db->delete("users_representados", [
+                "id_users" => $id
+            ]);
+        }
+        if ($this->db->has("users_representa", ["id_users" => $id])) {
+            $this->db->delete("users_representa", [
+                "id_users" => $id
+            ]);
+        }
+        $map = array_map(function ($u) {
+            $u->id = $u->codigo;
+            $u->nocliente = $u->codigo;
+            $u->nombre = str_replace(['\"', '\''], ['&#34;', '&#39;'], $u->nombre);
+            unset($u->codigo);
+            $u->centro = "recalvi";
+            return $u;
+
+        }, $representados);
+        $this->db->insert("users_representados", [
+            "id_users" => $id,
+            "valor[JSON]" => $map
+        ]);
+    }
+
+    public function desactivar(int $id) {
+        $this->db->update("users", [
+            "active" => 0
+        ], [
+            "id" => $id
+        ]);
+        return $this->db->has("v_users", ["id_users" => $id]);
+    }
 }
