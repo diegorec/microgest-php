@@ -73,6 +73,8 @@ trait UsersTrait {
     }
 
     public function insertarRepresentados(int $id, array $representados) {
+        _echo_error("[UsersTrait::insertarRepresentados]Funcionalidad no habilitada. Más info en: http://192.168.1.8/catalogo/catalogo-online/-/issues/22");
+        return;
         if ($this->db->has("users_representados", ["id_users" => $id])) {
             $this->db->delete("users_representados", [
                 "id_users" => $id
