@@ -1,7 +1,6 @@
 <?php
 
 use convertidores\CSVHandler;
-use phpcli\Colors;
 
 class ClientesCatalogo {
 
@@ -15,7 +14,6 @@ class ClientesCatalogo {
 
     public function __construct() {
         global $basesdatos;
-        $this->colors = new Colors();
         $this->rutaLog = _getRutaLog("clientes-catalogo-");
         $this->db = new \Medoo\Medoo($basesdatos['catalogo']);
     }

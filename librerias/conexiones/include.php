@@ -7,6 +7,7 @@ $include ['conexiones'] = array(
         'HTTP.php',
         'Conexiones.php',
         'ConexionesToken.php',
+        'CacheAPILogin.php',
         'ImagenesMicrogest.php')
 );
 

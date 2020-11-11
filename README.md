@@ -137,3 +137,10 @@ El CSV origen tiene que tener la siguiente estructura: centro;nocliente;subdivis
 ```bash
 php {ruta_microgest}/index.php albaranes-a-pdf -r {ruta_csv_origen} -d {ruta_csv_destino} -c {centro} -vh {fecha_en_dias}
 ```
+
+# BORRAR LA CACHE DE TOKENS DEL CATÁLOGO
+Opciones:
+1. **-c** Centro: dos posibles, recalvi y prisauto. 
+```bash
+php {ruta_microgest}/index.php clear-cache -c {centro}
+```
