@@ -41,7 +41,13 @@ try {
             _echo_info("## Se finaliza la ejecución de la acción: $clave");
         }
     }
-} catch (grcURL\Exception | \Exception | UnexpectedValueException $e) {
+} catch (grcURL\Exception $e) {
+    log_error($e->getMessage(), $e->getTrace());
+    _echo_error($e->getMessage());
+} catch (\Exception $e) {
+    log_error($e->getMessage(), $e->getTrace());
+    _echo_error($e->getMessage());
+} catch(UnexpectedValueException $e) {
     log_error($e->getMessage(), $e->getTrace());
     _echo_error($e->getMessage());
 }
