@@ -10,24 +10,12 @@ php /mnt/imagenes/php/probasv2/index.php clientes-catalogo-baja -c recalvi -n 23
 
 # VACIADO DE LA CACHE DE PUBLICIDADES
 ```bash
-php /mnt/imagenes/php/catalogov2/index.php eliminar-publicidades -c recalvi
-```
-
-### comando obsoleto
-Este era el comando usado anteriormente
-```bash
-php /mnt/imagenes/php/catalogov2/index.php eliminar-publicidades recalvi 5215 0
+php index.php eliminar-publicidades -c recalvi
 ```
 
 # VACIADO DE LA CACHE DE GENÉRICOS
 ```bash
-php /mnt/imagenes/php/catalogov2/index.php eliminar-genericos -c recalvi
-```
-
-### comando obsoleto
-Este era el comando usado anteriormente
-```bash
-php /mnt/imagenes/php/catalogov2/index.php eliminar-genericos-padre recalvi 5215 0
+php index.php eliminar-genericos -c recalvi
 ```
 
 # ACTUALIZACIÓN DE LOS CONTADORES DE LAS MATRÍCULAS
@@ -39,17 +27,6 @@ php /mnt/imagenes/php/catalogov2/index.php eliminar-genericos-padre recalvi 5215
 
 ```bash
 php index.php matriculas-envio-consultas -c recalvi -s 0 -r /home/gr/matriclulas.csv
-```
-
-
-### comando obsoleto
-1. **-c** Centro que se quiere actualizar
-2. **-s** Sumatorio de matrículas
-    1. **0:** Indica que el contador no se suma, sino que es el total actualizado
-    2. **1:** Indica que a las matrículas que el usuario tiene actualmente en el contador, se le suman otras.
-
-```bash
-php /mnt/imagenes/php/catalogov2/index.php matriculas -c recalvi -s 0
 ```
 
 # GENERACIÓN DE UN DOCUMENTO RPV CON UN CÓDIGO DE BARRAS Y UN TEXTO
