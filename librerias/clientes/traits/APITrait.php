@@ -26,8 +26,9 @@ trait APITrait {
         $subdivision = $comandos['subdivision'];
         $empresa = $comandos['empresa'];
         $cliente = $comandos['clientede'];
+        $representante = $comandos['representante'];
         $operador = $comandos['operador'];
-        $urlCatalogo = REST_API . "$this->urirepresentantes/$centro/$nocliente/$subdivision/$cliente/$empresa/$operador";
+        $urlCatalogo = REST_API . "$this->urirepresentantes/$centro/$nocliente/$subdivision/$cliente/$empresa/$representante/$operador";
         _echo_info("Consultando operador: $urlCatalogo");
         return $this->retrieve($urlCatalogo);
     }
