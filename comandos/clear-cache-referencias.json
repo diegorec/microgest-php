@@ -1,0 +1,16 @@
+{
+    "cantidad": 1,
+    "indices": {
+        "-l": {
+            "tag": "limit",
+            "obligatorio": true,
+            "tipo": "is_numeric"
+        }
+    },
+    "acciones": {
+        "generar-login": {
+            "clase": "CacheRest",
+            "metodo": "limpiarReferencias"
+        }
+    }
+}
