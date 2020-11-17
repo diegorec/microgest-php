@@ -29,7 +29,7 @@ trait MG2CatalogoTrait {
         'solo_netos' => $info->solo_netos,
         'solo_pvp' => $info->solo_pvp,
         'es_comercial' => $info->es_comercial,
-        // 'n_representante' => $info->representante ?: 0,
+        'n_representante' => $info->representante ?: 0,
         'n_operador' => $info->operador ?: 0,
         'mensaje_portes' => $info->mensaje_portes,
         'puede_pedir' => $info->puede_pedir,
