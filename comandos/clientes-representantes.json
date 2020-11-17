@@ -1,0 +1,23 @@
+{
+    "cantidad": 1,
+    "descripcion": "Recuperar los datos del cliente del catálogo e inserta el listado de sus representados",
+    "indices": {
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-r": {
+            "tag": "representante",
+            "descripcion": "Id del representante de MG",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "asignar-representados": {
+            "clase": "Representantes",
+            "metodo": "crear"
+        }
+    }   
+}

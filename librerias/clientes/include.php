@@ -8,7 +8,9 @@ $include ['clientes'] = array(
         'traits/LogTrait.php',
         'traits/APITrait.php',
         'password/Bcrypt.php',
+        'Cliente.php',
         'ClientesCatalogo.php',
+        'Representantes.php',
         )
 );
 

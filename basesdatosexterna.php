@@ -12,7 +12,7 @@ $basesdatos['rest'] = array(
 $basesdatos['catalogo'] = array(
     'database_type' => 'mysql',
     'database_name' => 'catalogo_online',
-    'server' => '192.168.1.199',
+    'server' => '192.168.1.8',
     'username' => 'diego',
     'password' => '.#diego#.'
 );
