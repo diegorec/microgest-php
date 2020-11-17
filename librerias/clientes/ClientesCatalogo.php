@@ -58,7 +58,7 @@ class ClientesCatalogo extends Cliente {
                 _echo_info("# El id cliente {$id} es operador, consultando sus representados.");
                 $copia = $comandos;
                 $copia['operador'] = $u->info->operador;
-                // $copia['representante'] = $u->info->representante;
+                $copia['representante'] = $u->info->representante;
                 $representados = $this->retrieveRepresentantes($copia);
                 $this->insertarRepresentados((int) $id, $representados);
             } else if ($usersId && isset($u->info->ver_subdivisiones) && $u->info->ver_subdivisiones === 1) {
