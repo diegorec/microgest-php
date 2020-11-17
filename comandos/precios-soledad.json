@@ -3,16 +3,19 @@
     "indices": {
         "-p": {
             "tag": "porcentaje",
+            "descripcion": "Porcentaje que se le incrementará al precio indicado por Soledad",
             "obligatorio": true,
             "tipo": "is_numeric"
         },
         "-c": {
             "tag": "centro",
+            "descripcion": "Centro al que se asocia la creación",
             "obligatorio": true,
             "tipo": "is_numeric"
         },
         "-tbd": {
             "tag": "truncar-basedatos",
+            "descripcion": "Antes de insertar los datos, se borra la tabla original",
             "obligatorio": false,
             "tipo": "is_string"
         }
@@ -20,11 +23,13 @@
     "acciones": {
         "generar-precios": {
             "clase": "NeumaticosSoledad",
-            "metodo": "_generarPrecios"
+            "metodo": "_generarPrecios",
+            "descripcion": "Descarga vía FTP el referencial de Soledad, genera un PRN que se insertará en COBOL"
         },
         "generar-stock": {
             "clase": "Stock",
-            "metodo": "_generar"
+            "metodo": "_generar",
+            "descripcion": "Inserta en la base de datos REST-API los datos del stock de soledad"
         }
     }
 }

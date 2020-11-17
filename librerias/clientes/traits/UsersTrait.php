@@ -27,6 +27,25 @@ trait UsersTrait {
         }
     }
 
+    public function getUsersByRepresentant(int $representante, int $centro) {
+        $info = $this->db->select("users_info", [
+            'id_users(id)[Int]',
+            'nocliente[Int]',
+            'subdivision[Int]',
+            'empresa[Int]',
+            'cliente_de_cliente(clientede)[Int]',
+            'n_operador(operador)[Int]',
+            'n_representante(representante)[Int]'
+        ], [
+            "centro" => $centro,
+            "n_representante" => $representante
+        ]);
+        // log si tiene más de 1 id asociado
+        if (is_array($info) && count($info) > 0) {
+            return $info;
+        }
+    }
+
     public function updateUser(int $id, array $data, array $info) {
         $database = $this->db;
         return $database->action(function ($database) use ($id, $data, $info) {

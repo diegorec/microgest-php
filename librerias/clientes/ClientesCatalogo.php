@@ -2,21 +2,14 @@
 
 use convertidores\CSVHandler;
 
-class ClientesCatalogo {
+class ClientesCatalogo extends Cliente {
 
     private $colors;
-    private $rutaLog;
-
+    
     use UsersTrait;
     use MG2CatalogoTrait;
     use LogTrait;
     use APITrait;
-
-    public function __construct() {
-        global $basesdatos;
-        $this->rutaLog = _getRutaLog("clientes-catalogo-");
-        $this->db = new \Medoo\Medoo($basesdatos['catalogo']);
-    }
 
     public function crear($comandos) {
         _echo("creamos el cliente");

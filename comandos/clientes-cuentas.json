@@ -1,5 +1,6 @@
 {
     "cantidad": 1,
+    "descripcion": "Genera un listado con las cuentas que tiene un cliente dadas de alta en el catálogo",
     "indices": {
         "-c": {
             "tag": "centro",
@@ -35,7 +36,8 @@
     "acciones": {
         "crear-cliente": {
             "clase": "ClientesCatalogo",
-            "metodo": "cuentas"
+            "metodo": "cuentas",
+            "descripcion": "Genera el listado en CSV"
         }
     }   
 }
