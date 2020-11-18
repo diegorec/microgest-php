@@ -17,6 +17,7 @@ class GenerarTarjetaPersonal {
         $email = $temp[0];
         $empresa = $temp[1];
         $dni = $temp[2];
+        _var_dump($email, $empresa, $dni);
 
         $claveEncriptacion = "B-<3ec.~4zC|^{.}Z/(b|7,gERz(] 7v67k:Nd{_d4;|HT=TW7[82u/EFii=SI-$";
 
