@@ -125,4 +125,13 @@ trait UsersTrait {
         ]);
         return $this->db->has("v_users", ["id_users" => $id]);
     }
+
+    public function limpiar(int $usersId) {
+        $this->db->delete("users_representados", [
+            "id_users" => $usersId
+        ]);
+        $this->db->delete("users_representa", [
+            "id_users" => $usersId
+        ]);
+    }
 }

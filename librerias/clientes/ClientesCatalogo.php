@@ -32,6 +32,8 @@ class ClientesCatalogo extends Cliente {
             $info = $this->extractInfo2BD($u->info);
             if ($usersId) {
                 foreach ($usersId as $id) {
+                    _echo_info("Limpiamos los datos del usuario: $id");
+                    $this->limpiar((int) $id);
                     _echo_info("Actualizando usuario: $id");
                     $modified = $this->updateUser($id, $principal, $info);
                     if (!$modified) {
