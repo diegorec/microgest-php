@@ -167,7 +167,7 @@ class Historico {
             $where['carta_vencimientos'] = (int) $cartavto;
             $where['carta_sepa'] = (int) $cartasepa;
             $where['cifrado'] = (int) $cifrado;
-            $where['copia'] = (int) $copia;
+            $where['es_copia'] = (int) $copia;
             $this->db->insert('facturas', $where);
         }
 
