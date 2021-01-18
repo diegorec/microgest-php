@@ -148,13 +148,15 @@ class Historico {
     }
 
     function insertarFactura(int $idCliente, \stdClass $factura) {
-        $cartavto = isset($factura->cartavto) && $factura->cartavto === 'si';
-        $cartasepa = isset($factura->cartasepa) && $factura->cartasepa === 'si';
-        $cifrado = isset($factura->firmar) && $factura->firmar === 'si';
-        $copia = isset($factura->copia) && $factura->copia === 'si';
+        $cartavto = isset($factura->cartavto) && $factura->cartavto === 'SI';
+        $cartasepa = isset($factura->cartasepa) && $factura->cartasepa === 'SI';
+        $cartasepab2b = isset($factura->cartasepab2b) && $factura->cartasepab2b === 'SI';
+        $cifrado = isset($factura->firmar) && $factura->firmar === 'SI';
+        $copia = isset($factura->copia) && $factura->copia === 'SI';
         _echo ($cartavto);
         _echo ($cartasepa);
         _echo ($cifrado);
+        _echo ($cartasepab2b);
         _echo ($copia);
         $where = [
             'cliente' => $idCliente,
@@ -166,6 +168,7 @@ class Historico {
             $where['ver_hasta'] = $this->verHasta;
             $where['carta_vencimientos'] = (int) $cartavto;
             $where['carta_sepa'] = (int) $cartasepa;
+            $where['carta_sepab2b'] = (int) $cartasepa;
             $where['cifrado'] = (int) $cifrado;
             $where['es_copia'] = (int) $copia;
             $this->db->insert('facturas', $where);
