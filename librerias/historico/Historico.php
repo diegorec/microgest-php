@@ -94,6 +94,7 @@ class Historico {
             $idFactura =  $this->insertarFactura($idCliente, $factura);
             unset($factura->cartavto);
             unset($factura->cartasepa);
+            unset($factura->cartasepab2b);
             unset($factura->firmar);
             unset($factura->copia);
             _echo("Id factura: {$idFactura}");
