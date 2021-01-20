@@ -165,14 +165,17 @@ class Historico {
             'serie' => $factura->factura_serie,
             'numero' => $factura->factura_numero
         ];
-        if (!$this->db->has('facturas', $where)) {
-            $where['ver_hasta'] = $this->verHasta;
-            $where['carta_vencimientos'] = (int) $cartavto;
-            $where['carta_sepa'] = (int) $cartasepa;
-            $where['carta_sepab2b'] = (int) $cartasepa;
-            $where['cifrado'] = (int) $cifrado;
-            $where['es_copia'] = (int) $copia;
-            $this->db->insert('facturas', $where);
+        $datos = $where;
+        $datos['ver_hasta'] = $this->verHasta;
+        $datos['carta_vencimientos'] = (int) $cartavto;
+        $datos['carta_sepa'] = (int) $cartasepa;
+        $datos['carta_sepab2b'] = (int) $cartasepa;
+        $datos['cifrado'] = (int) $cifrado;
+        $datos['es_copia'] = (int) $copia;
+        if ($this->db->has('facturas', $where)) {
+            $this->db->update('facturas', $datos);
+        } else {
+            $this->db->insert('facturas', $datos);
         }
 
         return (int)$this->db->get('facturas', ['id'], $where)['id'];
