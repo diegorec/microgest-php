@@ -169,7 +169,7 @@ class Historico {
         $datos['ver_hasta'] = $this->verHasta;
         $datos['carta_vencimientos'] = (int) $cartavto;
         $datos['carta_sepa'] = (int) $cartasepa;
-        $datos['carta_sepab2b'] = (int) $cartasepa;
+        $datos['carta_sepab2b'] = (int) $cartasepab2b;
         $datos['cifrado'] = (int) $cifrado;
         $datos['es_copia'] = (int) $copia;
         if ($this->db->has('facturas', $where)) {
