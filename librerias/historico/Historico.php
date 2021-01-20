@@ -173,7 +173,7 @@ class Historico {
         $datos['cifrado'] = (int) $cifrado;
         $datos['es_copia'] = (int) $copia;
         if ($this->db->has('facturas', $where)) {
-            $this->db->update('facturas', $datos);
+            $this->db->update('facturas', $datos, $where);
         } else {
             $this->db->insert('facturas', $datos);
         }
