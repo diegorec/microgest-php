@@ -97,6 +97,7 @@ class Historico {
             unset($factura->cartasepab2b);
             unset($factura->firmar);
             unset($factura->copia);
+            unset($factura->color);
             _echo("Id factura: {$idFactura}");
             $hash = $hashids->encode($idCliente, $idFactura);
             $this->insertarHash($idCliente, $idFactura, $hash, 'facturas');
@@ -154,11 +155,13 @@ class Historico {
         $cartasepab2b = isset($factura->cartasepab2b) && $factura->cartasepab2b === 'SI';
         $cifrado = isset($factura->firmar) && $factura->firmar === 'SI';
         $copia = isset($factura->copia) && $factura->copia === 'SI';
+        $blanco_negro = !(isset($factura->color) && $factura->color === 'SI');
         _echo ($cartavto);
         _echo ($cartasepa);
         _echo ($cifrado);
         _echo ($cartasepab2b);
         _echo ($copia);
+        _echo ($blanco_negro);
         $where = [
             'cliente' => $idCliente,
             'anho' => $factura->factura_anho,
@@ -172,6 +175,7 @@ class Historico {
         $datos['carta_sepab2b'] = (int) $cartasepab2b;
         $datos['cifrado'] = (int) $cifrado;
         $datos['es_copia'] = (int) $copia;
+        $datos['blanco_negro'] = (int) $blanco_negro;
         if ($this->db->has('facturas', $where)) {
             $this->db->update('facturas', $datos, $where);
         } else {
