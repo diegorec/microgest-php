@@ -1,0 +1,28 @@
+{
+    "cantidad": 1,
+    "descripcion": "Convertir XML a PRN",
+    "indices": {
+        "-e": {
+            "tag": "estructura",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-o": {
+            "tag": "fichero-origen",
+            "obligatorio": true,
+            "tipo": "is_string"
+        },
+        "-d": {
+            "tag": "fichero-destino",
+            "obligatorio": true,
+            "tipo": "is_string"
+        }
+    },
+    "acciones": {
+        "xml2prn": {
+            "clase": "Xml2Prn",
+            "metodo": "convertir",
+            "descripcion": "Convierte un XML a PRN"
+        }
+    }   
+}
