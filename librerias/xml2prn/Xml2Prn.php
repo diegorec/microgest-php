@@ -109,7 +109,7 @@ class Xml2Prn
                         if ($typed == "9") {
                             $num = floatval($objnodedircto->$ard);
                             if (is_float($num)) {
-                                $num = $objnodedircto->$ard * $decd;
+                                $num = floatval($objnodedircto->$ard) * $decd;
                                 $num = intval($num);
                             }
                             $vard =  $this->completarCon($num, "0", $sized);
@@ -146,9 +146,9 @@ class Xml2Prn
                             if ($type == "9") {
                                 $num = floatval($obj->$ar);
                                 if (is_float($num)) {
-                                    $num = $obj->$ar * $dec;
+                                    $num = floatval($obj->$ar) * $dec;
                                     $num = intval($num);
-                                }
+                                }                                
                                 $var =  $this->completarCon($num, "0", $size);
                             } else {
                                 $var =  $this->llenarConEspaciosDerecha($obj->$ar, $size);
