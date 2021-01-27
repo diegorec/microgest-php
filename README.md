@@ -121,3 +121,8 @@ Opciones:
 ```bash
 php {ruta_microgest}/index.php clear-cache -c {centro}
 ```
+
+# PASOS PARA SUBIR A PRODUCCIÓN (.50)
+1. merge de preproduccion en master
+2. merge de master en master-50
+3. y hecho eso, un sudo git pull en la carpeta /home/gr/microgest-php/app
