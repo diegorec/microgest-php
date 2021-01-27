@@ -110,7 +110,8 @@ class Xml2Prn
                             $num = floatval($objnodedircto->$ard);
                             if (is_float($num)) {
                                 $num = floatval($objnodedircto->$ard) * $decd;
-                                $num = intval($num);
+                                //$num = intval($num);
+                                $num = round($num);
                             }
                             $vard =  $this->completarCon($num, "0", $sized);
                         } else {
@@ -147,7 +148,8 @@ class Xml2Prn
                                 $num = floatval($obj->$ar);
                                 if (is_float($num)) {
                                     $num = floatval($obj->$ar) * $dec;
-                                    $num = intval($num);
+                                    //$num = intval($num);
+                                    $num = round($num);
                                 }                                
                                 $var =  $this->completarCon($num, "0", $size);
                             } else {
