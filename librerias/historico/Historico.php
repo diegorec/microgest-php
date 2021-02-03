@@ -50,7 +50,8 @@ class Historico {
             $albaran = (object) $f;
             $idCliente =  $this->insertarCliente($albaran);
             $idAlbaran =  $this->insertarAlbaran($idCliente, $albaran);
-            $hash = $hashids->encode($idCliente, $idAlbaran, $time);
+            $hash = $hashids->encode($idCliente, $idAlbaran); // Se elimina el time para que el hash no cambie a la hora de regenerar el documento
+            // $hash = $hashids->encode($idCliente, $idAlbaran, $time);
             $this->insertarHash($idCliente, $idAlbaran, $hash, 'albaranes');
             $uri = "$url/albaran/$hash";
             $f->descarga = "$uri.pdf?descargar=1";
@@ -103,7 +104,8 @@ class Historico {
             unset($factura->copia);
             unset($factura->color);
             _echo("Id factura: {$idFactura}");
-            $hash = $hashids->encode($idCliente, $idFactura, $time);
+            $hash = $hashids->encode($idCliente, $idFactura); // Se elimina el time para que el hash no cambie a la hora de regenerar el documento
+            // $hash = $hashids->encode($idCliente, $idFactura, $time);
             $this->insertarHash($idCliente, $idFactura, $hash, 'facturas');
             $uri = "$url/factura/$hash";
             $f->descarga = "$uri.pdf?descargar=1";
