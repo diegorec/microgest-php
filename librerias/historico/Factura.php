@@ -13,11 +13,14 @@ class Factura extends Historico {
         if (!isset($config['fichero'], $config['centro'])) {
             throw new \Exception("[Historico::convertirPDF] No se indican los campos correctos");
         }
+        if(isset($config['ver-hasta']) && !isset($config['ver-hasta-texto']) || !isset($config['ver-hasta']) && isset($config['ver-hasta-texto'])) {
+            throw new \Exception("[Historico::convertirPDF] Debes configurar ambos campos: ver-hasta (-vh) y ver-hasta-texto (-vt)");        
+        }
         $relativeDate = $this->retrieveVerHasta($config['centro']);
         $url = $this->retrieveURL($config['centro']);
         // Ver hasta (en días)
-        if (isset($config['ver-hasta'])) {
-            $relativeDate = "+" . $config['ver-hasta'] . " days";
+        if(isset($config['ver-hasta'], $config['ver-hasta-texto'])) {
+            $relativeDate = "+" . $config['ver-hasta'] . " " . $config['ver-hasta-texto'];
         }
         $filename = $config['fichero-destino'];
         if (file_exists($filename)) {
