@@ -19,7 +19,7 @@ $basesdatos['catalogo'] = array(
 
 $basesdatos['historico'] = array(
     'database_type' => 'mysql',
-    'database_name' => 'bd',
+    'database_name' => 'historico',
     'server' => '192.168.1.8',
     'username' => 'diego',
     'password' => '.#diego#.',

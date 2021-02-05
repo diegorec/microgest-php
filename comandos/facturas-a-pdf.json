@@ -4,28 +4,43 @@
         "-r": {
             "tag": "fichero",
             "obligatorio": true,
-            "tipo": "is_string"
+            "tipo": "is_string",
+            "descripcion": "Ruta al CSV con los datos de Microgest"
         },
         "-d": {
             "tag": "fichero-destino",
             "obligatorio": true,
-            "tipo": "is_string"
+            "tipo": "is_string",
+            "descripcion": "Ruta del CSV con los datos generados"
         },
         "-c": {
             "tag": "centro",
             "obligatorio": true,
-            "tipo": "is_string"
+            "tipo": "is_string",
+            "descripcion": "Nombre del centro"
         },
         "-vh": {
             "tag": "ver-hasta",
             "obligatorio": false,
-            "tipo": "is_string"
+            "tipo": "is_string",
+            "descripcion": "Parte númerica de la fecha hasta la que queremos que se pueda ver una factura. vh + vt componen la fecha final. Por ejemplo si vh = 2 y vt = day, la fecha final será +2 day"
+        },
+        "-vt": {
+            "tag": "ver-hasta-texto",
+            "obligatorio": false,
+            "tipo": "is_string",
+            "descripcion": "Parte textual de la fecha hasta la que queremos que se pueda ver una factura. vh + vt componen la fecha final. Por ejemplo si vh = 2 y vt = day, la fecha final será +2 day",
+            "aceptados": [
+                "minute",
+                "hour",
+                "day"
+            ]
         }
     },
     "acciones": {
         "crear-cliente": {
-            "clase": "historico\\Historico",
-            "metodo": "convertirFactura"
+            "clase": "historico\\Factura",
+            "metodo": "convertir"
         }
     }   
 }

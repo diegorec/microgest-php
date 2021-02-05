@@ -13,11 +13,15 @@ if (!function_exists('help')) {
                     $descripcion = isset($value->descripcion) ? $value->descripcion : "";
                     $obligatorio = $value->obligatorio ? "Si" : "No";
                     $tipo = str_replace("is_", "", $value->tipo);
+                    $aceptados = isset($value->aceptados) ? implode('|', $value->aceptados): false;
                     _echo("\t\t\t$key:");
                     _echo("\t\t\t\tTag:\t\t $tag");
                     _echo("\t\t\t\tDescripción:\t $descripcion");
                     _echo("\t\t\t\tObligatorio:\t $obligatorio");
                     _echo("\t\t\t\tTipo:\t\t $tipo");
+                    if($aceptados) {
+                        _echo("\t\t\t\tSolo valores:\t $aceptados");
+                    }
                 }
                 _echo("\t\t- Acciones");
                 foreach ($data->acciones as $key => $value) {
@@ -114,6 +118,9 @@ if (!function_exists('check_parameters')) {
                 throw new \Exception("[$etiqueta] $clave no es de tipo $tipo");
             }
             if (isset($valor->tag, $comandos[$clave])) {
+                if(isset($valor->aceptados) && !in_array($comandos[$clave], $valor->aceptados)) {
+                    throw new \Exception("[$etiqueta] $valor->tag acepta los valores: ". implode('|', $valor->aceptados));
+                }
                 $comandos[$valor->tag] = $comandos[$clave];
                 unset($comandos[$clave]);
             }
