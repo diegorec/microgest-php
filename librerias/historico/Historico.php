@@ -16,9 +16,9 @@ class Historico {
         $this->db = new \Medoo\Medoo($basesdatos['historico']);
     }
 
-    public function convertirAlbaran(array $config) {
+    public function convertirAlbaranes(array $config) {
         if (!isset($config['fichero'], $config['centro'])) {
-            throw new \Exception("[Historico::convertirAlbaran] No se indican los campos correctos");
+            throw new \Exception("[Historico::convertirAlbaranes] No se indican los campos correctos");
         }
         $relativeDate = $this->retrieveVerHasta($config['centro']);
         $url = $this->retrieveURL($config['centro']);

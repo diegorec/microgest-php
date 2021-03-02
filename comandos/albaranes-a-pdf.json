@@ -25,7 +25,7 @@
     "acciones": {
         "crear-cliente": {
             "clase": "historico\\Historico",
-            "metodo": "convertirAlbaran"
+            "metodo": "convertirAlbaranes"
         }
     }   
 }
