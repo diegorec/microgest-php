@@ -23,7 +23,14 @@ $basesdatos['historico'] = array(
     'server' => '192.168.1.8',
     'username' => 'diego',
     'password' => '.#diego#.',
-    'prefix' => 'his_'
+    'prefix' => 'his_',
+    'option' => [
+        PDO::ATTR_CASE => PDO::CASE_NATURAL,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_TIMEOUT => 1,
+        PDO::ATTR_STRINGIFY_FETCHES => false,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
+    ],
 );
 
 $basesdatos['cloud'] = array(

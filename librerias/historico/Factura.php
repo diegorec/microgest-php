@@ -7,7 +7,33 @@ use DateTime;
 use Hashids\Hashids;
 use convertidores\CSVHandler;
 
+use GestorDocumental\{
+    Database,
+    // PDF 
+    HTML\PDFManager,
+    // HTML
+    HTML\Albaran as AlbaranHtml,
+    HTML\Factura as FacturaHtml,
+    HTML\Facturas\CartaVencimientos,
+    HTML\Facturas\CartaSEPA,
+    HTML\Tools\FormatoPagina,
+    HTML\Tools\PageSize,
+    HTML\Tools\Albaran\Tipos as TiposAlbaran,
+    // EXCEL
+    Excel\Albaran as AlbaranExcel,
+    Excel\Factura as FacturaExcel
+};
+use Laminas\Xml2Json\Xml2Json;
+
 class Factura extends Historico {
+
+    private $manager;
+
+    public function __construct() {
+        global $basesdatos;
+        Database::getInstance()->onInit($basesdatos['historico']);
+        $this->manager = new PDFManager("wkhtmltopdf", RUTA_FICHEROSTEMPORALES);
+    }
 
     public function convertir(array $config) {
         if (!isset($config['fichero'], $config['centro'])) {
@@ -97,5 +123,42 @@ class Factura extends Historico {
         $this->db->insert('facturas', $datos);
 
         return (int) $this->db->id();
+    }
+
+    public function convertirPDF(Array $config) {
+        $formatoPagina = FormatoPagina::A4;
+
+        $content = file_get_contents($config['fichero']);
+        $factura = null;
+        if($config['tipo-documento'] === 'json') {
+            $list = json_decode($content);
+            if(!is_array($list) || !isset($list[0])) {
+                throw new \Exception("[historico\Factura::convertirPDF] Factura incorrecta"); 
+            }
+            $factura = (object) $list[0];
+        } else if($config['tipo-documento'] === 'xml') {
+            $content = preg_replace('/\s+/', ' ',$content);
+            $jsonContents = Xml2Json::fromXml($content, true);
+            $data = json_decode($jsonContents);
+            $factura = $data->facturacion->factura;
+            $factura->impuestos = $factura->impuestos->item;
+            $factura->lineas = (array) $factura->lineas->item;
+            file_put_contents("/home/diego/json.json", json_encode($factura));
+            // _var_dump($factura);
+            // exit();
+        }
+        $factura->cabecera_preimpresa = "http://192.168.1.198:8082/assets/corporativo//recalvi/recalvi-certifica.jpg";
+        $factura->impuestos = array_map(function($i) {
+            return (array) $i;
+        }, $factura->impuestos);
+
+        _echo_info("Formato página:" . $formatoPagina);
+
+        $objeto = new FacturaHtml("factura", 1, $formatoPagina);
+        _echo_info("Se lanza la generación del albaran");
+
+        $html = $objeto->generate($factura);
+        
+        $this->manager->convertHtml($html, $config['fichero-destino']); 
     }
 }

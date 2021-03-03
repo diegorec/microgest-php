@@ -29,9 +29,11 @@
         "diego/soledad2microgest": "dev-master",
         "diego/phpcli": "dev-master",
         "diego/pdf-code128": "dev-master",
-        "picqer/php-barcode-generator": "dev-master",
+        "diego/gestor-documental": "dev-master",
+        "picqer/php-barcode-generator": "^2.1",
         "diegogonda/medoo": "dev-master",
-        "hashids/hashids": "^2.0"
+        "hashids/hashids": "^2.0",
+        "laminas/laminas-xml2json": "3.3.x-dev"
     },
     "repositories": [
         {
@@ -77,6 +79,10 @@
         {
             "type": "vcs",
             "url": "http://192.168.1.8/diego/phpcli.git"
+        },
+        {
+            "type": "vcs",
+            "url": "http://192.168.1.8/diego/gestor-documental.git"
         }
     ]
 }

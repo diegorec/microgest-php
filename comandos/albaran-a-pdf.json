@@ -1,0 +1,31 @@
+{
+    "cantidad": 1,
+    "descripcion": "Transformación de un objecto JSON en un albarán",
+    "indices": {
+        "-r": {
+            "tag": "fichero",
+            "obligatorio": true,
+            "tipo": "is_string",
+            "descripcion": "Fichero con los datos que se quieren convertir en albaran, puede ser un fichero o una url"
+        },
+        "-d": {
+            "tag": "fichero-destino",
+            "obligatorio": true,
+            "tipo": "is_string",
+            "descripcion": "Ruta completa donde almacenaremos el PDF resultante"
+        },
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string",
+            "descripcion": "Centro que solicita los datos"
+        }
+    },
+    "acciones": {
+        "convertir-albaran": {
+            "clase": "historico\\Albaran",
+            "metodo": "convertirPDF",
+            "descripcion": "Método que va a producir la transformación"
+        }
+    }   
+}

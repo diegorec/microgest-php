@@ -1,0 +1,41 @@
+{
+    "cantidad": 1,
+    "descripcion": "Transformación de un objecto JSON en una factura PDF",
+    "indices": {
+        "-r": {
+            "tag": "fichero",
+            "obligatorio": true,
+            "tipo": "is_string",
+            "descripcion": "Ruta donde se contienen los datos de la factura"
+        },
+        "-d": {
+            "tag": "fichero-destino",
+            "obligatorio": true,
+            "tipo": "is_string",
+            "descripcion": "Ruta donde se almacenará el PDF"
+        },
+        "-c": {
+            "tag": "centro",
+            "obligatorio": true,
+            "tipo": "is_string",
+            "descripcion": "Nombre del centro"
+        },
+        "-rt": {
+            "tag": "tipo-documento",
+            "obligatorio": false,
+            "tipo": "is_string",
+            "descripcion": "El fichero de entrada puede ser XML o JSON",
+            "default": "json",
+            "aceptados": [
+                "xml",
+                "json"
+            ]
+        }
+    },
+    "acciones": {
+        "convertirFactura": {
+            "clase": "historico\\Factura",
+            "metodo": "convertirPDF"
+        }
+    }   
+}

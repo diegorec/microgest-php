@@ -5,5 +5,6 @@ $include['historico'] = [
     'archivos' => [
         'Historico.php',
         'Factura.php',
+        'Albaran.php',
     ]
 ];
