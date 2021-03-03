@@ -14,6 +14,7 @@ if (!function_exists('help')) {
                     $obligatorio = $value->obligatorio ? "Si" : "No";
                     $tipo = str_replace("is_", "", $value->tipo);
                     $aceptados = isset($value->aceptados) ? implode('|', $value->aceptados): false;
+                    $default = isset($value->default) ? $value->default: false;
                     _echo("\t\t\t$key:");
                     _echo("\t\t\t\tTag:\t\t $tag");
                     _echo("\t\t\t\tDescripción:\t $descripcion");
@@ -21,6 +22,9 @@ if (!function_exists('help')) {
                     _echo("\t\t\t\tTipo:\t\t $tipo");
                     if($aceptados) {
                         _echo("\t\t\t\tSolo valores:\t $aceptados");
+                    }
+                    if($default) {
+                        _echo("\t\t\t\tValor inicial:\t $default");
                     }
                 }
                 _echo("\t\t- Acciones");
@@ -114,6 +118,9 @@ if (!function_exists('check_parameters')) {
         }
         foreach ($parametrosMinimos->indices as $clave => $valor) {
             $tipo = $valor->tipo;
+            if(isset($valor->default)) {
+                $comandos[$valor->tag] = $valor->default;
+            }
             if ($valor->obligatorio && (!isset($comandos[$clave]) || !$tipo($comandos[$clave]))) {
                 throw new \Exception("[$etiqueta] $clave no es de tipo $tipo");
             }
