@@ -143,9 +143,6 @@ class Factura extends Historico {
             $factura = $data->facturacion->factura;
             $factura->impuestos = $factura->impuestos->item;
             $factura->lineas = (array) $factura->lineas->item;
-            file_put_contents("/home/diego/json.json", json_encode($factura));
-            // _var_dump($factura);
-            // exit();
         }
         $factura->cabecera_preimpresa = "http://192.168.1.198:8082/assets/corporativo//recalvi/recalvi-certifica.jpg";
         $factura->impuestos = array_map(function($i) {
