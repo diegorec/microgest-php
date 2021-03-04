@@ -160,6 +160,7 @@
                 "ext-gd": "*",
                 "ext-intl": "*",
                 "ext-mbstring": "*",
+                "ext-mysql": "*",
                 "ext-xml": "*",
                 "ext-xsl": "*",
                 "php": ">=7.1.0",
