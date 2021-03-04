@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c51fddd379fc04860aa2aa37b7e98000",
+    "content-hash": "5bd59eb41dc580a83e145374830d0a57",
     "packages": [
         {
             "name": "bigfish/pdf417",
@@ -2178,8 +2178,7 @@
         "diego/phpcli": 20,
         "diego/pdf-code128": 20,
         "diego/gestor-documental": 20,
-        "diegogonda/medoo": 20,
-        "laminas/laminas-xml2json": 20
+        "diegogonda/medoo": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

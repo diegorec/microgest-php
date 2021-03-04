@@ -32,8 +32,7 @@
         "diego/gestor-documental": "dev-master",
         "picqer/php-barcode-generator": "^2.1",
         "diegogonda/medoo": "dev-master",
-        "hashids/hashids": "^2.0",
-        "laminas/laminas-xml2json": "3.3.x-dev"
+        "hashids/hashids": "^2.0"
     },
     "repositories": [
         {

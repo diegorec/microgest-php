@@ -23,7 +23,7 @@ use GestorDocumental\{
     Excel\Albaran as AlbaranExcel,
     Excel\Factura as FacturaExcel
 };
-use Laminas\Xml2Json\Xml2Json;
+use Zend\Xml2Json\Xml2Json;
 
 class Factura extends Historico {
 
