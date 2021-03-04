@@ -1,6 +1,6 @@
 {
-    "name": "diego/alta-usuarios",
-    "description": "Description of project alta-usuarios.",
+    "name": "diego/microgest-php",
+    "description": "Ejecución de tareas por líneas de comandos",
     "type": "library",
     "minimum-stability": "dev",
     "authors": [
@@ -13,7 +13,7 @@
         "secure-http": false
     },
     "require": {
-        "php": ">=5.2.4",
+        "php": "^7.0",
         "react/cache": "0.4.*",
         "stil/curl-easy": "*",
         "firebase/php-jwt": "^4.0",
