@@ -141,6 +141,7 @@ class Factura extends Historico {
             $jsonContents = Xml2Json::fromXml($content, true);
             $data = json_decode($jsonContents);
             $factura = $data->facturacion->factura;
+            $factura->importe = $factura->total;
             $factura->impuestos = $factura->impuestos->item;
             $factura->lineas = (array) $factura->lineas->item;
         }
