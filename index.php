@@ -59,4 +59,3 @@ try {
     log_error($e->getMessage(), $e->getTrace());
     _echo_error($e->getMessage());
 }
-
