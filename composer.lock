@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71f0fc7d572262bdab59a0672f06f1d6",
+    "content-hash": "c5d469d20e020684b1a629acdc3b903a",
     "packages": [
         {
             "name": "bigfish/pdf417",
@@ -153,19 +153,19 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.8/diego/gestor-documental.git",
-                "reference": "6808c832a8395fd6c5cded8c94124b506e20b18a"
+                "reference": "2cf7e900fda200432aefd1f98e38651ccbd470ee"
             },
             "require": {
                 "diegogonda/medoo": "dev-master",
                 "ext-gd": "*",
                 "ext-intl": "*",
                 "ext-mbstring": "*",
-                "ext-mysql": "*",
+                "ext-pdo": "*",
                 "ext-xml": "*",
                 "ext-xsl": "*",
-                "php": ">=7.1.0",
-                "phpoffice/phpspreadsheet": "^1.14",
-                "picqer/php-barcode-generator": "^2.1"
+                "php": ">=7.3.0",
+                "phpoffice/phpspreadsheet": "^1.17.0",
+                "picqer/php-barcode-generator": "^2.1.0"
             },
             "type": "library",
             "autoload": {
@@ -180,7 +180,7 @@
                 }
             ],
             "description": "Conversor de datos a documento",
-            "time": "2021-03-03T12:25:40+00:00"
+            "time": "2021-03-12T08:09:56+00:00"
         },
         {
             "name": "diego/gr-barcode-generator",
@@ -576,12 +576,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "2f3e4f6cf8fd4aad7624c90a94f0ab38fde25976"
+                "reference": "d7fe0a0eabc266c3dcf2f20aa12121044ff196a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2f3e4f6cf8fd4aad7624c90a94f0ab38fde25976",
-                "reference": "2f3e4f6cf8fd4aad7624c90a94f0ab38fde25976",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/d7fe0a0eabc266c3dcf2f20aa12121044ff196a4",
+                "reference": "d7fe0a0eabc266c3dcf2f20aa12121044ff196a4",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +639,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2021-03-02T18:57:24+00:00"
+            "time": "2021-03-09T14:42:40+00:00"
         },
         {
             "name": "hashids/hashids",
@@ -2103,7 +2103,6 @@
         "diego/cliente-catalogo-login": 20,
         "diego/gr-barcode-generator": 20,
         "diego/rpv-generator": 20,
-        "diego/_xor": 20,
         "diego/tarjeta-personal": 20,
         "diego/convertidores": 20,
         "diego/correctores": 20,
@@ -2117,7 +2116,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.0"
+        "php": ">=7.0.0"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"

@@ -21,7 +21,6 @@
         "diego/cliente-catalogo-login": "dev-master",
         "diego/gr-barcode-generator": "dev-master",
         "diego/rpv-generator": "dev-master",
-        "diego/_xor": "dev-master",
         "diego/tarjeta-personal": "dev-master",
         "diego/convertidores": "dev-master",
         "diego/correctores": "dev-master",
@@ -46,10 +45,6 @@
         {
             "type": "vcs",
             "url": "http://192.168.1.8/diego/rpv-generator.git"
-        },
-        {
-            "type": "vcs",
-            "url": "http://192.168.1.8/diego/_xor.git"
         },
         {
             "type": "vcs",
