@@ -20,6 +20,6 @@ RUN docker-php-ext-install mbstring
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer 
 # RUN php /usr/local/bin/composer install
 
-ENTRYPOINT ["php","-f","app/index.php"]
+ENTRYPOINT ["bash", "php","-f","app/index.php"]
 
 CMD ["php", "app/index.php"]
