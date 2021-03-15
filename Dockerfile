@@ -23,4 +23,4 @@ RUN docker-php-ext-install mbstring
 
 ENTRYPOINT ["php","-f","/app/index.php"]
 
-CMD ["php", "./index.php"]
+CMD ["bash", "php", "/app/index.php"]
