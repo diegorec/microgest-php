@@ -14,8 +14,6 @@ foreach ($argv as $key => $value) {
         $modoVerbose = true;
         unset($argv[$key]);
         break;
-    } else if($value === '--readme') {
-        readme(RUTA_COMANDOS, "readme.md");
     }
 }
 define('MODO_VERBOSE', $modoVerbose);
