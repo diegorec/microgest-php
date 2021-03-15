@@ -1,7 +1,7 @@
 FROM php:7.4-alpine
 
 COPY . /app
-WORKDIR /app
+# WORKDIR /app
 
 RUN mkdir log 
 RUN mkdir temp
@@ -23,4 +23,4 @@ RUN docker-php-ext-install mbstring
 
 ENTRYPOINT ["php","-f","/app/index.php"]
 
-CMD ["bash", "php", "/app/index.php"]
+CMD ["php", "/app/index.php"]
