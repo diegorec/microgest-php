@@ -1,6 +1,7 @@
 FROM php:7.4-alpine
 
 COPY . /app
+WORKDIR /app
 
 RUN mkdir log 
 RUN mkdir temp
@@ -20,6 +21,6 @@ RUN docker-php-ext-install mbstring
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer 
 # RUN php /usr/local/bin/composer install
 
-ENTRYPOINT ["bash", "php","-f","app/index.php"]
+ENTRYPOINT ["php","-f","/app/index.php"]
 
-CMD ["php", "app/index.php"]
+CMD ["php", "./index.php"]
