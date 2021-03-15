@@ -157,6 +157,19 @@ class Factura extends Historico {
 
         $html = $objeto->generate($factura);
         
-        $this->manager->convertHtml($html, $config['fichero-destino']); 
+        $filename = RUTA_TEMP_FILES . $config['fichero-destino'];
+        $htmlfile = RUTA_TEMP_FILES . $config['fichero-destino'] . ".html";
+        _echo_info("Guardamos la factura en: $filename");
+
+        file_put_contents($htmlfile, $html);
+        $wk = $this->manager->convert($htmlfile, $filename); 
+
+        echo $wk;
+
+        if(file_exists($filename)) {
+            _echo_info("Factura creada correctamente");
+        } else {
+            _echo_error("No se ha podido crear la factura");
+        }
     }
 }

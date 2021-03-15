@@ -153,7 +153,7 @@
             "source": {
                 "type": "git",
                 "url": "http://192.168.1.8/diego/gestor-documental.git",
-                "reference": "2cf7e900fda200432aefd1f98e38651ccbd470ee"
+                "reference": "3bcb1cfe1d75c646d10186f9de7614c5cf529c1b"
             },
             "require": {
                 "diegogonda/medoo": "dev-master",
@@ -180,7 +180,7 @@
                 }
             ],
             "description": "Conversor de datos a documento",
-            "time": "2021-03-12T08:09:56+00:00"
+            "time": "2021-03-12T10:49:02+00:00"
         },
         {
             "name": "diego/gr-barcode-generator",
