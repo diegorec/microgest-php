@@ -1,8 +1,8 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/BaseDatos.php';
+include __DIR__ . '/vendor/autoload.php';
+include __DIR__ . '/BaseDatos.php';
 include __DIR__ . '/librerias/autoload.php';
-require __DIR__ . '/basesdatosexterna.php';
+include __DIR__ . '/basesdatosexterna.php';
 
 define('SERVIDOR', 'http://192.168.1.8:8081/');
 define('REST_API', 'http://192.168.1.8:8082/');
@@ -20,7 +20,8 @@ define('CLAVELOGIN', "NSM3JygkKRxRXF1TOj4nICstCVFEUVJdQj");
 define('DOCUMENTO_PERSONAL', "http://catalogoonline.recalvi.es/imagenesgestion/personal/");
 define('RUTA_TEMP_FILES', __DIR__ . "/../temp/");
 
-function _getRutaLog($prefix = '') {
+function _getRutaLog($prefix = '')
+{
     $base = RUTA_LOG_BASE;
     $date = date("YW");
     $extension = ".log";
