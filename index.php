@@ -1,8 +1,8 @@
 <?php
 
-include __DIR__ . '/configuracion.php';
-include __DIR__ . '/helpers.php';
-include __DIR__ . '/vendor/autoload.php';
+include './configuracion.php';
+include './helpers.php';
+include './vendor/autoload.php';
 
 $date = date('YW');
 log_info("comandos", implode(' ', $argv));

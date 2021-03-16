@@ -1,8 +1,8 @@
 <?php
-include __DIR__ . '/vendor/autoload.php';
-include __DIR__ . '/BaseDatos.php';
-include __DIR__ . '/librerias/autoload.php';
-include __DIR__ . '/basesdatosexterna.php';
+include './vendor/autoload.php';
+include './BaseDatos.php';
+include './librerias/autoload.php';
+include './basesdatosexterna.php';
 
 define('SERVIDOR', 'http://192.168.1.8:8081/');
 define('REST_API', 'http://192.168.1.8:8082/');
