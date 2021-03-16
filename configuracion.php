@@ -1,5 +1,5 @@
 <?php
-include './vendor/autoload.php';
+
 include './BaseDatos.php';
 include './librerias/autoload.php';
 include './basesdatosexterna.php';
