@@ -128,7 +128,7 @@ class Factura extends Historico {
     public function convertirPDF(Array $config) {
         $formatoPagina = FormatoPagina::A4;
 
-        $content = file_get_contents($config['fichero']);
+        $content = file_get_contents(RUTA_TEMP_FILES . $config['fichero']);
         $factura = null;
         if($config['tipo-documento'] === 'json') {
             $list = json_decode($content);
